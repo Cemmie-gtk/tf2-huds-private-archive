@@ -1,0 +1,20 @@
+// run a user script file if present
+exec autoexec.cfg
+exec config.cfg
+
+
+// stuff command line statements
+stuffcmds
+
+
+// initializing hud elements for customization
+alias lavhud_initial "exec lavhud_initialize"
+exec #lavhud_initial.txt
+lavhud_initial; echo "initializing hud";
+
+
+//run all the alias commands
+exec lavhud.cfg
+
+// some settings to ensure the hud looks how its meant to
+exec lavhud_required.cfg

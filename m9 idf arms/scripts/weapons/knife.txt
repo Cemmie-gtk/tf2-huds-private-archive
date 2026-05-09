@@ -1,0 +1,9 @@
+"Weapon_Knife.Deploy"
+{
+	"channel"		"CHAN_ITEM"
+	"volume"		"1.0"
+	"CompatibilityAttenuation"	"1.0"
+	"pitch"			"100"
+
+	"wave"			"weapons/knife/knife_deploy1.wav"
+}

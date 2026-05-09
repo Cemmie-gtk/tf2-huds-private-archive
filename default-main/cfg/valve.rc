@@ -1,0 +1,10 @@
+exec autoexec.cfg
+exec ent_remove_all_entities.cfg // Most likely does nothing but just in case
+exec hud.cfg
+
+refresh_options_dialog
+stuffcmds
+startupmenu
+
+// Update dimmer
+testhudanim DashboardDimmerReload 

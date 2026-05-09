@@ -1,0 +1,21 @@
+"VertexLitGeneric"
+{
+	$basetexture "white"
+	$bumpmap "noise"
+	$color2 "[0 0 0]"
+	$additive "0"
+	$phong "1"
+	$phongfresnelranges "[0.0 .05 .01]"
+	$envmap "skybox/sky_dustbowl_01"
+	$envmapfresnel "1"
+	$ambientocclusion "1"
+	"Proxies"
+	{
+		"AnimatedTexture"
+		{
+		"animatedTextureVar" "$bumpmap"
+		"animatedTextureFrameNumVar"  "$bumpframe"
+		"animatedTextureFrameRate" "24"
+		}
+	}
+}
