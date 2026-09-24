@@ -1,0 +1,6 @@
+//Charge meter for: Sodapopper
+#base "../../../../cfg/redux_customization/redux_meterposition.txt"
+#base "huditemeffectmeter_#top.res"
+
+//go here to edit appearance
+#base "huditemeffectmeter_base.res"

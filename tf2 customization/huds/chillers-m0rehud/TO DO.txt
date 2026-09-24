@@ -1,0 +1,9 @@
+//=========================================================================================
+// General Stuff
+//=========================================================================================
+- Implement AlertTray from master.
+- Redo Disguise and Taunt Menus, they still overlap with minmode in this version.
+- Loading Screen.
+- Possibly add color aliases for most colors.
+- Finish sourceschemes
+- Chat Filters

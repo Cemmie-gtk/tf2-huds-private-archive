@@ -1,0 +1,64 @@
+r_decal_cullsize 1
+exec joystick.cfg
+exec autoexec.cfg
+stuffcmds
+startupmenu
+sv_unlockedchapters 99
+
+con_enable 1
+wait 2; showconsole; incrementvar mat_aaquality 0 1 1; hideconsole
+
+exec music.cfg
+
+hostname Team Fortress 2
+vgui_cache_res_files 0
+vgui_ui_scale_factor 0
+tf_dashboard_slide_time 0.007
+tf_mm_dashboard_slide_panel_step 0
+tf_store_stamp_donation_add_timestamp 1939001945
+tf_inspect_hint_count 11
+cl_hud_playerclass_playermodel_showed_confirm_dialog 1
+cl_mainmenu_safemode 1
+
+/////////////////////////////////
+
+cl_vote_non_input_alpha 255
+tf_scoreboard_ping_as_text 1
+tf_hud_target_id_disable_floating_health 1
+tf_use_match_hud 0
+cl_hud_playerclass_use_playermodel 0
+cl_showbackpackrarities 0
+tf_contract_progress_show 0
+tf_contract_competitive_show 0
+cl_disablehtmlmotd 1
+glow_outline_effect_enable 0
+tf_enable_glows_after_respawn 0
+tf_dingalingaling_lasthit 0
+tf_use_min_viewmodels 0
+
+/////////////////////////////////
+
+alias 1q "toggle mat_aaquality"
+alias zz "maxplayers 101; mp_respawnwavetime -1; mp_disable_respawn_times 1; sv_vote_creation_timer 1; sv_vote_failure_timer 1; sv_vote_issue_autobalance_cooldown 10; map itemtest"
+alias xx "sv_allow_point_servercommand always; map workshop/606778917"
+alias cc "sv_cheats 1; echo "addcond 56 (crits)"; echo "addcond 57 (uber)"; echo "addcond 72 (fast attack & reload)"
+alias vv "mp_waitingforplayers_cancel 1"
+alias bb "sv_cheats 1; host_timescale 15"
+
+
+
+alias playerstats "showstatsdlg; wait 2; showstatsdlg"
+alias manncostore "wait 1; open_store"
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////		credits
+
+alias vivi_credits "snd_restart; play ui/gamestartup7.mp3"
+

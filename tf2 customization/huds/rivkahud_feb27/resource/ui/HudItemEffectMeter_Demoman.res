@@ -1,0 +1,104 @@
+"Resource/UI/HudItemEffectMeter_Demoman.res"
+{
+	HudItemEffectMeter
+	{
+		"fieldName"									"HudItemEffectMeter"
+		"visible"									"1"
+		"enabled"									"1"
+		"xpos"										"r82"
+		"ypos"										"r-26"
+		"wide"										"200"
+		"tall"										"50"
+		"MeterFG"									"White"
+		"MeterBG"									"Gray"
+	}
+	
+	"ItemEffectMeterLabel"
+	{
+		"ControlName"								"CExLabel"
+		"fieldName"									"ItemEffectMeterLabel"
+		"xpos"										"0"
+		"ypos"										"2"
+		"zpos"										"2"
+		"wide"										"50"
+		"tall"										"30"
+		"autoResize"								"1"
+		"pinCorner"									"2"
+		"visible"									"0"
+		"enabled"									"1"
+		"tabPosition"								"0"
+		"labelText"									"#TF_Ball"
+		"textAlignment"								"east"
+		"dulltext"									"0"
+		"brighttext"								"0"
+		"font"										"TFFontSmall"
+		"fgcolor_override" 							"235 226 202 255"
+	}
+
+	"ItemEffectMeterCount"
+	{
+		"ControlName"								"CExLabel"
+		"fieldName"									"ItemEffectMeterCount" // i love cows dude
+		"xpos"										"65"
+		"ypos"										"0"
+		"zpos"										"2"
+		"wide"										"50"
+		"tall"										"30"	
+		"pinCorner"									"2"
+		"visible"									"1"
+		"enabled"									"1"
+		"tabPosition"								"0"
+		"labelText"									"%progresscount%"
+		"textAlignment"								"left"
+		"dulltext"									"0"
+		"brighttext"								"0"
+		"font"										"ZestySticky"
+		"fgcolor_override" 							"235 226 202 255"
+	}
+	
+	"ItemEffectMeterCountShadow"
+	{
+		"ControlName"								"CExLabel"
+		"fieldName"									"ItemEffectMeterCountShadow"
+		"xpos"										"66"
+		"ypos"										"1"
+		"zpos"										"2"
+		"wide"										"50"
+		"tall"										"30"	
+		"pinCorner"									"2"
+		"visible"									"1"
+		"enabled"									"1"
+		"tabPosition"								"0"
+		"labelText"									"%progresscount%"
+		"textAlignment"								"left"
+		"dulltext"									"0"
+		"brighttext"								"0"
+		"font"										"ZestySticky"
+		"fgcolor_override" 							"0 0 0 255"
+	}
+	
+	
+	
+	
+	
+	//////////////////////////////////REMOVED STUFF//////////////////////////////////
+	
+	"ItemEffectMeterBG"
+	{
+		"ControlName"								"CTFImagePanel"
+		"fieldName"									"ItemEffectMeterBG"
+		"wide"										"0"
+		"tall"										"0"
+		"visible"									"0"
+		"enabled"									"0"
+	}
+	"ItemEffectMeter"
+	{	
+		"ControlName"								"ContinuousProgressBar"
+		"fieldName"									"ItemEffectMeter"
+		"wide"										"0"
+		"tall"										"0"
+		"visible"									"0"
+		"enabled"									"0"
+	}					
+}

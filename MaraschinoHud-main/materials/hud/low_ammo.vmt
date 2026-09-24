@@ -1,0 +1,10 @@
+"UnlitGeneric"
+{
+	"$basetexture" "hud/low_ammo"
+	"$translucent" 1
+//	"$vertexcolor" 1
+	$distancealpha 1
+	"$no_fullbright" 1
+	"$ignorez" 1
+	"%keywords" "tf"
+}

@@ -1,0 +1,145 @@
+"Resource/UI/destroy_menu/sentry_active.res"
+{
+	"ItemNameLabel"
+	{	
+		"ControlName"	"CExLabel"
+		"fieldName"		"ItemNameLabel"
+		"font"			"Default"
+		"xpos"			"6"
+		"ypos"			"0"
+		"zpos"			"1"
+		"wide"			"84"
+		"tall"			"15"
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"0"
+		"enabled"		"1"
+		"labelText"		"#TF_Object_Sentry"
+		"textAlignment"	"Left"
+		"dulltext"		"0"
+		"brighttext"	"0"
+	}
+	
+	"ItemBackground"	
+	{
+		"ControlName"	"CIconPanel"
+		"fieldName"		"ItemBackground"
+		"xpos"			"4"
+		"ypos"			"14"
+		"zpos"			"0"
+		"wide"			"98"
+		"tall"			"105"
+		"visible"		"0"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+		"icon"			"hud_menu_item_bg_outline"
+		"iconColor"		"ProgressOffWhite"
+	}
+	
+	"DestroyIcon"	
+	{
+		"ControlName"	"CIconPanel"
+		"fieldName"		"DestroyIcon"
+		"xpos"			"5"
+		"ypos"			"5"
+		"zpos"			"1"
+		"wide"			"60"
+		"tall"			"60"
+		"visible"		"1"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+		"icon"			"ico_demolish"
+		"iconColor"		"255 255 255 255"
+	}
+	
+	"BuildingIcon"	
+	{
+		"ControlName"	"CIconPanel"
+		"fieldName"		"BuildingIcon"
+		"xpos"			"20"
+		"ypos"			"30"
+		"zpos"			"2"
+		"wide"			"56"
+		"tall"			"56"
+		"visible"		"0"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+		"icon"			"obj_status_sentrygun_1"
+		"iconColor"		"255 255 255 128"
+	}
+	
+	"BuildingIconBG"
+	{	
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BuildingIconBG"
+		"xpos"			"0"
+		"ypos"			"0"
+		"zpos"			"1"
+		"wide"			"70"
+		"tall"			"75"
+		"visible"		"0"
+		"enabled"		"1"
+		"fillcolor"		"mDark"
+	}
+	
+	"CostLabel"
+	{	
+		"ControlName"	"CExLabel"
+		"fieldName"		"CostLabel"
+		"font"			"Avenir12"
+		"fgcolor"		"mWhite"
+		"bgcolor_override"		"mDark2"
+		"xpos"			"0"
+		"ypos"			"0"
+		"zpos"			"3"
+		"wide"			"70"
+		"tall"			"16"
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"labelText"		"DESTROY"
+		"textAlignment"	"center"
+		
+		"pin_to_sibling"				"BuildingIconBG"
+		"pin_corner_to_sibling" 		"PIN_BOTTOMLEFT" // Corner of this Element
+		"pin_to_sibling_corner" 		"PIN_BOTTOMLEFT" // Corner of Element you are pinning to
+	}
+	
+	"NumberBg"	
+	{
+		"ControlName"	"CIconPanel"
+		"fieldName"		"NumberBg"
+		"xpos"			"41"
+		"ypos"			"99"
+		"zpos"			"0"
+		"wide"			"18"
+		"tall"			"18"
+		"visible"		"0"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+		"icon"			"ico_key_blank"
+		"iconColor"		"255 255 255 255"
+	}
+	
+	"NumberLabel"
+	{	
+		"ControlName"	"CExLabel"
+		"fieldName"		"NumberLabel"
+		"font"			"Numbers16"
+		"fgcolor"		"mWhite"
+		"xpos"			"0"
+		"ypos"			"88"
+		"zpos"			"1"
+		"wide"			"100"
+		"tall"			"18"
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"0"
+		"enabled"		"1"
+		"labelText"		"1"
+		"textAlignment"	"Center"
+		"dulltext"		"1"
+		"brighttext"	"0"
+	}
+}

@@ -1,0 +1,749 @@
+//Implement auto-skip map movie
+
+event IntroMovieContinueBlinkStop
+{
+	StopEvent IntroMovieContinueBlink			0.0
+	StopEvent IntroMovieContinueBlinkLoop 		0.0
+	FireCommand 0.0    "skip"
+}
+
+//Disable deathcam snapshot reminder
+
+event HudSnapShotReminderIn
+{
+}
+
+//change casual mode round start animation by removing the sign model and using new text entries
+
+event HudTournament_ShowRoundSign
+{
+	Animate NewRoundBeginsAnchor ypos 70 Linear 0 0
+	Animate NewRoundBeginsAnchor ypos 85 Deaccel 0 2
+	Animate NewRoundBeginsBorder alpha 0 Linear 0 0
+	Animate NewRoundBeginsBorder alpha 200 Deaccel 0 2
+	Animate NewRoundBeginsText alpha 0 Linear 0 0
+	Animate NewRoundBeginsText alpha 255 Deaccel 0 2
+	Animate NewRoundBeginsStroke alpha 0 Linear 0 0
+	Animate NewRoundBeginsStroke alpha 255 Deaccel 0 2
+
+	Animate NewRoundBeginsBorder alpha 0 Linear 3 0.5
+	Animate NewRoundBeginsText alpha 0 Accel 3 0.5
+	Animate NewRoundBeginsStroke alpha 0 Accel 3 0.5
+}
+
+//disable casual mode door animations on match start, immediately hide the CountdownLabels
+
+event HudTournament_MoveTimerDown
+{
+//	SetVisibleTournamentConditionLabel 0 2 //for comp matchmaking? not supporting this anyway
+
+	SetVisible CountdownLabel 0 0
+	SetVisible CountdownLabelShadow 0 0
+}
+
+event HudTournament_AnimateTeams_In
+{
+}
+
+event HudTournament_AnimateTeams_Out
+{
+}
+
+event TrainingHudBounce
+{
+	Animate ObjectiveStatusTraining	Position		"c-160 57"		Linear 0 0
+	Animate ObjectiveStatusTraining	Position		"c-160 47"		Bounce 0.0 2.0
+}
+
+event CompetitiveGame_LowerChatWindow
+{
+}
+
+event CompetitiveGame_RestoreChatWindow //runs on every spawn
+{
+    RunEvent SpawnAnim 0
+    RunEventChild HudPlayerHealth HPSpawnAnim 0.1
+	RunEventChild HudPlayerClass ClassSpawnAnim 0.1
+    RunEventChild HudWeaponAmmo AmmoSpawnAnim 0.1
+	RunEventChild HudMatchStatus HudTournament_DoorsCleanup 2.6 //this animation freezes when respawning, make everything invis. but not immediately, since players respawn during the door shut sequence
+	SetVisible	PostGameBGColor	0	1
+}
+
+event FlagOutlineHide //runs on every map load and every respawn, not ideal for hiding casual postgame bg :(
+{
+	Animate OutlineImage	Alpha		"0"				Linear 0.0 0.1
+}
+
+event SpawnAnim
+{
+}
+
+event HPSpawnAnim
+{
+    Animate PlayerStatusHealthValue fgcolor "TanLight" Linear 0 0
+//	Animate SolarHPBG xpos "-200" Linear 0 0
+//	Animate SolarHPBG xpos "0" Linear 0.1 0.1
+}
+
+event ClassSpawnAnim
+{
+//	Animate PlayerStatusClassImageBG xpos "-200" Linear 0 0
+//	Animate PlayerStatusClassImageBG xpos "20" Linear 0 0.1
+//	Animate ClassModelPanelBG xpos "-200" Linear 0 0
+//	Animate ClassModelPanelBG xpos "20" Linear 0 0.1
+}
+
+event AmmoSpawnAnim
+{
+    Animate AmmoInClip fgcolor "TanLight" Linear 0 0
+    Animate AmmoInReserve fgcolor "TanDarker" Linear 0 0
+    Animate AmmoNoClip fgcolor "TanLight" Linear 0 0
+}
+
+event HudTournament_MoveChatWindow
+{
+}
+
+event HudTournamentSetupPanelOpen
+{
+	Animate HudTournamentSetup	Position	"c-90 -70"	Linear 0.0 0.001
+	Animate HudTournamentSetup	Position	"c-90 90"	Spline 0.001 0.2
+}
+
+event HudTournamentSetupPanelClose
+{
+	Animate HudTournamentSetup	Position	"c-90 90"	Linear 0.0 0.001
+	Animate HudTournamentSetup	Position	"c-90 -70"	Spline 0.001 0.2
+}
+
+
+//HP AND AMMO
+
+//Health Bonus Pulse
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthValue		fgcolor		"0 161 0 255"	Linear 0.0 0.75
+	Animate	PlayerStatusHealthValue		fgcolor		"137 211 137 255"	Linear 0.85 0.75
+	Animate	PlayerStatusHealthValueNoHurtAnim		fgcolor		"0 161 0 255"	Linear 0.0 0.75
+	Animate	bgoverheal			fgcolor		"0 161 0 255"	Linear 0.0 0.75
+	RunEvent HudHealthBonusPulseLoop	1.70
+}
+
+// call to loop HudHealthBonusPulse
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse 0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 0.0
+	StopEvent HudHealthBonusPulseLoop 0.0
+	Animate	PlayerStatusHealthValue		fgcolor		"TanLight"	Linear 0.01 0.25
+	Animate	PlayerStatusHealthValueNoHurtAnim		fgcolor		"TanLight"	Linear 0.01 0.25
+	Animate	bgoverheal		fgcolor		"0 161 0 0"	Linear 0.0 0.75
+}
+
+//===========================================
+
+//Health Dying Pulse
+event HudHealthDyingPulse //This was changed to run two events. One for the regular HP, and one for the giant warning text
+{
+	RunEvent HudHealthDyingPulseHP 0.0
+	RunEvent HudHealthDyingPulseHPWARNING	0.0
+}
+
+//HP flashing
+event HudHealthDyingPulseHP
+{
+	Animate	PlayerStatusHealthValue		fgcolor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	PlayerStatusHealthValue		fgcolor		"211 137 127 255"	Linear 0.85 0.75
+	RunEvent HudHealthDyingPulseLoop	1.70
+}
+
+//Giant warning text
+event HudHealthDyingPulseHPWARNING
+{
+	Animate	PlayerStatusHealthValueWARNING		fgcolor		"TanLight"	Linear 0.0 0.10
+	Animate	PlayerStatusHealthValueWARNING		fgcolor		"161 0 0 60"	Linear 0.10 0.10
+	Animate	PlayerStatusHealthValueWARNING		fgcolor		"0 0 0 20"	Linear 0.2 0.3
+}
+
+// call to loop HudHealthDyingPulse
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulseHP 0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulseHP 0.0
+	StopEvent HudHealthDyingPulseWARNING 0.0
+	StopEvent HudHealthDyingPulseLoop 0.0
+	Animate	PlayerStatusHealthValue		fgcolor		"TanLight"	Linear 0.01 0.25
+	Animate	PlayerStatusHealthValueWARNING		fgcolor		"TanLight"	Linear 0.0 0.15
+	Animate	PlayerStatusHealthValueWARNING		fgcolor		"0 0 0 0"	Linear 0.15 0.3
+}
+
+//===========================================
+
+event HudLowAmmoPulse
+{
+	Animate	AmmoInClip		fgcolor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	AmmoInClip		fgcolor		"211 137 127 255"	Linear 0.85 0.75
+
+	Animate	AmmoInReserve		fgcolor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	AmmoInReserve		fgcolor		"69	34 34 255"	Linear 0.85 0.75
+
+	Animate	AmmoNoClip		fgcolor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	AmmoNoClip		fgcolor		"211 137 127 255"	Linear 0.85 0.75
+	
+	RunEvent HudLowAmmoPulseLoop	1.70
+}
+
+// call to loop HudLowAmmoPulse
+event HudLowAmmoPulseLoop
+{
+	RunEvent HudLowAmmoPulse 0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 0.0
+	StopEvent HudLowAmmoPulseLoop 0.0
+
+	Animate	AmmoInClip		fgcolor		"TanLight"	Linear 0.01 0.25
+
+	Animate	AmmoInReserve		fgcolor		"TanDarker"	Linear 0.01 0.25
+
+	Animate	AmmoNoClip		fgcolor		"TanLight"	Linear 0.01 0.25
+}
+
+
+//ROBOT-PLAYER DESTRUCTION
+
+event RDPositiveScorePulse
+{
+	Animate ScoreBLU FgColor	"25 255 25 255"		Linear 0.0 0.0
+	Animate ScoreBLU FgColor	"SolarTeamBLU"			Linear 0.1 0.2
+
+	Animate ScoreRED FgColor	"25 255 25 255"		Linear 0.0 0.0
+	Animate ScoreRED FgColor	"SolarTeamRED"			Linear 0.1 0.2
+}
+
+event RDNegativeScorePulse
+{
+	Animate ScoreBLU FgColor	"255 75 75 255"		Linear 0.0 0.0
+	Animate ScoreBLU FgColor	"SolarTeamBLU"			Linear 0.1 0.2
+	
+	Animate ScoreRED FgColor	"255 75 75 255"		Linear 0.0 0.0
+	Animate ScoreRED FgColor	"SolarTeamRED"			Linear 0.1 0.2
+}
+
+
+//OVERTIME
+
+// Show the Overtime panel
+event OvertimeShow
+{
+	Animate OvertimeLabel				Alpha		"255"			Linear 0.0 0.1	
+	Animate OvertimeBG					Alpha		"255"			Linear 0.0 0.1	
+}
+
+event OvertimeLabelPulseRed
+{
+	Animate	OvertimeLabel 	FgColor		"TanLight"	Linear 0.0 0
+	Animate	OvertimeLabel 	FgColor		"TimerProgress.Warning"	Linear 0.3 0
+
+	RunEvent OvertimeLabelPulseRed 0.6
+}
+
+//MATCH STATUS
+
+event TeamStatus_PlayerDead
+{
+//	SetVisible respawntime  1 0
+//	SetVisible ClassImageBox 1 0
+//	SetVisible SolarHUDSkull 1 0
+	
+//	Animate ClassImageBox ypos 24 Deaccel 0 0.2
+//	Animate SolarHUDSkull ypos 24 Deaccel 0 0.2
+//	Animate respawntime ypos 6 Deaccel 0 0.2
+}
+
+event TeamStatus_PlayerAlive
+{
+//	Animate ClassImageBox ypos 2 Accel 0 0.2
+//	Animate SolarHUDSkull ypos 2 Accel 0 0.2
+//	Animate respawntime ypos 2 Accel 0 0.2
+}
+
+//event ActiveTimerBGPulse		//this broke when adding overtime labels
+//{
+//	RunEventChild RedTimer KOTHTimerAppearRed 0
+//	RunEventChild BlueTimer KOTHTimerAppearBlue 0
+//}
+
+//event KOTHTimerAppearBlue		//this broke when adding overtime labels
+//{
+//	Animate	TimePanelProgressBar 	xpos			"0"							Linear 0 0
+//	Animate	TimePanelProgressBar 	zpos			"-100"						Linear 0 0
+//	Animate TimePanelProgressBar	color_active	"SolarTeamBLU"				Linear 0 0
+//	Animate TimePanelProgressBar	color_inactive	"SolarTeamBLUDark"			Linear 0 0
+//}
+
+//event KOTHTimerAppearRed		//this broke when adding overtime labels
+//{
+//	Animate	TimePanelProgressBar 	xpos			"31"						Linear 0 0
+//	Animate	TimePanelProgressBar 	zpos			"-100"						Linear 0 0
+//	Animate TimePanelProgressBar	color_active	"SolarTeamRED"				Linear 0 0
+//	Animate TimePanelProgressBar	color_inactive	"SolarTeamREDDark"			Linear 0 0
+//}
+
+event ActiveTimerHighlight
+{	
+}
+
+event ActiveTimerDim
+{
+}
+
+//event HudTournament_AnimateTeams_In
+//{
+//}
+
+//event HudTournament_AnimateTeams_Out
+//{
+//}
+
+event HudReadyPulse
+{
+	Animate	TournamentInstructionsLabel 	FgColor		"161 0 0 255"	Linear 0.0 0.75
+	Animate	TournamentInstructionsLabel 	FgColor		"211 137 127 255"	Linear 0.85 0.75
+
+	RunEvent HudReadyPulseLoop	1.70
+}
+
+event HudReadyPulseLoop
+{
+	RunEvent HudReadyPulse			0.0
+}
+
+event HudReadyPulseEnd
+{
+	Animate	TournamentInstructionsLabel 	FgColor		"TanLight"		Linear 0.0 0.1
+	
+	StopEvent HudReadyPulse			0.0
+	StopEvent HudReadyPulseLoop		0.0
+}
+
+event HudSnapShotReminderIn
+{
+    RunEvent HudHealthDyingPulseStop 10.0
+    RunEvent HudHealthBonusPulseStop 10.0
+    RunEvent HudLowAmmoPulseStop 10.0
+    RunEvent HudMedicChargedStop 10.0
+}
+
+
+//highlander mode team select menu, teams are full moving arrow
+
+event TeamsFullArrowAnimate
+{
+	Animate TeamsFullArrow	Position	"c-40 r115"		Spline	0	0
+	Animate TeamsFullArrow	Position	"c-40 r120"		Spline	0	0.4
+	Animate TeamsFullArrow	Position	"c-40 r115"		Spline	0.4	0.4
+	
+	RunEvent TeamsFullArrowAnimateLoop	0.8
+}
+
+event TeamsFullArrowAnimateLoop
+{
+	RunEvent TeamsFullArrowAnimate 0.0
+}
+
+event TeamsFullArrowAnimateEnd
+{
+	StopEvent TeamsFullArrowAnimate 0.0
+	StopEvent TeamsFullArrowAnimateLoop 0.0
+}
+
+//disable surveys
+
+event SurveyShowSequence
+{
+	// Modified: quickly gets rid of the survey
+	RunEventChild Survey SurveyDelete 0
+
+//	Animate Survey		ypos	480		Linear 0 0
+//	Animate Survey		ypos	150		Linear 1 0.3
+//	Animate Survey		ypos	130		Deaccel 1.3 0.1
+//	Animate Survey		ypos	150		Accel 1.4 0.1
+}
+
+event SurveySubmitSequence
+{
+//	// Show submitting
+//	SetVisible	QuestionContainer	0	0
+//	SetVisible	SubmittingContainer	1	0
+//
+//	// Show thanks
+//	SetVisible	SubmittingContainer	0	2
+//	SetVisible	ThanksContainer		1	2
+//
+//	RunEvent SurveyHideSequence 6
+}
+
+//casual and mvm timer
+
+event HudTournament_ShowTimerCompetitive
+{
+	Animate CountdownLabel ypos 0 Linear 0 0
+	Animate CountdownLabelShadow ypos 0 Linear 0 0
+
+	SetVisible CountdownLabel 1 0
+	SetVisible CountdownLabelShadow 1 0
+}
+
+event HudTournament_ShowTimerDefault
+{
+	Animate CountdownLabel ypos 400 Linear 0 0
+	Animate CountdownLabelShadow ypos 400 Linear 0 0
+
+	SetVisible CountdownLabel 1 0
+	SetVisible CountdownLabelShadow 1 0
+}
+
+event HudTournament_HideTimer
+{
+	SetVisible CountdownLabel 0 0
+	SetVisible CountdownLabelShadow 0 0
+}
+
+
+//CASUAL MODE DOORS
+
+
+event HudMatchStatus_ShowMatchStartDoors //CASUAL MATCH STARTS, CLOSE DOORS AND SHOW TEAMS+NAMES, RE-OPEN AFTER DELAY
+{
+
+//////LEFTBAR, RIGHTBAR//
+	SetVisible	PreGameLeftBar	1	0
+	SetVisible	PreGameRightBar	1	0
+	SetVisible	PreGameLeftBarEdge	1	0
+	SetVisible	PreGameRightBarEdge	1	0
+	
+	//Cleanup
+	Animate PreGameLeftBar xpos "c-2000" Linear 0 0
+	Animate PreGameRightBar xpos "c1000" Linear 0 0
+	
+	//Slide in
+	Animate PreGameLeftBar xpos "c-1000" Linear 0 0.3
+	Animate PreGameRightBar xpos "c0" Linear 0 0.3
+
+	//Slide out
+	Animate PreGameLeftBar xpos "c-2000" Accel 2.2 0.3
+	Animate PreGameRightBar xpos "c1000" Accel 2.2 0.3
+//////LEFTBAR, RIGHTBAR//
+
+	SetVisible	PreGameVSStar	1	0
+	SetVisible	PreGameVSTextOnly	1	0
+	SetVisible	PreGameVSStarTanDarker	0	0
+	//Cleanup
+	Animate PreGameVSStar xpos "c875" Linear 0 0
+	Animate PreGameVSStar ypos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker wide "250" Linear 0 0
+	Animate PreGameVSStarTanDarker tall "250" Linear 0 0
+	Animate PreGameVSStarTanDarker xpos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker ypos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker alpha "255" Linear 0 0
+	Animate PreGameVSTextOnly xpos "0"	Linear 0 0
+	Animate PreGameVSTextOnly ypos "0"	Linear 0 0
+	
+	//Slide in
+	Animate PreGameVSStar xpos "c-125" Linear 0 0.3
+	
+	//Slide out
+	Animate PreGameVSStar xpos "c-1125" Accel 2.2 0.3
+	
+	//Expand the brown background star and make it transparent as it expands
+	SetVisible	PreGameVSStarTanDarker	1	0.3
+	Animate PreGameVSStarTanDarker wide "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker tall "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker xpos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker ypos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker alpha "0" Linear 0.3 0.7	
+	SetVisible	PreGameVSStarTanDarker	0	1
+
+	
+	//countdown stuff.
+	//disable it frame 1, re-enable 2 seconds later
+	SetVisible CountdownLabel 0 0
+	SetVisible CountdownLabelShadow 0 0
+	SetVisible CountdownLabel 1 2
+	SetVisible CountdownLabelShadow 1 2
+	
+	//reset countdown position
+	Animate CountdownLabel ypos 0 Linear 0 0
+	Animate CountdownLabelShadow ypos 0 Linear 0 0
+	
+	//hide countdown and everything else
+	SetVisible CountdownLabel 0 9.9
+	SetVisible CountdownLabelShadow 0 9.9
+
+	RunEvent HudTournament_DoorsCleanup 10
+	
+	PlaySound 0 "ui/trade_changed.wav"
+	PlaySound 0.28 "ui/mm_door_close.wav"
+	PlaySound 2.12 "ui/mm_comp_banner_up.wav"
+}
+
+//COMP MODE GAME WIN, DOORS CLOSE THEN RE-OPEN
+event HudMatchStatus_ShowMatchWinDoors
+{
+	StopEvent CompetitiveGame_RestoreChatWindow 0.0
+//////LEFTBAR, RIGHTBAR//
+	SetVisible	PreGameLeftBar	1	0
+	SetVisible	PreGameRightBar	1	0
+	SetVisible	PreGameLeftBarEdge	1	0
+	SetVisible	PreGameRightBarEdge	1	0
+	SetVisible	PreGameLeftBarCrack	0	0
+	SetVisible	PreGameRightBarCrack	0	0
+	
+	//Cleanup
+	Animate PreGameLeftBar xpos "c-2000" Linear 0 0
+	Animate PreGameRightBar xpos "c1000" Linear 0 0
+	
+	//Slide in
+	Animate PreGameLeftBar xpos "c-1000" Linear 0 0.3
+	Animate PreGameRightBar xpos "c0" Linear 0 0.3
+
+	//Slide out
+	Animate PreGameLeftBar xpos "c-2000" Accel 2.2 0.3
+	Animate PreGameRightBar xpos "c1000" Accel 2.2 0.3
+//////LEFTBAR, RIGHTBAR//
+
+	SetVisible	PreGameVSStar	1	0
+	SetVisible	PreGameVSTextOnly	1	0
+	SetVisible	PreGameVSStarTanDarker	0	0
+	//Cleanup
+	Animate PreGameVSStar xpos "c875" Linear 0 0
+	Animate PreGameVSStarTanDarker wide "250" Linear 0 0
+	Animate PreGameVSStarTanDarker tall "250" Linear 0 0
+	Animate PreGameVSStarTanDarker xpos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker ypos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker alpha "255" Linear 0 0
+	
+	//Slide in
+	Animate PreGameVSStar xpos "c-125" Linear 0 0.3
+	
+	//Slide out
+	Animate PreGameVSStar xpos "c-1125" Accel 2.2 0.3
+	
+	//Expand the brown background star and make it transparent as it expands
+	SetVisible	PreGameVSStarTanDarker	1	0.3
+	Animate PreGameVSStarTanDarker wide "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker tall "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker xpos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker ypos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker alpha "0" Linear 0.3 0.7	
+	SetVisible	PreGameVSStarTanDarker	0	1
+
+	
+	//countdown stuff.
+	//disable it frame 1, re-enable 2 seconds later
+	SetVisible CountdownLabel 0 0
+	SetVisible CountdownLabelShadow 0 0
+	SetVisible CountdownLabel 1 2
+	SetVisible CountdownLabelShadow 1 2
+	
+	//reset countdown position
+	Animate CountdownLabel ypos 0 Linear 0 0
+	Animate CountdownLabelShadow ypos 0 Linear 0 0
+	
+	//hide countdown and everything else
+	SetVisible CountdownLabel 0 9.9
+	SetVisible CountdownLabelShadow 0 9.9
+
+	RunEvent HudTournament_DoorsCleanup 10
+	
+	PlaySound 0 "ui/trade_changed.wav"
+	PlaySound 0.28 "ui/mm_door_close.wav"
+	PlaySound 2.12 "ui/mm_comp_banner_up.wav"
+}
+	
+
+//CASUAL MODE GAME WIN, DOORS CLOSE AND DO NOT RE-OPEN
+//We do cleanup after 25 seconds though, just enough leeway for a map change
+//This could still be a problem if someone rejoins a server basically 1 frame after this animation starts, but this is not common
+//May consider changing this for a temporary screen-fill transition animation instead, then place a bg in hudmatchsummary instead
+
+event HudMatchStatus_ShowMatchWinDoors_NoOpen
+{
+	StopEvent CompetitiveGame_RestoreChatWindow 0.0
+//////LEFTBAR, RIGHTBAR//
+	SetVisible	PreGameLeftBar	1	0
+	SetVisible	PreGameRightBar	1	0
+	SetVisible	PreGameLeftBarEdge	1	0
+	SetVisible	PreGameRightBarEdge	1	0
+	SetVisible	PreGameLeftBarCrack	0	0
+	SetVisible	PreGameRightBarCrack	0	0
+	
+	//Cleanup
+	Animate PreGameLeftBar xpos "c-2000" Linear 0 0
+	Animate PreGameRightBar xpos "c1000" Linear 0 0
+	
+	//Slide in
+	Animate PreGameLeftBar xpos "c-1000" Linear 0 0.3
+	Animate PreGameRightBar xpos "c0" Linear 0 0.3
+	
+	//Make cracked portions visible
+	SetVisible	PreGameLeftBarCrack	1	1
+	SetVisible	PreGameRightBarCrack	1	1
+
+	//Break
+	Animate PreGameLeftBar xpos "c-1100" Accel 1 0.1
+	Animate PreGameRightBar xpos "c100" Accel 1 0.1
+	SetVisible	PreGameLeftBarEdge	0	1
+	SetVisible	PreGameRightBarEdge	0	1
+	
+	//Slide out
+	Animate PreGameLeftBar xpos "c-2000" Accel 2 0.3
+	Animate PreGameRightBar xpos "c1000" Accel 2 0.3
+//////LEFTBAR, RIGHTBAR//
+
+	SetVisible	PreGameVSStar	1	0
+	SetVisible	PreGameVSTextOnly	1	0
+	SetVisible	PreGameVSStarTanDarker	0	0
+	//Cleanup
+	Animate PreGameVSStar xpos "c875" Linear 0 0
+	Animate PreGameVSStar ypos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker wide "250" Linear 0 0
+	Animate PreGameVSStarTanDarker tall "250" Linear 0 0
+	Animate PreGameVSStarTanDarker xpos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker ypos "c-125" Linear 0 0
+	Animate PreGameVSStarTanDarker alpha "255" Linear 0 0
+	Animate PreGameVSTextOnly xpos "0"	Linear 0 0
+	Animate PreGameVSTextOnly ypos "0"	Linear 0 0
+	SetVisible	PostGameBGColor	0	0
+	
+	//Slide in
+	Animate PreGameVSStar xpos "c-125" Linear 0 0.3
+	
+	//Break
+	Animate PreGameVSStar xpos "c-120" Accel 1 0.1
+	Animate PreGameVSTextOnly xpos "4"	Accel 1 0.1
+	Animate PreGameVSTextOnly ypos "4"	Accel 1 0.1
+	SetVisible	PostGameBGColor	1	1
+	
+	//Slide out
+	Animate PreGameVSStar ypos "480" Accel 1.6 0.2
+	
+	//Expand the brown background star and make it transparent as it expands
+	SetVisible	PreGameVSStarTanDarker	1	0.3
+	Animate PreGameVSStarTanDarker wide "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker tall "400" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker xpos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker ypos "c-200" Linear 0.3 0.7	
+	Animate PreGameVSStarTanDarker alpha "0" Linear 0.3 0.7	
+	SetVisible	PreGameVSStarTanDarker	0	1
+	
+	
+	PlaySound 0 "ui/trade_changed.wav"
+	PlaySound 0.28 "ui/mm_door_close.wav"
+	PlaySound 0.98 "weapons/bottle_break.wav"
+	PlaySound 1.92 "ui/mm_comp_banner_up.wav"
+	
+	//do a cleanup after 30 seconds or on the next map load with that flaghide anim
+	//	RunEvent HudTournament_DoorsCleanup 10
+}
+
+//ONLY THE TIMER - BETWEEN ROUNDS
+event HudMatchStatus_ShowCountdown
+{
+	SetVisible CountdownLabel 1 0
+	SetVisible CountdownLabelShadow 1 0
+	Animate CountdownLabel ypos 150 Linear 0 0
+	Animate CountdownLabelShadow ypos 150 Linear 0 0
+	Animate CountdownLabel ypos c0 Gain 0.75 0 0.4
+	Animate CountdownLabelShadow ypos c-0 Gain 0.75 0 0.4
+	SetVisible CountdownLabel 0 9.9
+	SetVisible CountdownLabelShadow 0 9.9
+}
+
+event HudTournament_DoorsCleanup
+{
+	SetVisible	PostGameTopBar	0	0
+	SetVisible	PostGameBottomBar	0	0
+	
+	SetVisible	PreGameLeftBar	0	0
+	SetVisible	PreGameRightBar	0	0
+	SetVisible	PreGameLeftBarEdge	0	0
+	SetVisible	PreGameRightBarEdge	0	0
+	
+	SetVisible	PreGameVSStar	0	0
+	SetVisible	PreGameVSTextOnly	0	0
+	SetVisible	PreGameVSStarTanDarker	0	0
+	
+	SetVisible	PreGameLeftBarCrack	0	0
+	SetVisible	PreGameRightBarCrack	0	0
+	SetVisible	PostGameBGColor	0	0
+	
+	Animate PostGameTopBar ypos 0 Linear 0 0
+	Animate PostGameBottomBar ypos r50 Linear 0 0
+
+	Animate RedTeamPanel xpos r-5 Accel 0 0
+	Animate BlueTeamPanel xpos -155 Accel 0 0
+}
+
+//Tradeup letter, fixed starting position of the LetterBack elements being too high (lowered to 500, default is 400)
+
+event CollectionCrafting_Intro
+{
+	// Reset
+	SetVisible ApplyStampButton		0					0
+	SetVisible Stamp				0					0
+	Animate Stamp					xpos c140	Accel	0 0
+	Animate DrawingPanel			xpos c0		Accel	0 0
+	Animate DrawingPanel			wide 0		Accel	0 0
+	Animate LetterFront				xpos c0		Accel	0 0
+	Animate LetterFront				wide 0		Accel	0 0
+	Animate LetterBack_Top		xpos c-250	Accel	0 0
+	Animate LetterBack_Top		ypos 500	Accel	0 0
+	Animate LetterBack_Top		wide 500	Accel	0 0
+	Animate LetterBack_Bottom		xpos c-250	Accel	0 0
+	Animate LetterBack_Bottom		ypos 500	Accel	0 0
+	Animate LetterBack_Bottom		wide 500	Accel	0 0
+	Animate LetterBack_Flap			xpos c-250	Accel	0 0
+	Animate LetterBack_Flap			ypos 500	Accel	0 0
+	Animate LetterBack_Flap			wide 500	Accel	0 0
+	Animate LetterBack_Flap			tall 0		Deaccel 0.6 0.4
+	Animate LetterBack_Top			ypos 500	Accel	0 0
+	SetVisible ReturnModel			0					0
+	Animate SendEvelopeButton		ypos 280	Accel	0 0
+	SetVisible	SendEvelopeButton		 0				0 
+	SetVisible ResponseTimeout		0					0
+	SetVisible WaitingForResponse	0					0
+
+	SetVisible ShowExplanationsButton1			1					0
+	SetVisible ShowExplanationsButton2			0					0
+	Animate TradeUpContainer	wide 800	Accel 0 0	
+
+	// Slide paper down
+	Animate TradeUpContainer Position	"0 60"	Deaccel	0	0.3
+
+	// Slider BG up
+	Animate BG			Position	"0 34"	Deaccel	0	0.3
+
+	// Fade dimmer down
+	Animate Dimmer Alpha "255" Linear 0 0.4
+}
+
+//Map vote percentage text
+event MapVoted
+{
+	Animate VotesLabel	ypos	42		Deaccel 0	0.05
+	Animate VotesLabel	ypos	40		Deaccel 0.05 0.1
+	Animate VotesLabelStroke	ypos	42		Deaccel 0	0.05
+	Animate VotesLabelStroke	ypos	40		Deaccel 0.05 0.1
+}

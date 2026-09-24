@@ -1,0 +1,77 @@
+//===========================================================================================================================
+
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"255"								Linear 	0.0 	0.2
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"0"									Linear 	0.2 	0.4
+
+	Animate PlayerStatusHealthValue                 FgColor     "HealthBuff"                       Linear  0.0     0.2
+
+//	Animate PlayerStatusHealthValueShadow 			FgColor 	"HealthBuff" 						Linear 	0.0 	0.0
+//	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"255" 								Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueTarget 			FgColor 	"HealthBuffTarget" 				Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueSpecgui 			FgColor 	"HealthBuffSpec" 					Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"HealthBuffSpec" 				Linear 	0.0 	0.0
+
+	RunEvent HudHealthBonusPulseLoop				0.4
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 					0.0
+	StopEvent HudHealthBonusPulseLoop				0.0
+
+	Animate PlayerStatusHealthValue                 FgColor     "HealthNumbers"                    Linear  0.0     0.0
+
+//	Animate PlayerStatusHealthValueShadow 			FgColor 	"Black" 							Linear 	0.0 	0.0
+//	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"0"									Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueTarget 			FgColor 	"HealthNumbers" 					Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthvalueSpecgui 			FgColor 	"HealthNumbers" 					Linear	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Black" 							Linear 	0.0 	0.0
+}
+
+//===========================================================================================================================
+
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"0"									Linear 	0.0 	0.0
+
+	Animate PlayerStatusHealthValue                 FgColor     "HealthHurt"                       Linear  0.0     0.2
+	Animate PlayerStatusHealthValue                 FgColor     "HealthHurt"                       Linear  0.2     0.2
+
+//	Animate PlayerStatusHealthValueShadow 			FgColor 	"HealthHurt" 						Linear 	0.0 	0.0
+//	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"255" 								Linear	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueTarget 			FgColor 	"HealthHurtTarget" 				Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthvalueSpecgui 			FgColor 	"HealthHurtSpec" 					Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"HealthHurtKiller" 				Linear 	0.0 	0.0
+
+	RunEvent HudHealthDyingPulseLoop				0.25
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse					0.0
+	StopEvent HudHealthDyingPulseLoop 				0.0
+
+	Animate PlayerStatusHealthValue                 FgColor     "HealthNumbers"                    Linear  0.0     0.0
+
+//	Animate PlayerStatusHealthValueShadow 			FgColor 	"Black" 							Linear 	0.0 	0.0
+//	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"0" 								Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueTarget 			FgColor 	"HealthNumbers" 					Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthvalueSpecgui 			FgColor 	"HealthNumbers" 					Linear 	0.0 	0.0
+
+//	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Black" 							Linear 	0.0 	0.0
+}
+
+//===========================================================================================================================

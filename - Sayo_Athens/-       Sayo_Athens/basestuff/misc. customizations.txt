@@ -1,0 +1,5 @@
+1. rain in main menu (and in-game menu)
+go to MainMenuOverride.res and remove // from #base "titlescreenrain.res"
+
+2. main menu gifs 
+go to MainMenuOverride.res, find "background" and change image to either "yeatbg1" or "yeatbg2". first one is from get busy and second from oh ex why

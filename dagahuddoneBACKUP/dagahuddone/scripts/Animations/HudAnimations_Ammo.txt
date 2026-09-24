@@ -1,0 +1,35 @@
+//===========================================================================================================================
+
+event HudLowAmmoPulse
+{
+	Animate AmmoInClip							FgColor 	"Low Ammo" 					Linear 	0.0 0.0
+	Animate AmmoInReserve	 					FgColor 	"Low Ammo" 				Linear 	0.0 0.0
+	Animate AmmoNoClip							FgColor 	"Low Ammo" 					Linear 	0.0 0.0
+
+	Animate AmmoInClip2							FgColor 	"Low Ammo Alt" 					Linear 	0.0 0.0
+	Animate AmmoInReserve2	 					FgColor 	"Low Ammo Alt" 				Linear 	0.0 0.0
+	Animate AmmoNoClip2							FgColor 	"Low Ammo Alt" 					Linear 	0.0 0.0
+	
+	RunEvent HudLowAmmoPulseLoop					0.25
+}	
+
+event HudLowAmmoPulseLoop
+{
+	RunEvent HudLowAmmoPulse						0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 						0.0
+	StopEvent HudLowAmmoPulseLoop 					0.0
+	
+	Animate AmmoInClip							FgColor 	"Health Numbers" 							Linear 	0.0 0.0
+	Animate AmmoInReserve						FgColor 	"Health Numbers" 							Linear 	0.0 0.0
+	Animate AmmoNoClip	 						FgColor 	"Health Numbers" 							Linear 	0.0 0.0
+
+	Animate AmmoInClip2							FgColor 	"Health Numbers Alt" 							Linear 	0.0 0.0
+	Animate AmmoInReserve2						FgColor 	"Health Numbers Alt" 							Linear 	0.0 0.0
+	Animate AmmoNoClip2	 						FgColor 	"Health Numbers Alt" 							Linear 	0.0 0.0
+}
+
+//===========================================================================================================================

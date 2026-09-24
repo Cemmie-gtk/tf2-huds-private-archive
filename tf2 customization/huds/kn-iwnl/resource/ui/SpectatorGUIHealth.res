@@ -1,0 +1,96 @@
+"Resource/UI/SpectatorGUIHealth.res"
+{
+	"HealthBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"HealthBG"
+		"xpos"			"0"
+		"ypos"			"12"
+		"zpos"			"1"
+		"wide"			"24"
+		"tall"			"16"
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"fillcolor"		"0 0 0 0"	
+		"PaintBackgroundType"	"0"
+	}
+
+	"PlayerStatusHealthImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImage"
+		"xpos"			"9234"
+		"ypos"			"9234"
+		"zpos"			"4"
+		"wide"			"12"
+		"tall"			"12"
+		"visible"		"0"
+		"enabled"		"0"
+		"scaleImage"	"0"
+	}
+	
+	"PlayerStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImageBG"
+		"xpos"			"8234"
+		"ypos"			"8234"
+		"wide"			"14"
+		"tall"			"14"
+		"image"			"../hud/health_bg"
+		"scaleImage"		"1"
+	}	
+	"BuildingStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BuildingStatusHealthImageBG"
+		"wide"			"0"
+		"tall"			"0"
+		"visible"		"0"
+		"enabled"		"0"
+	}	
+	"PlayerStatusHealthBonusImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthBonusImage"
+		"xpos"			"17"
+		"ypos"			"12340"
+		"zpos"			"-1"
+		"wide"			"14"
+		"tall"			"14"
+		"image"			"../hud/health_over_bg"
+		"scaleImage"	"1"	
+	}
+	"PlayerStatusHealthValue"
+	{
+		"ControlName"	"Label"
+		"fieldName"		"PlayerStatusHealthValue"
+		"xpos"			"10"
+		"ypos"			"8"
+		"zpos"			"5"
+		"tall"			"13"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"		"center"
+		"font"			"knFontBold16"
+		"labelText"		"%Health%"
+		"fgcolor_override"	"knWhite"
+	}
+	"PlayerStatusHealthValueShadow"
+	{
+		"ControlName"	"Label"
+		"fieldName"		"PlayerStatusHealthValueShadow"
+		"xpos"			"11"
+		"ypos"			"9"
+		"zpos"			"5"
+		"tall"			"13"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"center"
+		"font"			"knFontBold16"
+		"labelText"		"%Health%"
+		"fgcolor_override"	"knBlack2"
+	}							
+}

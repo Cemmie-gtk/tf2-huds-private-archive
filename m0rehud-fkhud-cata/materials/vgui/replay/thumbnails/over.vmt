@@ -1,0 +1,12 @@
+"UnlitGeneric"
+{
+	"$translucent" "1"
+	"$baseTexture" "vgui\replay\thumbnails\over"
+	
+	"$alpha" "0.5"
+	"$vertexcolor"	"1"
+	"$color" "{ 255 175 230}"
+	"$no_fullbright"	"1"	
+	"$vertexalpha"	"1"
+	"$ignorez"	"1"	
+}

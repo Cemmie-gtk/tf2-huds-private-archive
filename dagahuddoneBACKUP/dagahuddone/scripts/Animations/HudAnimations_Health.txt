@@ -1,0 +1,118 @@
+//===========================================================================================================================
+
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"255"								Linear 	0.0 	0.2
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"0"									Linear 	0.2 	0.4
+	
+	Animate PlayerStatusHealthValueShadow 			FgColor 	"36 33 32 255" 						Accel 	0.0 	0.0
+	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"255" 								Accel 	0.0 	0.0
+	
+	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Buffed Health" 				Accel 	0.0 	0.0
+
+	Animate PlayerStatusHealthValue2				FgColor 	"AltBuffed"						Accel 	0.0 	0.0
+
+	Animate PlayerStatusHealthValueSpec		FgColor		"nüWhite"	Linear 0.0 	0.075
+	Animate	PlayerStatusHealthValueSpec		FgColor		"nüWhite"		Linear 0.125 	0.075
+
+	Animate HealthBarBuff		Alpha	"255"		Accel 0.0 0.0
+	Animate HealthBarBuff2	Alpha	"255"		Accel 0.0 0.0
+	
+	Animate HealthBarBuff		Alpha	"0"			Accel 0.0 0.2
+	Animate HealthBarBuff2		Alpha	"255"		Accel 0.1 0.1
+	
+	Animate HealthBarBuffSpec		Alpha	"255"		Accel 0.0 0.0
+	Animate HealthBarBuffSpec2	Alpha	"255"		Accel 0.0 0.0
+	
+	Animate HealthBarBuffSpec		Alpha	"0"			Accel 0.0 0.4
+	Animate HealthBarBuffSpec2		Alpha	"255"		Accel 0.2 0.2
+	
+	Animate PlayerStatusHealthValueSpecT		FgColor		"Health buff"	Linear 0.0	0.2
+	Animate PlayerStatusHealthValueSpecT		FgColor		"Health buff 2"		Linear 0.2	0.4	
+
+	RunEvent HudHealthBonusPulseLoop				0.4
+}
+
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse					0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 					0.0
+	StopEvent HudHealthBonusPulseLoop				0.0
+	
+	Animate PlayerStatusHealthValueShadow 			FgColor 	"36 33 32 255" 							Accel 	0.0 	0.0
+	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"0"									Accel 	0.0 	0.0
+	
+	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Black" 							Linear 	0.0 	0.0
+
+	Animate PlayerStatusHealthValue2				FgColor 	"Health Numbers Alt"						Accel 	0.0 	0.0
+
+	Animate	PlayerStatusHealthValueSpec		FgColor		"Health"		Linear 0.125 	0.075
+	
+	Animate	PlayerStatusHealthValueSpecT	FgColor		"Health"		Linear 0.125 	0.075
+	
+	Animate HealthBarBuff		Alpha	"0"		Accel 0.0 0.0
+	Animate HealthBarBuff2	Alpha	"0"		Accel 0.0 0.0
+	
+	Animate HealthBarBuffSpec		Alpha	"0"		Accel 0.0 0.0
+	Animate HealthBarBuffSpec2	Alpha	"0"		Accel 0.0 0.0	
+}
+
+//===========================================================================================================================
+
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"255"								Linear 	0.0 	0.075
+	Animate	PlayerStatusHealthBonusImage 			Alpha		"0"									Linear 	0.125 	0.075
+	
+	Animate PlayerStatusHealthValue    				FgColor 	"Health Hurt" 						Accel 	0.0 	0.0
+	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"255" 								Accel	0.0 	0.0
+	
+	
+	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Health Hurt Killer" 				Accel 	0.0 	0.0
+
+	Animate PlayerStatusHealthValue2    				FgColor 	"LowHealthAlt" 						Accel 	0.0 	0.0
+
+	Animate HealthBarHurt		Alpha	"0"			Accel 0.0 0.2
+	Animate HealthBarHurt2		Alpha	"255"		Accel 0.1 0.1
+	
+	Animate HealthBarHurtSpec		Alpha	"255"		Accel 0.0 0.0
+	Animate HealthBarHurt2	Alpha	"255"		Accel 0.0 0.0
+	
+	Animate PlayerStatusHealthValueSpecT		FgColor		"Health Low"		Linear 0.0	0.075
+	Animate PlayerStatusHealthValueSpecT		FgColor		"Health Low 2"	    Linear 0.125	0.075
+
+	RunEvent HudHealthDyingPulseLoop				0.25
+}
+
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulse					0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse					0.0
+	StopEvent HudHealthDyingPulseLoop 				0.0
+	
+	Animate PlayerStatusHealthValue					FgColor 	"Health Numbers" 							Accel 	0.0 	0.0
+	Animate PlayerStatusHealthValueShadowExtra 		Alpha 		"0" 								Accel 	0.0 	0.0
+	
+	Animate	PlayerStatusHealthValueSpec		FgColor		"Health"		Linear 0.0 0.0
+	Animate PlayerStatusHealthValueSpecT		FgColor		"Health"	    Linear 0.0 0.0
+	
+	Animate HealthBarHurt		Alpha	"0"		Accel 0.0 0.0
+	Animate HealthBarHurt2		Alpha	"0"		Accel 0.0 0.0
+	
+	Animate HealthBarHurtSpec		Alpha	"0"		Accel 0.0 0.0
+	Animate HealthBarHurtSpec2		Alpha	"0"		Accel 0.0 0.0
+	
+	Animate PlayerStatusHealthValueShadowKiller 	FgColor 	"Black" 							Linear 	0.0 	0.0
+
+	Animate PlayerStatusHealthValue2    				FgColor 	"Health Numbers Alt" 						Accel 	0.0 	0.0
+}
+
+//===========================================================================================================================

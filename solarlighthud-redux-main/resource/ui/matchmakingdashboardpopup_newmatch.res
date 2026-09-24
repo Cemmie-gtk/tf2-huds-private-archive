@@ -1,0 +1,232 @@
+"resource/ui/matchmakingdashboardpopup_newmatch.res"
+{
+	"NewMatchFound"
+	{
+		"ControlName"	"CExpandablePanel"
+		"fieldName"		"NewMatchFound"
+		"xpos"			"0"
+		"ypos"			"0"
+		"zpos"			"9999"
+		"wide"			"440"
+		"tall"			"100"
+		"visible"		"1"
+		"proportionaltoparent"	"1"
+		"keyboardinputenabled"	"0"
+		"mouseinputenabled"		"1"
+
+		"collapsed_height"	"0"
+		"expanded_height"	"60"
+
+		"pinCorner"		"2"
+		"autoResize"	"1"
+
+		"OuterShadow"
+		{
+			"ControlName"	"EditablePanel"
+			"fieldName"		"OuterShadow"
+			"visible"		"0"
+		}
+
+		"BGPanel"
+		{
+			"ControlName"	"EditablePanel"
+			"fieldName"		"BGPanel"
+			"xpos"			"0"
+			"ypos"			"cs-0.5"
+			"zpos"			"-1"
+			"wide"			"135"
+			"tall"			"f5"
+			"visible"		"1"
+			"PaintBackgroundType"	"2"
+			"border"		"BorderBlackCornersVerySmall"
+			"proportionaltoparent"	"1"
+			"pinCorner"		"3"
+
+			"DescLabel"
+			{
+				"ControlName"	"CAutoFittingLabel"
+				"fieldName"		"DescLabel"
+				"xpos"			"0"
+				"ypos"			"7"
+				"wide"			"f0"
+				"zpos"			"100"
+				"tall"			"20"
+				"visible"		"1"
+				"enabled"		"1"
+				"font"			"SLBoldMediumSmall"
+				"fgcolor_override"	"TanLight"
+				"textAlignment"	"center"
+				"labelText"		"%match_type%"
+				"proportionaltoparent"	"1"
+				"pinCorner"		"3"
+
+				"fonts"
+				{
+					"0"		"HudFontSmallestBold"
+					"1"		"StorePromotionsTitle"
+					"2"		"FontStorePrice"
+				}
+			}
+
+			"AutoJoinLabel"
+			{
+				"ControlName"	"Label"
+				"fieldName"		"AutoJoinLabel"
+				"xpos"			"0"
+				"ypos"			"23"
+				"wide"			"f0"
+				"zpos"			"100"
+				"tall"			"20"
+				"visible"		"1"
+				"enabled"		"1"
+				"font"			"SLItalicSmall"
+				"fgcolor_override"	"TanLight"
+				"textAlignment"	"center"
+				"labelText"		"%auto_join%"
+				"proportionaltoparent"	"1"
+				"pinCorner"		"3"
+			}
+
+			"AbandonButton"
+			{
+				"ControlName"	"CExButton"
+				"fieldName"		"AbandonButton"
+				"xpos"			"cs-0.5"
+				"ypos"			"rs1-5"
+				"zpos"			"100"
+				"wide"			"90"
+				"tall"			"15"
+				"autoResize"	"0"
+				"pinCorner"		"3"
+				"visible"		"1"
+
+				"enabled"		"1"
+				"tabPosition"	"0"
+				"font"			"HudFontSmallestBold"
+				"textAlignment"	"center"
+				"dulltext"		"0"
+				"brighttext"	"0"
+				"Command"		"abandon_match"
+				"proportionaltoparent"	"1"
+				"labeltext"		"#TF_MM_Rejoin_Abandon"
+				"mouseinputenabled"	"1"
+				"keyboardinputenabled"	"0"
+				"actionsignallevel"	"2"
+				"paintbackground"	"1"
+
+				"sound_depressed"	"UI/buttonclick.wav"
+				"sound_released"	"UI/buttonclickrelease.wav"
+			}
+
+			"SmallJoinButton"
+			{
+				"ControlName"	"CExButton"
+				"fieldName"		"SmallJoinButton"
+				"xpos"			"cs-0.5"
+				"ypos"			"rs1-25"
+				"wide"			"90"
+				"zpos"			"100"
+				"tall"			"25"
+
+				if_expected
+				{
+				}
+				
+				"autoResize"	"0"
+				"pinCorner"		"3"
+				"visible"		"1"
+				"enabled"		"1"
+				"tabPosition"	"0"
+				"font"			"SLBoldSmaller"
+				"textAlignment"	"center"
+				"dulltext"		"0"
+				"brighttext"	"0"
+				"Command"		"join_match"
+				"proportionaltoparent"	"1"
+				"labeltext"		"#TF_Matchmaking_RollingQueue_JoinNow"
+				"mouseinputenabled"	"1"
+				"keyboardinputenabled"	"0"
+				"actionsignallevel"	"2"
+
+				"armedBgColor_override"		"CreditsGreen"
+				"defaultBgColor_override"	"SaleGreen"
+
+				"sound_depressed"	"UI/buttonclick.wav"
+				"sound_released"	"UI/buttonclickrelease.wav"
+			}
+
+			"WideJoinButton"
+			{
+				"ControlName"	"CExButton"
+				"fieldName"		"WideJoinButton"
+				"xpos"			"cs-0.5"
+				"ypos"			"rs1-10"
+				"wide"			"150"
+				"zpos"			"90"
+				"tall"			"35"
+				
+				"autoResize"	"0"
+				"pinCorner"		"3"
+				"visible"		"1"
+				"enabled"		"1"
+				"tabPosition"	"0"
+				"font"			"SLBoldSmaller"
+				"textAlignment"	"center"
+				"dulltext"		"0"
+				"brighttext"	"0"
+				"Command"		"join_match"
+				"proportionaltoparent"	"1"
+				"labeltext"		"#TF_Matchmaking_RollingQueue_JoinNow"
+				"mouseinputenabled"	"1"
+				"keyboardinputenabled"	"0"
+				"actionsignallevel"	"2"
+
+				"armedBgColor_override"		"CreditsGreen"
+				"defaultBgColor_override"	"SaleGreen"
+
+				"sound_depressed"	"UI/buttonclick.wav"
+				"sound_released"	"UI/buttonclickrelease.wav"
+			}
+
+			"JoiningLabel"
+			{
+				"ControlName"	"Label"
+				"fieldName"		"JoiningLabel"
+				"xpos"			"5"
+				"ypos"			"rs1-20"
+				"wide"			"p0.5"
+				"zpos"			"100"
+				"tall"			"20"
+				"visible"		"1"
+				"enabled"		"1"
+				"font"			"SLItalicSmallest"
+				"fgcolor_override"	"TanLight"
+				"textAlignment"	"east"
+				"labelText"		"#TF_Matchmaking_RollingQueue_MatchReadyJoining"
+				"proportionaltoparent"	"1"
+				"pinCorner"		"3"
+			}
+
+			"Spinner"
+			{
+				"ControlName"	"CTFLogoPanel"
+				"fieldName"		"Spinner"
+				"xpos"			"c+11"
+				"ypos"			"rs1-17"
+				"zpos"			"104"
+				"wide"			"o1"
+				"tall"			"25"
+				"visible"		"1"
+
+				"proportionaltoparent"	"1"
+				"mouseinputenabled"	"0"
+				"alpha"			"255"
+
+				"radius"		"8"
+				"velocity"		"250"
+				"fgcolor_override"	"TanLight"
+				"border"	"OctagonBGTANDARKER"
+			}
+		}
+	}
+}

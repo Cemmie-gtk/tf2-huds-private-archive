@@ -1,0 +1,407 @@
+"resource/ui/hudarenavscript.res"
+
+//copy pasted from arena_afterlife, seems to work fine
+
+{
+  "ObjectiveStatusRobotDestruction"
+  {
+    "wide"          "f0"
+    "tall"          "f0"
+    "zpos"          "2"
+  }
+  
+	"VSStar_Rotate_BG"
+	{
+		"ControlName"	"ImagePanel"		
+		"fieldName"		"VSStar_Rotate_BG"
+		"xpos"			"cs-0.5"
+		"ypos"			"20"
+		"zpos"			"3"
+		"wide"			"98"
+		"tall"			"98"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/bgshapes/winpanel_star_bg"
+		"scaleImage"	"1"
+		"drawcolor" "TanDarker"
+		"proportionaltoparent"	"1"
+	}
+	
+	"VSStar_Rotate_FG"
+	{
+		"ControlName"	"ImagePanel"		
+		"fieldName"		"VSStar_Rotate_FG"
+		"xpos"			"cs-0.5"
+		"ypos"			"24"
+		"zpos"			"4"
+		"wide"			"90"
+		"tall"			"90"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/bgshapes/winpanel_star_fg"
+		"scaleImage"	"1"
+		"drawcolor" "TanLight"
+		"proportionaltoparent"	"1"
+	}
+	
+	"VSText"
+	{
+		"ControlName"	"ImagePanel"		
+		"fieldName"		"VSText"
+		"xpos"			"cs-0.5"
+		"ypos"			"53"
+		"zpos"			"5"
+		"wide"			"34"
+		"tall"			"34"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/bgshapes/arena_vs_text_only"
+		"scaleImage"	"1"
+		"drawcolor" "255 255 255 255"
+		"proportionaltoparent"	"1"
+	}
+	
+	
+	"VSBG"
+	{
+		"ControlName"	"CTFImagePanel"
+		"fieldName"		"VSBG"
+		"xpos"			"cs-0.5"
+		"ypos"			"60"
+		"zpos"			"-10"
+		"wide"			"60"
+		"tall"			"20"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/bgshapes/SHAPES_CTF_SCORES"
+		"scaleImage"	"1"	
+		"proportionaltoparent"	"1"
+		"drawcolor"		"TanDarker"
+	}	
+
+	"PlayingTo"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"PlayingTo"
+		"visible"		"0"
+		"enabled"		"0"
+	}	
+	
+	"MiniRoundsLabel"
+	{	
+		"ControlName"		"CExLabel"
+		"fieldName"		"MiniRoundsLabel"
+		"font"			"SLItalicSmall"
+		"xpos"			"c-50"
+		"ypos"			"r30"
+		"zpos"			"5"
+		"wide"			"100"
+		"tall"			"20"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"labelText"		"MINI-ROUNDS"
+		"textAlignment"		"Center"
+		"dulltext"		"0"
+		"brighttext"		"0"
+		"fgcolor_override"	"TanLight"
+	}
+	
+	"MiniRoundsLabelShadow"
+	{	
+		"ControlName"		"CExLabel"
+		"fieldName"		"MiniRoundsLabelShadow"
+		"font"			"SLItalicSmallStroke"
+		"xpos"			"c-50"
+		"ypos"			"r30"
+		"zpos"			"4"
+		"wide"			"100"
+		"tall"			"20"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"labelText"		"MINI-ROUNDS"
+		"textAlignment"		"Center"
+		"dulltext"		"0"
+		"brighttext"		"0"
+		"fgcolor_override"	"TanDarker"
+	}
+	
+	"PlayingToColoredLabel"
+	{
+		"controlname" "cautofittinglabel"
+		"fieldName"		"PlayingToColoredLabel"
+		"xpos"			"0"	[$WIN32]
+		"ypos"			"0"	[$WIN32]
+		"zpos"			"4"
+		"wide"			"300"	[$WIN32]
+		"tall"			"28"
+		"visible"		"1"
+		"enabled"		"1"
+		"labeltext" "#TF_PlayingTo"
+		"dulltext"		"0"
+		"brighttext"	"0"
+		"font"			"Futura12"
+		"bgcolor_override"    "0 0 0 0"
+		"auto_wide_tocontents"	"1"
+		"centerwrap"	"0"
+		"textinsetx"	"12"
+		"textAlignment"	"north-west"
+		"border"		"BorderTanDarkerCornersTransparentVerySmall"
+		
+		"colors"
+		{
+			"1" "TanLight"
+			"2" "Orange"
+			"3" "Orange"
+		}
+		
+		"pin_to_sibling"	"PlayingToAnchor"
+		"pin_corner_to_sibling"		"4"
+		"pin_to_sibling_corner"		"4"
+	}
+
+  "PlayingToBG"
+  {
+    "ControlName"   "CTFImagePanel"
+    "fieldName"     "PlayingToBG"
+    "visible"       "0"
+    "enabled"       "0"
+  }
+  
+ 	"PlayingToAnchor"
+	{	
+		"ControlName"			"ImagePanel"
+		"fieldName"				"PlayingToAnchor"
+		"xpos"					"cs-0.5"
+		"ypos"					"r12"
+		"zpos"					"2"
+		"wide"					"100"
+		"tall"					"12"
+		"autoResize"			"0"
+		"pinCorner"				"0"
+		"visible"				"0"
+		"enabled"				"0"
+		"tabPosition"			"0"	
+		"fillcolor"				"SolarTeamBLU"
+		"PaintBackgroundType"	"0"
+	}
+
+  "ScoreContainer"
+  {
+    "fieldName"             "ScoreContainer"
+    "ControlName"           "EditablePanel"
+    "xpos"                  "0"
+    "ypos"                  "0"
+    "zpos"                  "10"
+    "wide"                  "f0"
+    "tall"                  "f0"
+    "scaleimage"            "0"
+    "visible"               "1"
+    "enabled"               "1"
+
+    "BlueScoreValueContainer"
+    {
+      "ControlName"           "EditablePanel"
+      "fieldName"             "BlueScoreValueContainer"
+      "xpos"                  "c-65"
+      "ypos"                  "r66"
+      "zpos"                  "10"
+      "wide"                  "60"
+      "tall"                  "60"
+      "visible"               "1"
+      "enabled"               "1"
+      "bgcolor_override"      "0 0 0 0"
+      "proportionalToParent"  "1"
+
+      "Score"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "Score"
+        "xpos"                  "0"
+        "ypos"                  "0"
+        "zpos"                  "8"
+        "wide"                  "60"
+        "tall"                  "60"
+        "visible"               "1"
+        "enabled"               "1"
+        "textAlignment"         "east"
+        "labelText"             "%score%"
+        "font"                  "SLBoldMediumSmaller"
+        "fgcolor"               "SolarTeamBLU"
+        "proportionalToParent"  "1"
+		"textinsetx"			"4"
+      }
+
+      "ScoreShadow"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "ScoreShadow"
+        "xpos"                  "0"
+        "ypos"                  "0"
+        "zpos"                  "7"
+        "wide"                  "60"
+        "tall"                  "60"
+        "visible"               "1"
+        "enabled"               "1"
+        "textAlignment"         "east"
+        "labelText"             "%score%"
+        "font"                  "SLBoldMediumSmallerStroke"
+        "fgcolor"               "Black"
+        "proportionalToParent"  "1"
+		"textinsetx"			"4"
+      }
+    }
+
+    "RedScoreValueContainer"
+    {
+      "ControlName"           "EditablePanel"
+      "fieldName"             "RedScoreValueContainer"
+      "xpos"                  "c5"
+      "ypos"                  "r66"
+      "zpos"                  "0"
+      "wide"                  "84"
+      "tall"                  "60"
+      "visible"               "1"
+      "enabled"               "1"
+      "bgcolor_override"      "0 0 0 0"
+      "proportionalToParent"  "1"
+
+      "Score"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "Score"
+        "xpos"                  "0"
+        "ypos"                  "0"
+        "zpos"                  "8"
+        "wide"                  "80"
+        "tall"                  "60"
+        "visible"               "1"
+        "enabled"               "1"
+        "textAlignment"         "west"
+        "labelText"             "%score%"
+        "font"                  "SLBoldMediumSmaller"
+        "fgcolor"               "SolarTeamRED"
+        "proportionalToParent"  "1"
+		"textinsetx"			"4"
+      }
+
+      "ScoreShadow"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "ScoreShadow"
+        "xpos"                  "0"
+        "ypos"                  "0"
+        "zpos"                  "7"
+        "wide"                  "80"
+        "tall"                  "60"
+        "visible"               "1"
+        "enabled"               "1"
+        "textAlignment"         "west"
+        "labelText"             "%score%"
+        "font"                  "SLBoldMediumSmallerStroke"
+        "fgcolor"               "TanDarker"
+        "proportionalToParent"  "1"
+		"textinsetx"			"4"
+      }
+    }
+
+    "ProgressBarContainer"
+    {
+      "ControlName"           "EditablePanel"
+      "fieldName"             "ProgressBarContainer"
+      "xpos"                  "0"
+      "ypos"                  "34"
+      "zpos"                  "-10"
+      "wide"                  "f0"
+      "tall"                  "f0"
+      "visible"               "1"
+
+      "EscrowBlue"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "EscrowBlue"
+		"xpos"			"c-68"
+		"ypos"			"11"
+		"zpos"			"2"
+		"wide"			"60"
+		"tall"			"50"
+		"autoResize"	"1"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"font"			"SLBoldMedium"
+		"labelText"		"%blue_escrow%"
+		"textAlignment"	"east"
+		"fgcolor"		"SolarTeamBLU"
+		"proportionaltoparent"	"1"
+		"textinsetx"	"15"
+      }
+
+      "EscrowBlueShadow"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "EscrowBlueShadow"
+		"xpos"			"c-68"
+		"ypos"			"11"
+		"zpos"			"2"
+		"wide"			"60"
+		"tall"			"50"
+		"autoResize"	"1"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"font"			"SLBoldMediumStroke"
+		"labelText"		"%blue_escrow%"
+		"textAlignment"	"east"
+		"fgcolor"		"TanDarker"
+		"proportionaltoparent"	"1"
+		"textinsetx"	"15"
+      }
+
+      "EscrowRed"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "EscrowRed"
+		"xpos"			"c8"
+		"ypos"			"11"
+		"zpos"			"2"
+		"wide"			"60"
+		"tall"			"50"
+		"autoResize"	"1"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"font"			"SLBoldMedium"
+		"labelText"		"%red_escrow%"
+		"textAlignment"	"west"
+		"fgcolor"		"SolarTeamRed"
+		"proportionaltoparent"	"1"
+		"textinsetx"	"15"
+      }
+
+      "EscrowRedShadow"
+      {
+        "ControlName"           "CExLabel"
+        "fieldName"             "EscrowRedShadow"
+		"xpos"			"c8"
+		"ypos"			"11"
+		"zpos"			"2"
+		"wide"			"60"
+		"tall"			"50"
+		"autoResize"	"1"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"font"			"SLBoldMediumStroke"
+		"labelText"		"%red_escrow%"
+		"textAlignment"	"west"
+		"fgcolor"		"TanDarker"
+		"proportionaltoparent"	"1"
+		"textinsetx"	"15"
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+"Resource/UI/SpectatorGUIHealth.res"
+{
+	"PlayerStatusHealthImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImage"
+		"xpos"			"-36"
+		"ypos"			"5"
+		"zpos"			"4"
+		"wide"			"100"
+		"tall"			"24"
+		"visible"		"1"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+	}		
+	"PlayerStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImageBG"
+		"xpos"			"-38"
+		"ypos"			"5"
+		"zpos"			"3"
+		"wide"			"100"
+		"tall"			"25"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"../hud/health_bg"
+		"scaleImage"	"1"	
+	}	
+	"BuildingStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BuildingStatusHealthImageBG"
+		"xpos"			"0"
+		"ypos"			"2"
+		"zpos"			"2"
+		"wide"			"28"
+		"wide_minmode"	"22"
+		"tall"			"28"
+		"tall_minmode"	"22"
+		"visible"		"0"
+		"enabled"		"1"
+		"image"			"../hud/health_equip_bg"
+		"scaleImage"	"1"	
+	}	
+	"PlayerStatusHealthBonusImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthBonusImage"
+		"xpos"			"-38"
+		"ypos"			"-2"
+		"zpos"			"3"
+		"wide"			"100"
+		"tall"			"22"
+		"visible"		"0"
+		"enabled"		"1"
+		"image"			"../hud/health_over_bg"
+		"scaleImage"	"1"	
+	}
+	"healthBG3"
+	{
+		"ControlName"		"Panel"
+		"fieldName"		"healthBG3"
+		"xpos"			"0"
+		"ypos"			"5"
+		"zpos"			"5"
+		"wide"			"20"
+		"tall"			"24"
+		"visible"		"1"
+		"enabled"		"1"
+		"bgcolor_override"		"98 98 98 150"
+		"alpha"			"0"
+				
+		if_mvm
+		{
+			"visible"		"1"
+		}
+	}
+	
+	"PlayerStatusHealthValue"
+	{
+		"ControlName"	"Label"
+		"fieldName"		"PlayerStatusHealthValue"
+		"xpos"			"85"
+		"ypos"			"32"
+		"zpos"			"6"
+		"wide"			"50"
+		"tall"			"18"
+		"visible"		"0"
+		"enabled"		"0"
+		"textAlignment"	"west"	
+	}
+		"PlayerStatusHealthValue2Anchor"
+	{
+		"ControlName" "EditablePanel"
+		"fieldName" "PlayerStatusHealthValue2Anchor"
+		"xpos" "0"
+		"ypos" "15"
+		"wide" "50"
+		"tall" "50"
+		"visible" "1"
+		"enabled" "1"
+	}
+	"PlayerStatusHealthValue2" 
+	{ 
+	"ControlName" 			"Label" 
+	"fieldName" 			"PlayerStatusHealthValue2" 
+	"xpos" 					"-13" 
+	"ypos" 					"5" 
+	"zpos" 					"6" 
+	"wide" 					"50" 
+	"tall" 					"10" 
+	"visible" 				"1"  
+	"enabled" 				"1"
+	"labeltext" 			"%Health%"
+	"textAlignment" 		"center" 
+	"font" 					"Montserrat16Shadow" 
+	"pin_to_sibling" "PlayerStatusHealthValue2Anchor"
+	"pin_corner_to_sibling" "1"
+	"pin_to_sibling_corner" "1"
+	}
+
+	"PlayerStatusPlayerLevel"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"PlayerStatusPlayerLevel"
+		"xpos"			"8"
+		"xpos_minmode"	"0"
+		"ypos"			"9"	[$WIN32]
+		"ypos"			"0"	[$X360]
+		"zpos"			"5"
+		"wide"			"16"
+		"tall"			"12"
+		"visible"		"0"
+		"enabled"		"1"
+		"textAlignment"	"center"	
+		"font"			"ScoreboardVerySmall"
+		"fgcolor"		"TFOrange"
+	}							
+}

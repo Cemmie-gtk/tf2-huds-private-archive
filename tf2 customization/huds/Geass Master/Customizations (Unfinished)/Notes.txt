@@ -1,0 +1,13 @@
+Backgrounds - light, dark theme
+Class selection - simple, advanced
+Damage - size, minus on/off
+Health & Ammo - big, small, minmode font, buff cross
+Killfeed - light, dark theme
+Killstreak - on/off, different ones maybe?
+Main Menu - Friends panel on/off, Pause Menu on/off
+Scoreboards - ???
+SourceSchemes - different colours
+Spy Disguise - Image on/off
+Themes - different colours
+Timers & Match Status - timer bg on/off, matchhud hp big/small picbig/small
+Ubers - different styles

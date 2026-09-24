@@ -1,0 +1,7 @@
+// Exec'd after autoexec.cfg
+alias none ""
+wait 50; cl_crosshair_red 255 ; alias cl_crosshair_red none
+wait 50; cl_crosshair_blue 255 ; alias cl_crosshair_red none
+wait 50; cl_crosshair_green 255 ; alias cl_crosshair_red none
+wait 50; cl_crosshair_file ""
+alias cl_crosshair_file none

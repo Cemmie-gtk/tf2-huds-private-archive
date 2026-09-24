@@ -1,0 +1,36 @@
+"Resource/UI/Customizations/Speedometer/Speedometer_Absolute.res"
+{
+	"Speedometer"
+	{
+		"controlName"								"ImagePanel"
+		"fieldName"									"Speedometer"
+		"xpos"										"cs-0.5"
+		"ypos"										"c107"
+		"zpos"										"2"
+		"wide"										"64"
+		"tall"										"16"
+		"visible"									"1"
+		"enabled"									"1"
+		"proportionaltoparent"						"1"
+		"image"										"replay/thumbnails/speedometer/digits"
+		"scaleimage"								"1"
+		"drawcolor"									"White"
+	}
+	"SpeedometerShadow"
+	{
+		"controlName"								"ImagePanel"
+		"fieldName"									"SpeedometerShadow"
+		"xpos"										"-1"
+		"ypos"										"-1"
+		"zpos"										"1"
+		"wide"										"64"
+		"tall"										"16"
+		"visible"									"1"
+		"enabled"									"1"
+		"proportionaltoparent"						"1"
+		"image"										"replay/thumbnails/speedometer/digits"
+		"scaleimage"								"1"
+		"drawcolor"									"Black"
+		"pin_to_sibling"							"Speedometer"
+	}
+}

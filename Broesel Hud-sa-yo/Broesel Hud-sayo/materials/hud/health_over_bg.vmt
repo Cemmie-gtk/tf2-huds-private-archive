@@ -1,0 +1,12 @@
+"UnlitGeneric"
+{
+	"$translucent" "1"
+	"$baseTexture" "hud\health_over_bg"
+	
+	"$alpha" "0.5"
+	"$vertexcolor"	"1"
+	"$color" "{ 255 199 216 }"
+	"$no_fullbright"	"1"	
+	"$vertexalpha"	"1"
+	"$ignorez"	"1"	
+}

@@ -1,0 +1,38 @@
+//===========================================
+
+// Flash the medic charge hud when we have full charge
+
+event HudMedicCharged
+{
+	Animate	ChargeLabel 	FgColor		"150 50 250 255"		Linear 0.0 0.3
+	Animate	ChargeLabel 	FgColor		"0 0 0 255"				Linear 0.3 0.6
+
+	Animate	ChargeLabel2 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	
+	Animate	ChargeMeter 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+
+	RunEvent HudMedicChargedLoop	0.6
+}
+
+// call to loop HudHealthBonusPulse
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 0.0
+	StopEvent HudMedicChargedLoop 0.0
+	StopPanelAnimations ChargeLabel 0.0
+	StopPanelAnimations ChargeLabel2 0.0
+	StopPanelAnimations ChargeMeter 0.0
+	
+	Animate	ChargeLabel 	FgColor		"White"				Linear 0.0 0.0
+
+	Animate	ChargeLabel2 	FgColor		"White"				Linear 0.0 0.0
+
+	Animate	ChargeMeter 	FgColor		"White"		        Linear 0.0 0.0
+}
+
+//===========================================

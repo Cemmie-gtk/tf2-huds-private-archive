@@ -1,0 +1,74 @@
+
+//===========================================
+
+//Health Bonus Pulse
+event HudHealthBonusPulse
+{
+	Animate PlayerStatusHealthValue		FgColor		"pastelblue"	Linear 0.0 0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 0.001
+	Animate PlayerStatusHealthValue		FgColor		"White"			Linear 0.0 0.001
+}
+
+//===========================================
+
+//Health Dying Pulse
+event HudHealthDyingPulse
+{
+	Animate PlayerStatusHealthValue		FgColor		"HUDDeathWarning"	Linear 0.0 0.0
+	Animate PlayerStatusHealthHline		alpha		"0"				Linear 0.0 0.0
+	Animate PlayerStatusLowHealthHline	alpha		"255"			Linear 0.0 0.0
+	Animate PlayerStatusHealthVline		alpha		"0"				Linear 0.0 0.0
+	Animate PlayerStatusLowHealthVline	alpha		"255"			Linear 0.0 0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse 0.001
+	Animate PlayerStatusHealthValue		FgColor		"White"			Linear 0.0 0.001
+	Animate PlayerStatusHealthHline		alpha		"255"			Linear 0.0 0.001
+	Animate PlayerStatusLowHealthHline	alpha		"0"				Linear 0.0 0.001
+	Animate PlayerStatusHealthVline		alpha		"255"			Linear 0.0 0.001
+	Animate PlayerStatusLowHealthVline	alpha		"0"				Linear 0.0 0.001
+}
+
+//===========================================
+
+event HudLowAmmoPulse
+{
+	Animate AmmoInClip					FgColor		"HUDDeathWarning"	Linear 0.0 0.0
+	Animate AmmoInReserve				FgColor		"HUDDeathWarning"	Linear 0.0 0.0
+	Animate AmmoNoClip					FgColor		"HUDDeathWarning"	Linear 0.0 0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 0.001
+	Animate AmmoInClip					FgColor		"pastelgreen"			Linear 0.0 0.001
+	Animate AmmoInReserve				FgColor		"pastelpink"			Linear 0.0 0.001
+	Animate AmmoNoClip					FgColor		"pastelgreen"			Linear 0.0 0.001
+}
+//====================================
+
+// Flash the medic charge hud when we have full charge
+
+event HudMedicCharged
+{
+	Animate	ChargeLabel 	FgColor		"0 255 0 255"		Linear 0.0 0.0
+	Animate	ChargeMeter 	FgColor		"0 255 0 255"		Linear 0.0 0.0
+	Animate	fullchargeBG	alpha		"255"				Linear 0.0 0.0
+	Animate	Background		alpha		"0"					Linear 0.0 0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 0.001
+
+	Animate	ChargeLabel 	FgColor		"pastelpink"			Linear 0.0 0.001
+	Animate	ChargeMeter 	FgColor		"White"			Linear 0.0 0.001
+	Animate	fullchargeBG	alpha		"0"				Linear 0.0 0.001
+	Animate	Background		alpha		"200"			Linear 0.0 0.001
+}

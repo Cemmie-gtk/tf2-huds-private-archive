@@ -1,0 +1,108 @@
+"lang"
+{
+	"Language" "English"
+	
+	"Tokens"
+	{
+		//DEFAULT CHAT STUFF
+		"chat_filterbutton"							"Filters"
+		"filter_joinleave"							"Joins/Leaves"
+		"filter_namechange"							"Name Changes"
+		"filter_publicchat"							"Public Chat"
+		"filter_servermsg"							"Server Messages"
+		"filter_teamchange"							"Team Changes"
+		"filter_achievement"						"Achievement Announce"
+		"chat_say"									"Say :"
+		"chat_say_team"								"Say (TEAM) :"
+		"chat_say_party"							"Say (PARTY) :"
+		"TF_Chat_Team_Loc"							"[TEAM] %s1 @ %s3 :  %s2"
+		"TF_Chat_Team"								"[TEAM] %s1 :  %s2"
+		"TF_Chat_Team_Dead"							"[DEAD][TEAM] %s1 :  %s2"
+		"TF_Chat_Spec"								"[SPECTATOR] %s1 :  %s2"
+		"TF_Chat_All"								"%s1 :  %s2"
+		"TF_Chat_AllDead"							"[DEAD] %s1 :  %s2"
+		"TF_Chat_AllSpec"							"[SPEC] %s1 :  %s2"
+		"TF_Chat_Party"								"[PARTY] "
+
+
+		//SCOREBOARD STATS
+		"TF_ScoreBoard_DEAD"						"Dead"
+		"TF_Scoreboard_Name"						"Name"
+		"TF_Scoreboard_Score"						"Score"
+		"TF_Scoreboard_Ping"						"Ping"
+		"TF_Scoreboard_Bot"							"Bot"
+		"TF_ScoreBoard_Player"						"%s1 player"
+		"TF_ScoreBoard_Players"						"%s1 players"
+		"TF_ScoreBoard_KillsLabel"					"Kills:"
+		"TF_ScoreBoard_DeathsLabel"					"Deaths:"
+		"TF_ScoreBoard_AssistsLabel"				"Assists:"
+		"TF_ScoreBoard_CapturesLabel"				"Captures:"
+		"TF_ScoreBoard_DominationLabel"				"Domination:"
+		"TF_ScoreBoard_RevengeLabel"				"Revenge:"
+		"TF_ScoreBoard_KillStreak"					"Streak"
+		"TF_Scoreboard_Support"						"Support:"
+		"TF_Scoreboard_Damage"						"Damage:"
+		
+		
+		//SCOREBOARD TIMELEFT
+		"Scoreboard_TimeLeft"						"%s1:%s2:%s3"
+		"Scoreboard_TimeLeftNoHours"				"%s1:%s2"
+		"Scoreboard_NoTimeLimit"					"None"
+		"Scoreboard_ChangeOnRoundEnd"				"00:00"
+		"Scoreboard_TimeLeftLabel"					""
+		"Scoreboard_TimeLeftNew"					"%s1:%s2:%s3"
+		"Scoreboard_TimeLeftNoHoursNew"				"%s1:%s2"
+		"Scoreboard_NoTimeLimitNew"					"None"
+		"Scoreboard_ChangeOnRoundEndNew"			"Change"
+		"ScoreBoard_Spectator"						"  %s2"
+		"ScoreBoard_Spectators"						"  %s2"
+		
+		//TARGETID
+		"TF_playerid_mediccharge"					"%s1%"
+		"TF_playerid_mediccharge_wpn"				"%s1%"
+		"TF_playerid_ammo"							"%s1"
+		
+		
+		//SCOREBOARD SERVER TEXT
+		"Scoreboard_Server"							"%s1"
+		
+		
+		//RESPAWN LABEL
+		"game_respawntime_now"						"Respawning"
+		"game_respawntime_in_sec"					"Respawn: 1"
+		"game_respawntime_in_secs"					"Respawn: %s1"
+		"game_respawntime_stalemate"				""
+		"game_respawntime_next_round"				""
+
+		//CLASS LIMITS
+		"TF_ClassLimitUnder"						"%s1/%s2"
+		"TF_ClassLimitHit"							"Full"
+		"TF_ClassLimitHit_None"						"Full"
+		
+		
+		//SPELL ACTION KEY
+		"TF_Spell_Action" 							"Press [%use_action_slot_item%]"
+
+
+		//CASUAL & COMP
+		"TF_Competitive_LevelTier1"					"%s1"
+		"TF_Competitive_Level"						"%s1 Tier: %s2"
+		"TF_Competitive_Placements_Multiple"		"0"
+		"TF_Competitive_Placements_Singular"		"0"
+		
+		
+		//READY STUFF
+		"Tournament_TeamReady"						"Ready"
+		"Tournament_TeamNotReady"					"Not Ready"
+		"Tournament_PlayerReady"					"Ready"
+		"Tournament_PlayerNotReady"					"Not Ready"
+		"Tournament_TeamSetupNotReady"				"Team Not Ready"
+		"Tournament_TeamSetupReady"					"Team Ready"
+		"Tournament_Instructions"					"F4 = change team name/status"
+		"Tournament_Instructions_Ready"				"F4 = Toggle Ready"
+		"Tournament_Instructions_Ready_NoKeyHintText" "Toggle Ready"
+		"Tournament_Instructions_Waiting"			"Waiting For Players"
+
+		"OverviewPage_LevelLabel" 					""
+	}
+}

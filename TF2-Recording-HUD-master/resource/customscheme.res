@@ -1,0 +1,17 @@
+Scheme
+{
+	Colors
+	{
+		
+	}
+
+	Fonts
+	{
+		
+	}
+
+	Borders
+	{
+		
+	}
+}

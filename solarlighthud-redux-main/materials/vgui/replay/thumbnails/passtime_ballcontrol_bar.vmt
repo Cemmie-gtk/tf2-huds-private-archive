@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/replay/thumbnails/passtime_ballcontrol_bar"
+	"$translucent" 1
+}

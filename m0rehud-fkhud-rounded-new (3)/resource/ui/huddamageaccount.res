@@ -1,0 +1,58 @@
+"Resource/UI/HudDamageAccount.res"
+{
+	"CDamageAccountPanel"
+	{
+		"fieldName"									"CDamageAccountPanel"
+		"text_x"									"0"
+		"text_y"									"0"
+		"delta_item_end_y"							"0"
+		"PositiveColor"								"Heal Numbers"
+		"NegativeColor"								"Damage Numbers"
+		"delta_lifetime"							"2"
+		"delta_item_font"							"m0refont18Shadow"
+		"delta_item_font_big"						"m0refont18Shadow"
+	}
+	"DamageAccountValue"
+	{
+		"ControlName"								"CExLabel"
+		"fieldName"									"DamageAccountValue"
+		"xpos"										"c200"
+		"ypos"										"r80"
+		"xpos_minmode"										"rs1"
+		"ypos_minmode"										"r42"
+		"zpos"										"2"
+		"wide"										"150"
+		"wide_minmode"										"60"
+		"tall"										"25"
+		"visible"									"1"
+		"enabled"									"1"
+		"labelText"									"%metal%"
+		"textAlignment"								"center"
+		"fgcolor"									"245 128 128 255"
+		"fgcolor_minmode"									"Health Buff"			
+		"font"										"m0refont12"
+		"font_minmode"										"m0refont16"
+	}
+	"DamageAccountValueShadow"
+	{
+		"ControlName"								"CExLabel"
+		"fieldName"									"DamageAccountValueShadow"
+		"xpos"										"-1"
+		"ypos"										"-1"
+		"zpos"										"1"
+		"wide"										"150"
+		"tall"										"25"
+		"visible"									"1"
+		"visible_minmode"									"0"
+		"enabled"									"1"
+		"labelText"									"%metal%"
+		"textAlignment"								"center"
+		"fgcolor"									"Black"
+		"font"										"m0refont12"
+		"font_minmode"										"m0refont16"
+		"alpha" "175"
+
+
+		"pin_to_sibling"							"DamageAccountValue"
+	}
+}

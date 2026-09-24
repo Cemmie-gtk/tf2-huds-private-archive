@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/replay/thumbnails/panels/misc_ammo_area_blue"
+	"$translucent" 1
+}

@@ -1,0 +1,58 @@
+"Resource/UI/HudDamageAccount.res"
+{
+	"CDamageAccountPanel"
+	{
+		"fieldName"				"CDamageAccountPanel"
+		"text_x"				"0"
+		"text_y"				"0"
+		"delta_item_end_y"		"0"
+		"PositiveColor"			"HealColor"
+		"NegativeColor"			"DamageColor"
+		"delta_lifetime"		"1.5"
+		"delta_item_font"		"RobotoBoldOutline20"
+		"delta_item_font_big"	"RobotoBoldOutline20"
+	}
+	"CDamageAccountValue"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"CDamageAccountValue"
+		"font"			"RobotoBold20"
+		"fgcolor"		"DamageColor"
+		"xpos"			"cs-0.5"
+		"ypos"			"c65"
+		"zpos"			"5"
+		"wide"			"131"
+		"tall"			"33"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"center"	
+		"labelText"		"%metal%"
+		
+		"font_minmode"	"RobotoBold20"
+		"xpos_minmode"	"c-110"
+		"ypos_minmode"	"c46"
+		"wide_minmode"	"91"
+		"tall_minmode"	"25"
+	}
+	"CDamageAccountValueShadow"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"CDamageAccountValueShadow"
+		"font"			"RobotoBold20"
+		"fgcolor"		"GShadow"
+		"xpos"			"cs-0.5+1"
+		"ypos"			"c66"
+		"zpos"			"5"
+		"wide"			"130"
+		"tall"			"32"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"center"	
+		"labelText"		"%metal%"
+		
+		"xpos_minmode"	"c-109"
+		"ypos_minmode"	"c47"
+		"wide_minmode"	"91"
+		"tall_minmode"	"25"
+	}
+}

@@ -1,0 +1,7 @@
+"HudChat.Message"
+{
+	"channel"		"CHAN_STATIC"
+	"volume"		"VOL_NORM"
+	"soundlevel"	"SNDLVL_NONE"
+	"wave"			"ui/tfmessage.wav"
+}

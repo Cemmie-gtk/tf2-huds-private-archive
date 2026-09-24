@@ -1,0 +1,93 @@
+//main file used for every meter (bg, meter itself, labels etc)
+//to change height of meters, check out huditemeffectmeter_#bottom/#middle/#top and change ypos (not the -20's!)
+
+"resource/ui/huditemeffectmeter.res"
+{
+	HudItemEffectMeter
+	{
+		"fieldName"		"HudItemEffectMeter"
+		"visible"		"1"
+		"enabled"		"1"
+		"xpos"			"rs1-50"
+		"ypos"			"r62"
+		//"xpos_minmode"	"r52"
+		//"ypos_minmode"	"r54"
+		"wide"			"100"
+		"tall"			"50"
+		"MeterFG"		"White"
+		"MeterBG"		"Gray"
+	}
+
+	"ItemEffectMeterLabel"
+	{
+		"ControlName"			"CExLabel"
+		"fieldName"				"ItemEffectMeterLabel"
+		"xpos"					"22"
+		"ypos"					"33"
+		"zpos"					"6"
+		"wide"					"80"
+		"tall"					"15"
+		"autoResize"			"1"
+		"pinCorner"				"2"
+		"visible"				"1"
+		"enabled"				"0"
+		"tabPosition"			"0"
+		"labelText"				"#TF_Ball"
+		"textAlignment"			"center"
+		"dulltext"				"0"
+		"brighttext"			"0"
+		"font"					"SLBoldSmallestish"
+		"disabledfgcolor2_override"		"TanLight"
+	}
+	"ItemEffectMeter"
+	{
+		"ControlName"			"ContinuousProgressBar"
+		"fieldName"				"ItemEffectMeter"
+		"font"					"Default"
+		"xpos"					"47"
+		"ypos"					"28"
+		"zpos"					"2"
+		"wide"					"30"
+		"tall"					"5"
+		"autoResize"			"0"
+		"pinCorner"				"0"
+		"visible"				"1"
+		"enabled"				"1"
+		"textAlignment"			"west"
+		"dulltext"				"0"
+		"brighttext"			"0"
+	}
+	"modulate" //discolors meter bg a bit, maybe needs work before making visible? -techno
+	{
+		"ControlName"				"ImagePanel"
+		"fieldName"					"modulate"
+		"xpos"						"0"
+		"ypos"						"0"
+		"zpos"						"4"
+		"wide"						"30"
+		"tall"						"5"
+		"visible"					"0"
+		"enabled"					"1"
+		"proportionaltoparent"		"1"
+		"image" 					"replay/thumbnails/ColorTanLightModulate"
+		"scaleImage" 				"1"
+		"pin_to_sibling"			"ItemEffectMeter"
+		"pin_corner_to_sibling"		"PIN_TOPLEFT"
+		"pin_to_sibling_corner"		"PIN_TOPLEFT"
+	}
+	//reminder: test in 4:3 -techno
+	"coolborder"
+	{
+		"ControlName"			"ImagePanel"
+		"fieldName"				"coolborder"
+		"xpos"					"22"
+		"ypos"					"14"
+		"wide"					"80"
+		"tall"					"40"
+		"scaleImage"			"1"
+		"border"				"SolarNoClipRectangleBG"
+		"pin_to_sibling"			"HudItemEffectMeter"
+		"pin_corner_to_sibling"		"PIN_TOPLEFT"
+		"pin_to_sibling_corner"		"PIN_TOPLEFT"
+	}
+}

@@ -1,0 +1,78 @@
+"Resource/UI/HudItemEffectMeter_Demoman.res"
+{
+	HudItemEffectMeter
+	{
+		"fieldName"		"HudItemEffectMeter"
+		"visible"		"0"
+		"enabled"		"0"
+		"xpos"			"-27"
+		"ypos"			"r40"
+		"wide"			"100"
+		"tall"			"50"
+		"MeterFG"		"EllWhite"
+		"MeterBG"		"EllWhite"
+	}
+	
+	"ItemEffectMeterLabel"
+	{
+		"ControlName"			"CExLabel"
+		"fieldName"				"ItemEffectMeterLabel"
+		"xpos"					"25"
+		"ypos"					"27"
+		"zpos"					"2"
+		"wide"					"41"
+		"tall"					"15"
+		"autoResize"			"1"
+		"pinCorner"				"2"
+		"visible"				"0"
+		"enabled"				"0"
+		"tabPosition"			"0"
+		"labelText"				"#TF_KillStreak"
+		"textAlignment"			"center"
+		"dulltext"				"0"
+		"brighttext"			"0"
+		"font"					"Surface10Outlined"
+		"fgColor"      		 	"EllWhite"
+	}
+
+	"ItemEffectMeter"
+	{	
+		"ControlName"			"ContinuousProgressBar"
+		"fieldName"				"ItemEffectMeter"
+		"font"					"Surface12Outlined"
+		"xpos"					"25"
+		"ypos"					"23"
+		"zpos"					"2"
+		"wide"					"40"
+		"tall"					"6"				
+		"autoResize"			"0"
+		"pinCorner"				"0"
+		"visible"				"0"
+		"enabled"				"0"
+		"textAlignment"			"Left"
+		"dulltext"				"0"
+		"brighttext"			"0"
+		"fgColor"       		"EllWhite"
+	}					
+	
+	"ItemEffectMeterCount"
+	{
+		"ControlName"			"CExLabel"
+		"fieldName"				"ItemEffectMeterCount"
+		"xpos"					"25"
+		"ypos"					"7"
+		"zpos"					"2"
+		"wide"					"40"
+		"tall"					"24"	
+		"pinCorner"				"2"
+		"visible"				"0"
+		"enabled"				"0"
+		"tabPosition"			"0"
+		"labelText"				"%progresscount%"
+		"textAlignment"			"north"
+		"dulltext"				"0"
+		"brighttext"			"0"
+		"font"					"Surface24Outlined"
+		"fgColor"       		"EllWhite"
+	}
+}

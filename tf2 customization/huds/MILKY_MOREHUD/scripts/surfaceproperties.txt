@@ -1,0 +1,1300 @@
+// "surface group" 
+// { 
+// "property" 	"value"
+// ...
+// }
+//
+// thickness: If this value is present, the material is not volumetrically solid
+// it means that the volume should be computed as the surface area times this
+// thickness (for automatic mass).  The inside space beneath the thickness value is air.
+//
+// physics parameters are:
+// density: this is the material density in kg / m^3 (water is 1000)
+// elasticity: This is the collision elasticity (0 - 1.0, 0.01 is soft, 1.0 is hard)
+// friction: this is the physical friction (0 - 1.0, 0.01 is slick, 1.0 is totally rough)
+// dampening: this is the physical drag on an object when in contact with this surface (0 - x, 0 none to x a lot)
+//
+// !!! Do not edit the physics properties (especially density) without the proper references !!!
+//
+// Sounds
+// 
+// stepleft: footstep sound for left foot
+// stepright: footstep sound for right foot
+// impactsoft: Physical impact sound when hitting soft surfaces
+// impacthard: Physical impact sound when hitting hard surfaces
+// scrapesmooth: Looping physics friction sound (when scraping smooth surfaces)
+// scraperough: Looping physics friction sound (when scraping rough surfaces)
+// bulletimpact: bullet impact sound
+// gamematerial: game material index (can be a single letter or a number)
+// 
+
+// NOTE: The properties of "default" will get copied into EVERY material who does not
+// 	 override them!!!
+//
+// "base" means to use the parameters from that material as a base.
+// "base" must appear as the first key in a material
+//
+
+// -----------------------------
+// world materials
+// -----------------------------
+
+// NOTE: "default" properties are assigned to ALL other materials unless overriden!!!
+"default"
+{
+	"density"	"2000"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	"dampening"	"0.0"
+
+	"stepleft"	"SolidMetal.StepLeft"
+	"stepright"	"SolidMetal.StepRight"
+	"impacthard"	"SolidMetal.ImpactHard"
+	"impactsoft"	"SolidMetal.ImpactSoft"
+	"scraperough"	"SolidMetal.ScrapeRough"
+	"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.66"
+	"audiohardnessfactor" "1.0"
+	"audioroughnessfactor" "1.0"
+
+	"scrapeRoughThreshold" "0.5"
+	"impactHardThreshold" "0.5"
+
+	"gamematerial"	"-"
+	"jumpfactor" "1.0"
+	"maxspeedfactor" "1.0"
+	"climbable"	"0"
+}
+
+// NOTE: Almost nothing is solid metal - so "metal" is sheet metal
+"solidmetal"
+{
+	"density"	"2700"
+	"elasticity"	"0.1"
+	"audioreflectivity" "0.83"
+	"friction"	"0.8"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	// "strain"		"SolidMetal.Strain"
+
+	//"gamematerial"	"I"
+}
+
+// metal box - smaller metal box (< 2' width/height/depth)
+
+"Metal_Box"
+{
+	"base"	"solidmetal"
+	"thickness"	"0.1"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"break"		"Metal_Box.Break"
+	// "strain"		"Metal_Box.Strain"
+}
+
+// Assume that everything we are building
+// is large enough to be constructed out of a thin sheet of metal
+// only flag a few things as "solidmetal" (I-Beams, anvils, etc)
+"metal"
+{
+	"base"		"solidmetal"
+	"elasticity"	"0.25"
+	"thickness"	"0.1"
+}
+
+"metal_bouncy"
+{
+	"base"		"solidmetal"
+	"elasticity"	"1000"
+	"friction"	"0"
+	"density"	"10000"
+}
+
+// Airboat pontoons have very low friction
+// TODO: make the pontoon material separate from the rest of the airboat?
+"slipperymetal"
+{
+	"base"		"metal"
+	"friction"	"0.1"
+	"elasticity" "0.15"
+
+	"audioreflectivity" "0.83"
+	"audioroughnessfactor" "0.1"
+}
+
+// metal grating, used for decking
+
+"metalgrate"
+{
+	"thickness"	"0.5"
+	"density"	"1600"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.83"
+
+	// "strain"		"Metal_Box.Strain"
+
+	//"gamematerial"	"I"
+}
+
+// ~1mm thick metal
+
+"metalvent"
+{
+	"base"		"metal_box"
+	"thickness"	"0.04"
+	"density"	"2700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	
+	"audioreflectivity" "0.33"
+	"audioroughnessfactor" "0.1"
+
+	//"gamematerial"	"I"
+}
+
+// thick solid steel panel - used for solid wall, floor, machine construction
+
+"metalpanel"
+{
+	"base"		"metal"
+	"thickness"	"0.1"
+	"density"	"2700"
+	"elasticity"	"0.2"
+	"friction"	"0.8"
+
+	"audioreflectivity" "0.33"
+	"audioroughnessfactor" "0.1"
+
+	//"gamematerial"	"I"
+}
+
+"dirt"
+{
+	"density"	"1600"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.03"
+	"audiohardnessfactor" "0.25"
+
+	//"gamematerial"	"I"
+}
+
+"mud"
+{
+	"base"		 "dirt"
+	"friction"	 "0.6"
+	"dampening"	 "6.0"
+
+	//"stepleft"	 "Mud.StepLeft"
+	//"stepright"	 "Mud.StepRight"
+	
+	"audiohardnessfactor" "0.0"
+	"audioroughnessfactor" "0.1"
+}
+
+"slipperyslime"
+{
+	"base"		"dirt"
+	"friction"	 "0.1"
+	"jumpfactor" "0.7"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audiohardnessfactor" "0.0"
+	"audioroughnessfactor" "0.1"
+}
+
+"grass"
+{
+	"base"		"dirt"
+	
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+"tile"
+{
+	"thickness"	"0.5"
+	"density"	"2700"
+	"elasticity"	"0.3"
+	"friction"	"0.8"
+
+	//"stepleft"	"Tile.StepLeft"
+	//"stepright"	"Tile.StepRight"
+
+	"audioreflectivity" "0.99"
+	"audioroughnessfactor" "0.1"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	
+	//"gamematerial"	"I"
+}
+
+// generic wood (NOTE: materials should use wood_box, wood_crate, wood_plank, wood_panel etc)
+
+"Wood"	
+{
+	"density"	"700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood.Strain"
+	"break"			"Wood.Break"
+
+	"audioreflectivity" "0.33"
+	"audiohardnessfactor" "0.25"
+
+	//"gamematerial"	"I"
+}
+
+"Wood_lowdensity"
+{
+	"base"		"wood"
+	"density"	"300"
+}
+
+// small crate
+
+"Wood_Box"
+{
+	"base"	"Wood"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Box.Strain"
+	"break"			"Wood_Box.Break"
+
+}
+
+// large crate, large wood furniture (bookcases, tables)
+
+"Wood_Crate"
+{
+	"base"	"Wood"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Crate.Strain"
+	"break"			"Wood_Crate.Break"
+
+}
+
+// wood board, floorboard, plank
+
+"Wood_Plank"
+{
+	"base"	"Wood_Box"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Plank.Strain"
+	"break"			"Wood_Plank.Break"
+
+}
+
+// solid 6x6 or greater block, post or tree
+
+"Wood_Solid"
+{
+	"base"	"Wood"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Solid.Strain"
+	"break"			"Wood_Solid.Break"
+
+}
+
+// small wood furniture - chairs, small tables
+
+"Wood_Furniture"
+{
+	"base"	"Wood_Box"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Furniture.Strain"
+	"break"			"Wood_Furniture.Break"
+
+}
+
+// wood panel - plywood panel, wood door panel
+
+"Wood_Panel"
+{
+	"base"	"Wood_Crate"
+	"thickness"		"1.0"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Wood_Panel.Strain"
+	"break"			"Wood_Panel.Break"
+
+}
+
+
+"water"
+{
+	"density"	"1000"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.33"
+	"audioroughnessfactor" "0.1"
+	"audiohardnessfactor" "0.0"
+
+	//"gamematerial"	"I"
+}
+
+"slime"
+{
+	"density"	"2000"
+	"elasticity" "0.1"
+	"friction"	"0.9"
+	"dampening"	 "200.0"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	//"gamematerial"	"I"
+
+	"audioreflectivity" "0.33"
+	"audiohardnessfactor" "0.0"
+	"audioroughnessfactor" "0.1"
+}
+
+"quicksand"
+{
+	"density"	"600"
+	"elasticity"	"2.0"
+
+	"audioreflectivity" "0.33"
+	"audiohardnessfactor" "0.0"
+	"audioroughnessfactor" "1.0"
+}
+
+// wade is a water material for walking in/on water at knee height
+"wade"
+{
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.33"
+
+	"gamematerial" "X"
+}
+
+// ladder is a fake material for walking on ladders
+"ladder"
+{
+	"base"		"metal"
+	"climbable"	"1.0"
+	//"stepleft"	"Ladder.StepLeft"
+	//"stepright"	"Ladder.StepRight"
+
+	"audioreflectivity" "0.33"
+
+	"gamematerial" "X"
+}
+
+"woodladder"
+{
+	"base"		"wood"
+	"climbable"	"1.0"
+	//"stepleft"	"Ladder.WoodStepLeft"
+	//"stepright"	"Ladder.WoodStepRight"
+
+	"audioreflectivity" "0.33"
+
+	"gamematerial" "X"
+}
+
+// pane of glass, computer screen, window, glass door
+
+"glass"
+{
+	"thickness"	"0.5"
+	"density"	"2700"
+	"elasticity"	"0.2"
+	"friction"	"0.5"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	
+	// "strain"		"Glass.Strain"
+	"break"			"Glass.Break"
+
+	"audioreflectivity" "0.66"
+	"audiohardnessfactor" "1.0"
+
+	"audioroughnessfactor" "0.0"
+	//"gamematerial"	"I"
+}
+
+// computer case, tech equipment case
+
+"computer"
+{
+	"base"		"metal_box"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	//"gamematerial"	"I"
+}
+
+"concrete"
+{
+	"density"	"2400"
+	"elasticity"	"0.2"
+	"friction"	"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.66"
+
+	//"gamematerial"	"I"
+}
+
+// Solid rock (small sounds)
+"rock"
+{
+	"base"		"concrete"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+}
+
+// tubs, urinals, sinks
+
+"porcelain"
+{
+	"base"		"rock"
+}
+
+// Large solid rock (large sounds)
+"boulder"
+{
+	"base"		"rock"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+"gravel"
+{
+	"base"		"rock"
+	"friction"	"0.4"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+"brick"
+{
+	"base"		"rock"
+}
+
+// 9x12 prefabricated concrete cinder blocks
+
+"concrete_block"
+{
+	
+	"base"		"concrete"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+// chainlink fencing material
+
+"chainlink"
+{
+	"thickness"	"0.5"
+	"density"	"1600"
+	"elasticity"	"0.25"
+	"friction"	"0.8"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	//"gamematerial"	"I"
+}
+
+// metal chain
+
+"chain"
+{
+	"base"		"chainlink"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	//"gamematerial"	"I"
+}
+
+// medium sized body
+
+"flesh"
+{
+	"density"	"900"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Flesh.Strain"
+	"break"			"Flesh.Break"
+
+	"audiohardnessfactor" "0.25"
+	"audioHardMinVelocity" "500"
+	"audioroughnessfactor" "0.1"
+
+	//"gamematerial"	"I"
+}
+
+// gibs
+
+"bloodyflesh"
+{
+	"base"			"flesh"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	//"gamematerial"	"I"
+}
+
+"alienflesh"
+{
+	"base"			"flesh"
+
+	//"gamematerial"	"I"
+}
+
+
+// Flesh for physics, metal for bullet fx
+"armorflesh"
+{
+	"base"		"flesh"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audiohardnessfactor" "1.0"
+	"audioroughnessfactor" "0.1"
+
+	//"gamematerial"	"I"
+}
+
+"watermelon"
+{
+	"density"	"900"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audiohardnessfactor" "0.25"
+	"audioroughnessfactor" "0.1"
+
+	//"gamematerial"	"I"
+}
+
+"snow"
+{
+	"base"		"dirt"
+	"density"	"800"
+	"friction"	"0.35"
+
+	"audiohardnessfactor" "0.25"
+}
+
+"ice"
+{
+	"density"	"917"
+	"friction"	"0.1"
+	"elasticity"	"0.1"
+
+	"audioroughnessfactor" "0.1"
+}
+
+
+// UNDONE: Do proper values for these - I made them up so I would have good
+// initial values for all VMTs
+"carpet"
+{
+	"base"		"dirt"
+	"density"	"500"
+	"thickness"	"0.1"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+	
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.03"
+	"audiohardnessfactor" "0.25"
+	"audioroughnessfactor" "0.1"
+}
+
+// drywall, office wall material, sheetrock
+
+"plaster"
+{
+	"base"		"dirt"
+	"audiohardnessfactor" "0.5"
+	"audioroughnessfactor" "0.1"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Cardboard.Strain"
+	"break"			"Cardboard.Break"
+
+}
+
+// carboard box
+
+"cardboard"
+{
+	"base"		"dirt"
+	"density"	"500"
+	"thickness"	"0.25"
+
+	"audiohardnessfactor" "0.25"
+	"audioroughnessfactor" "0.25"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"shake"			"Cardboard.Shake"
+//	"strain"		"Cardboard.Strain"
+	"break"			"Cardboard.Break"
+
+}
+
+// larger plastic barrel, hollow, soft plastic
+
+"plastic_barrel"
+{
+	"density"	"500"
+	"thickness"	"0.25"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+
+	"audiohardnessfactor" "0.25"
+	"audioroughnessfactor" "0.25"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"shake"			"Plastic_Barrel.Shake"
+//	"strain"		"Plastic_Barrel.Strain"
+	"break"			"Plastic_Barrel.Break"
+//	"roll"			"Plastic_Barrel.Roll"
+
+	//"gamematerial"	"I"
+}
+
+// small - medium plastic box, hard plastic
+
+"Plastic_Box"
+{
+	"density"	"500"
+	"elasticity"	"0.01"
+	"friction"	"0.8"
+	"thickness"	"0.25"
+
+	"audiohardnessfactor" "0.25"
+	"audioroughnessfactor" "0.25"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Plastic_Box.Strain"
+	"break"			"Plastic_Box.Break"
+
+	//"gamematerial"	"I"
+}
+
+// smaller generic hard plastic
+
+"plastic"
+{
+ 	"base"		"Plastic_Box"
+	"audioroughnessfactor" "0.1"
+
+	//"bulletimpact"	"Plastic_Box.ImpactHard"
+}
+
+// small med kit, smaller tech items, battery
+
+"item"
+{
+	"base"		"Plastic_Box"
+	"density"	"600"
+
+	//"bulletimpact"	"Plastic_Box.ImpactHard"
+}
+
+
+// This one is used for puzzles where we want something that floats
+// but the player can stand on without it sinking beneath the water
+"floatingstandable"
+{
+	"base"		"dirt"
+	"density"	"800"
+}
+
+
+"sand"
+{
+	"base"		"dirt"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioreflectivity" "0.03"
+}
+
+// solid rubber floor mat, solid rubber tire
+
+"rubber"
+{
+	"base"			"dirt"
+	"elasticity"	"0.2"
+	"friction"		"0.8"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"audioroughnessfactor" "0.1"
+	"audiohardnessfactor" "0.2"
+
+}
+
+// hollow rubber tire
+
+"rubbertire"
+{
+	"base"			"rubber"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+}
+
+"jeeptire"
+{
+	"base"			"rubber"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.337"
+}
+
+"slidingrubbertire"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}
+
+"brakingrubbertire"
+{
+	"base"			"rubber"
+	"friction"		"0.6"
+}
+
+"slidingrubbertire_front"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}
+
+"slidingrubbertire_rear"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}
+
+// -----------------------------
+// objects
+// -----------------------------
+
+
+// glass soda bottle, cup, plate, jar
+
+"glassbottle"
+{
+	"base"		"glass"
+	"friction"	"0.4"
+	"elasticity"	"0.3"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"break"			"GlassBottle.Break"
+}
+
+// ceramic jug, mug
+
+"pottery"
+{
+	"base"		"glassbottle"
+	"friction"	"0.4"
+	"elasticity"	"0.3"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"break"			"Pottery.Break"
+}
+
+// solid hand grenade
+
+"grenade"
+{
+	"base"		"metalpanel"
+	"friction"	"0.9"
+	"elasticity"	"0.01"
+
+
+	"audiohardnessfactor" "1.0"
+	"audioroughnessfactor" "0.4"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	// "roll"		"Grenade.Roll"
+}
+
+
+// large oxygen tank, propane tank, welding tank
+
+"canister"
+{
+	"base"		"metalpanel"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	// "roll"		"Canister.Roll"
+}
+
+// larger metal barrel, metal oil drum
+
+"metal_barrel"
+{
+	"base"		"metal_box"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	// "roll"		"Metal_Barrel.Roll"
+}
+
+"floating_metal_barrel"
+{
+	"base"		"metal_barrel"
+	"density"	"500"
+}
+
+"plastic_barrel_buoyant"
+{
+	"base"		"plastic_barrel"
+	"density"	"150"
+}
+
+// ROLLER NPC
+
+"roller"
+{
+	"base"		"metalpanel"
+	"friction"	"0.7"
+	"elasticity"	"0.3"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+// small aluminum can, full
+
+"popcan"
+{
+	"base"		"metal_box"
+	"friction"	"0.3"
+	"elasticity"	"0.99"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+	// strain		// none
+	// break		// none
+}
+
+// paint can, smaller metal can
+
+"paintcan"
+{
+	"base"		"popcan"
+	"friction"	"0.3"
+	"elasticity"	"0.99"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	//"roll"		"Paintcan.Roll"
+	// strain		// none
+	// break		// none
+}
+
+"paper"
+{
+	"base"		"cardboard"
+}
+
+
+"papercup"
+{
+	"base"		"paper"
+	"friction"	"0.8"
+	"elasticity"	"0.1"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+// accoustic ceiling tiles, sound baffles, crumbly plaster
+"ceiling_tile"
+{
+	"base"		"cardboard"
+
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+
+	"break"			"ceiling_tile.Break"
+}
+
+
+// weapon models - sounds for when weapons drop
+// Maybe we'll want specific materials for each weapon?
+"weapon"
+{
+	"base"		"metal"
+	//"stepleft"	"SolidMetal.StepLeft"
+	//"stepright"	"SolidMetal.StepRight"
+	//"impacthard"	"SolidMetal.ImpactHard"
+	//"impactsoft"	"SolidMetal.ImpactSoft"
+	//"scraperough"	"SolidMetal.ScrapeRough"
+	//"scrapesmooth"	"SolidMetal.ScrapeSmooth"
+	//"bulletimpact"	"SolidMetal.BulletImpact"
+}
+
+// for invisible collision materials (like sky)
+"default_silent"
+{
+	//"gamematerial"	"I"
+}
+
+// special materials for player controller
+"player"
+{
+	"density"	"1000"
+	"friction"	"0.5"
+	"elasticity"	"0.001"
+
+	// player is soft & smooth for sound selection
+	"audiohardnessfactor" "0.0"
+	"audioroughnessfactor" "0.0"
+}
+
+"player_control_clip"
+{
+	//"gamematerial"	"I"
+}
+
+"no_decal"
+{
+	"density"	"900"
+	//"gamematerial"	"I"
+}
+
+"foliage"
+{
+	"base"		"Wood_Solid"
+
+	"density"	"700"
+	"elasticity"	"0.1"
+	"friction"	"0.8"
+
+	//"gamematerial"	"I"
+}
+
+ 

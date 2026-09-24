@@ -1,0 +1,89 @@
+"Resource/UI/FreezePanelKillerHealth.res"
+{
+	"PlayerStatusHealthValueKiller"
+	{
+		"ControlName"								"Label"
+		"fieldName"									"PlayerStatusHealthValueKiller"
+		"xpos"										"-2"
+		"ypos"										"-4"
+		"zpos"										"20"
+		"wide"										"40"
+		"tall"										"41"
+		"visible"									"1"
+		"enabled"									"1"
+		"textAlignment"								"center"	
+		"labeltext"									"%Health%"
+		"font"										"M0refont24"
+		"fgcolor_override"  						"Health Numbers"	
+	}
+	
+	"PlayerStatusHealthValueShadowKiller"
+	{
+		"ControlName"								"Label"
+		"fieldName"									"PlayerStatusHealthValueShadowKiller"
+		"xpos"										"-1"
+		"ypos"										"-1"
+		"zpos"										"20"
+		"wide"										"40"
+		"tall"										"41"
+		"visible"									"1"
+		"enabled"									"1"
+		"textAlignment"								"center"	
+		"labeltext"									"%Health%"
+		"font"										"M0refont24"
+		"fgcolor_override"  						"Black"
+		
+		"pin_to_sibling"							"PlayerStatusHealthValueKiller"
+		"pin_corner_to_sibling"						"PIN_TOPLEFT"
+		"pin_to_sibling_corner"						"PIN_TOPLEFT"
+	}
+	
+	"PlayerStatusHealthBonusImage"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"PlayerStatusHealthBonusImage"
+		"xpos"										"8"
+		"ypos"										"8"
+		"zpos"										"19"
+		"wide"										"20"
+		"tall"										"20"
+		"visible"									"0"
+		"enabled"									"1"
+		"image"										"../hud/health_over_bg"
+		"scaleImage"								"1"	
+	}
+	
+	
+	
+	
+	
+	//////////////////////////////////REMOVED STUFF//////////////////////////////////
+	
+	"PlayerStatusHealthImage"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"PlayerStatusHealthImage"
+		"wide"										"0"
+		"tall"										"0"
+		"visible"									"0"
+		"enabled"									"0"	
+	}
+	"PlayerStatusHealthImageBG"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"PlayerStatusHealthImageBG"
+		"wide"										"0"
+		"tall"										"0"
+		"visible"									"0"
+		"enabled"									"0"	
+	}
+	"BuildingStatusHealthImageBG"
+	{
+		"ControlName"								"ImagePanel"
+		"fieldName"									"PlayerStatusHealthImageBG"
+		"wide"										"0"
+		"tall"										"0"
+		"visible"									"0"
+		"enabled"									"0"	
+	}
+}

@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/replay/thumbnails/icons/marked_for_death"
+	"$translucent" 1
+	"$ignorez" 1
+	"$vertexcolor" 0
+}

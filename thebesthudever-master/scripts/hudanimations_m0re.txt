@@ -1,0 +1,163 @@
+//===========================================================================================================================
+
+event HudHealthBonusPulse
+{
+}
+event HudHealthBonusPulseStop
+{
+}
+
+//===========================================================================================================================
+
+event HudHealthDyingPulse
+{
+}
+event HudHealthDyingPulseStop
+{
+}
+
+//===========================================================================================================================
+
+event HudLowAmmoPulse
+{
+	Animate AmmoInClipShadow						FgColor		"Ammo In Clip Low"					Linear	0.0		0.0
+	Animate AmmoInReserveShadow						FgColor		"Ammo In Reserve Low"				Linear	0.0		0.0
+	Animate AmmoNoClipShadow						FgColor		"Ammo No Clip Low"					Linear	0.0		0.0
+
+	RunEvent HudLowAmmoPulseLoop					0.25
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse						0.0
+	StopEvent HudLowAmmoPulseLoop					0.0
+
+	Animate AmmoInClipShadow						FgColor		"Black"								Linear	0.0		0.0
+	Animate AmmoInReserveShadow						FgColor		"Black"								Linear	0.0		0.0
+	Animate AmmoNoClipShadow						FgColor		"Black"								Linear	0.0		0.0
+}
+
+//===========================================================================================================================
+
+event HudMedicCharged
+{
+	Animate ChargeLabel								FgColor		"Ubercharge Full"					Linear	0.0		0.0
+	Animate ChargeLabelBigShadow					FgColor		"Ubercharge Full"					Linear	0.0		0.0
+
+	Animate ChargeLabelBigShadowExtra				Alpha		"255"								Linear	0.0		0.0
+
+	Animate ChargeMeter								FgColor		"Ubercharge Full"					Linear	0.0		0.0
+
+	RunEvent HudMedicChargedLoop					0.6
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged						0.0
+	StopEvent HudMedicChargedLoop					0.0
+
+	Animate	ChargeLabel								FgColor		"Ubercharge"						Linear	0.0		0.0001
+
+	Animate	ChargeLabelBigShadow					FgColor		"Black"								Linear	0.0		0.0001
+	Animate ChargeLabelBigShadowExtra				Alpha		"0"									Linear	0.0		0.0001
+
+	Animate	ChargeMeter								FgColor		"Ubercharge"						Linear	0.0		0.0001
+}
+
+//===========================================================================================================================
+
+event HudTournamentSetupPanelOpen
+{
+	Animate HudTournamentSetup						ypos	"-50"									Linear	0.0		0.001
+	Animate HudTournamentSetup						ypos	"32"									Spline	0.001	0.1
+}
+
+event HudTournamentSetupPanelClose
+{
+	Animate HudTournamentSetup						ypos	"32"									Linear	0.0		0.001
+	Animate HudTournamentSetup						ypos	"-50"									Spline	0.001	0.6
+}
+
+//===========================================================================================================================
+
+event HudTournament_ShowTimerCompetitive
+{
+	Animate CountdownLabel							ypos	"150"									Linear	0		0
+	Animate CountdownLabelShadow					ypos	"150"									Linear	0		0
+
+	SetVisible CountdownBG							1 0
+	SetVisible CountdownLabel						1 0
+	SetVisible CountdownLabelShadow					1 0
+}
+
+event HudTournament_ShowTimerDefault
+{
+	Animate CountdownLabel							ypos	"150"									Linear	0		0
+	Animate CountdownLabelShadow					ypos	"150"									Linear	0		0
+
+	SetVisible CountdownBG							1 0
+	SetVisible CountdownLabel						1 0
+	SetVisible CountdownLabelShadow					1 0
+}
+
+//===========================================================================================================================
+
+event ActiveTimerHighlight
+{
+	Animate TimePanelValue							FgColor		"255 255 100 255"					Linear	0.0		0.0
+}
+
+event ActiveTimerDim
+{
+	Animate TimePanelValue							FgColor		"White"								Linear	0.0		0.0
+}
+
+//===========================================================================================================================
+
+event HudSnapShotReminderIn
+{
+	RunEvent HudHealthDyingPulseStop				10.0
+	RunEvent HudHealthBonusPulseStop				10.0
+	RunEvent HudLowAmmoPulseStop					10.0
+	RunEvent HudMedicChargedStop					10.0
+}
+//===========================================================================================================================
+event DamagedPlayer
+{
+	Animate	        Gif	    Alpha	"255"	Linear 0.0 0.0		
+	Animate	        Gif	    Alpha	"0"		Linear 0.0 1.0
+}
+//===========================================================================================================================
+
+event Flashbang
+{
+	Animate flashbang alpha "255"	Linear 0.0 0.0
+	Animate flashbang alpha "0"	Linear 1.0 1.5
+	
+	FireCommand    0.0 		"play ui/flash.mp3"
+}
+
+event HudSpyDisguiseChanged{
+RunEvent Flashbang 11.0 
+
+	Animate PlayerStatusSpyOutlineImage		Alpha		"255"			Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Position	"c-200 c-200"	Linear 0.0 0.2
+	Animate PlayerStatusSpyOutlineImage		Size		"400 400"		Linear 0.0 0.2
+
+	RunEvent HudSpyDisguiseHide	0.7}
+event FlagOutline{}
+event HasNotificationsBlink{}
+event HasNotificationsBlinkStop{}
+event CompetitiveGame_LowerChatWindow{}
+event CompetitiveGame_RestoreChatWindow{}
+event HudTournament_MoveChatWindow{}
+event RDPositiveScorePulse{}
+event RDNegativeScorePulse{}
+
+event TeamStatus_PlayerDead
+{
+}
+event TeamStatus_PlayerAlive
+{
+}

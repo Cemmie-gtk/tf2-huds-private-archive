@@ -1,0 +1,23 @@
+//This texture is used to darken certain screens, but only in DX8, since the other texture is used for DX9.
+
+"UnlitGeneric"
+{
+
+	"$vertexcolor" 1
+	"$vertexalpha" 1
+	"$no_fullbright" 1
+	"$ignorez" 1
+	"%keywords" "tf"
+	"$translucent" 1
+
+	">=DX90"
+	{
+		"$basetexture" "vgui/replay/thumbnails/blank"
+	}
+
+	"<DX90"
+	{
+		"$basetexture" "vgui/replay/thumbnails/ColorBlack"
+	}
+}
+

@@ -1,0 +1,107 @@
+"Resource/UI/HudRocketPack.res"
+{
+	HudItemEffectMeter
+	{
+		"fieldName"		"HudItemEffectMeter"
+		"visible"		"1"
+		"enabled"		"1"
+		"xpos"			"0"	
+		"ypos"			"30"	
+		"wide"			"f0"
+		"tall"			"480"
+	}
+	
+	"ItemEffectMeterBG"
+	{
+		"ControlName"	"CTFImagePanel"
+		"fieldName"		"ItemEffectMeterBG"
+		"xpos"			"12"
+		"ypos"			"6"
+		"zpos"			"0"
+		"wide"			"100"
+		"tall"			"50"
+		"visible"		"0"
+		"enabled"		"0"
+		"image"			"../hud/misc_ammo_area_horiz1_blue"
+		"scaleImage"	"1"	
+		"teambg_2"		"../hud/misc_ammo_area_horiz1_red"
+		"teambg_2_lodef"	"../hud/misc_ammo_area_red_lodef"
+		"teambg_3"		"../hud/misc_ammo_area_horiz1_blue"
+		"teambg_3_lodef"	"../hud/misc_ammo_area_blue_lodef"				
+	}
+	
+	"ItemEffectMeterBGshade"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"ItemEffectMeterBGshade"
+		"font"			"Default"
+		"xpos"			"386"
+		"ypos"			"333"
+		"zpos"			"-6"
+		"wide"			"82"
+		"tall"			"7"		
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"fillcolor"		"22 22 22 222"
+		"PaintBackgroundType""0"
+	}
+	
+	"ItemEffectMeterLabel"
+	{
+		"ControlName"			"CExLabel"
+		"fieldName"			"ItemEffectMeterLabel"
+		"xpos"			"c-7"
+		"ypos"			"r91"
+		"zpos"			"3"
+		"wide"			"137"
+		"tall"			"8"
+		"visible"				"0"
+		"enabled"				"0"
+		"labelText"			"#TF_RocketPack_Disabled"
+		"fgcolor_override" "Black"
+		"textAlignment"			"center"
+		"font"				"Inter6"
+	}
+
+	"ItemEffectMeter"
+	{	
+		"ControlName"	"ContinuousProgressBar"
+		"fieldName"		"ItemEffectMeter"
+		"font"			"Default"
+		"xpos"			"c-40"
+		"ypos"			"r146"
+		"zpos"			"2"
+		"wide"			"38"
+		"tall"			"4"				
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"Left"
+		"bgcolor_override" "0 0 0 175"
+		"dulltext"		"0"
+		"brighttext"	"0"
+	}	
+	
+	"ItemEffectMeter2"
+	{	
+		"ControlName"	"ContinuousProgressBar"
+		"fieldName"		"ItemEffectMeter2"
+		"font"			"Default"
+		"xpos"			"c1"
+		"ypos"			"r146"
+		"zpos"			"2"
+		"wide"			"38"
+		"tall"			"4"				
+		"autoResize"	"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"Left"
+		"bgcolor_override" "0 0 0 175"
+		"dulltext"		"0"
+		"brighttext"	"0"
+	}
+}

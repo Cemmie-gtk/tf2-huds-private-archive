@@ -1,0 +1,102 @@
+// dying
+
+event HudHealthDyingPulse
+{
+	// change contrast
+	Animate PlayerStatusHealthValueGradient1 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient2 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient3 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient4 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient5 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadowSolid Alpha "255" Linear 0.0 0.0
+	
+	// flashing
+	Animate PlayerStatusHealthValue FgColor "245 17 41 255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValue FgColor "235 67 22 255" Accel 0.0 0.2
+	Animate PlayerStatusHealthValue FgColor "245 17 41 255" Deaccel 0.25 0.5
+	
+	RunEvent HudHealthDyingPulseLoop	0.75
+}
+
+event HudHealthDyingPulseStop
+{
+	RunEvent DefaultAnimHudHealthDyingPulseStop 0.0
+	
+	Animate PlayerStatusHealthValueGradient1 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient2 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient3 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient4 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient5 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadowSolid Alpha "50" Linear 0.0 0.0
+	Animate PlayerStatusHealthValue FgColor "195 210 240 255" Linear 0.0 0.0
+}
+
+// overheal
+
+event HudHealthBonusPulse
+{
+	// change contrast
+	Animate PlayerStatusHealthValueGradient1 Alpha "35" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient2 Alpha "35" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient3 Alpha "35" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient4 Alpha "35" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient5 Alpha "35" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadowSolid Alpha "255" Linear 0.0 0.0
+	
+	// flashing
+	Animate PlayerStatusHealthValue FgColor "50 125 235 255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValue FgColor "50 235 150 255" Accel 0.0 0.2
+	Animate PlayerStatusHealthValue FgColor "50 125 235 255" Deaccel 0.25 0.5
+	
+	RunEvent HudHealthBonusPulseLoop	0.75
+}
+
+event HudHealthBonusPulseStop
+{
+	RunEvent DefaultAnimHudHealthBonusPulseStop 0.0
+	
+	Animate PlayerStatusHealthValueGradient1 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient2 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient3 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient4 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueGradient5 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadowSolid Alpha "50" Linear 0.0 0.0
+	Animate PlayerStatusHealthValue FgColor "195 210 240 255" Linear 0.0 0.0
+}
+
+// low ammo
+
+event HudLowAmmoPulse
+{
+	// change contrast
+	Animate PlayerStatusAmmoValueGradient1 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient2 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient3 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient4 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient5 Alpha "25" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueShadowSolid Alpha "255" Linear 0.0 0.0
+	
+	Animate AmmoInClip FgColor "240 100 20 255" Linear 0.0 0.0
+	
+	// flashing
+	Animate PlayerStatusAmmoValue FgColor "245 17 41 255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValue FgColor "235 67 22 255" Accel 0.0 0.2
+	Animate PlayerStatusAmmoValue FgColor "245 17 41 255" Deaccel 0.25 0.5
+	
+	RunEvent HudLowAmmoPulseLoop	0.75
+}
+
+event HudLowAmmoPulseStop
+{
+	RunEvent DefaultAnimHudLowAmmoPulseStop 0.0
+	
+	Animate PlayerStatusAmmoValueGradient1 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient2 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient3 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient4 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueGradient5 Alpha "255" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValueShadowSolid Alpha "50" Linear 0.0 0.0
+	Animate PlayerStatusAmmoValue FgColor "195 210 240 255" Linear 0.0 0.0
+	
+	Animate AmmoInClip FgColor "160 95 250 255" Linear 0.0 0.0
+}

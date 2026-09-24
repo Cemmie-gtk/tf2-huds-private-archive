@@ -1,0 +1,38 @@
+//===========================================================================================================================
+
+event HudLowAmmoPulse
+{
+	Animate	AmmoInClip							FgColor			"250 80 80 255"				Linear 0.0 0.0
+	Animate	AmmoInClip							FgColor			"160 50 50 255"		Linear 0.0 0.1
+	Animate	AmmoInClip							FgColor			"250 80 80 255"				Linear 0.15 0.1
+
+	Animate	AmmoInReserve						FgColor			"250 80 80 255"				Linear 0.0 0.0
+	Animate	AmmoInReserve						FgColor			"160 50 50 255"		Linear 0.0 0.1
+	Animate	AmmoInReserve						FgColor			"250 80 80 255"				Linear 0.15 0.1
+
+	Animate	AmmoNoClip							FgColor			"250 80 80 255"				Linear 0.0 0.0
+	Animate	AmmoNoClip							FgColor			"160 50 50 255"		Linear 0.0 0.1
+	Animate	AmmoNoClip							FgColor			"250 80 80 255"				Linear 0.15 0.1
+	
+	RunEvent HudLowAmmoPulseLoop 0.3
+}
+
+// call to loop HudLowAmmoPulse
+event HudLowAmmoPulseLoop
+{
+	RunEvent HudLowAmmoPulse 0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 0.0
+	StopEvent HudLowAmmoPulseLoop 0.0
+	StopPanelAnimations AmmoInClip 0.0
+	StopPanelAnimations AmmoInReserve 0.0
+	StopPanelAnimations AmmoNoClip 0.0
+
+	Animate AmmoInClip							FgColor			"255 255 255 255"					Linear 0.0 0.0
+	Animate AmmoInReserve						FgColor			"255 255 255 255"					Linear 0.0 0.0
+	Animate AmmoNoClip							FgColor			"255 255 255 255"					Linear 0.0 0.0
+
+//===========================================================================================================================

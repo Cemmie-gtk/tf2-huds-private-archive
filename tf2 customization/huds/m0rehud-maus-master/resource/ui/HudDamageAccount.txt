@@ -1,0 +1,48 @@
+"Resource/UI/HudDamageAccount.res"
+{
+	"CDamageAccountPanel"
+	{
+		"fieldName"				"CDamageAccountPanel"
+		"text_x"				"0"
+		"text_y"				"0"
+		"delta_item_end_y"		"0"
+		"PositiveColor"			"27 198 203 175"
+		"NegativeColor"			"255 255 0 255"
+		"delta_lifetime"		"2"
+		"delta_item_font"		"M0refont21Outline"
+		"delta_item_font_big"	"M0refont21Outline"
+	}
+	"DamageAccountValue"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"DamageAccountValue"
+		"xpos"			"255"
+		"ypos"			"379"
+		"zpos"			"2"
+		"wide"			"101"
+		"tall"			"26"
+		"visible"		"1" //change this value to 1 in order to enable damage above HP
+		"enabled"		"1"
+		"labelText"		"%metal%"
+		"textAlignment"	"center"
+		"fgcolor"		"255 255 255 255"
+		"font"		"m0refont18"
+	}
+	
+	"DamageAccountValueBG"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"DamageAccountValueBG"
+		"xpos"			"255"
+		"ypos"			"380"
+		"zpos"			"2"
+		"wide"			"102"
+		"tall"			"27"
+		"visible"		"1" //change this value to 1 in order to enable damage above HP
+		"enabled"		"1"
+		"labelText"		"%metal%"
+		"textAlignment"	"center"
+		"fgcolor"		"0 0 0 255"
+		"font"		"m0refont18"
+	}
+}

@@ -1,0 +1,2 @@
+Futura Extra Black Italic is the most prominent fonts across the HUD. Regular Futura is less common but is used in some places like the Timer. Asimov is used extremely scarcely but can be found in places where a tiny font is needed, like the PASS Time HUD.
+Modified fonts are used for the outline effects. There is also a variant for damage numbers in order to remove the minus symbol (-).

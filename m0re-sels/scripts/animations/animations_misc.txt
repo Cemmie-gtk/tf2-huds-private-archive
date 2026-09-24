@@ -1,0 +1,43 @@
+//===========================================================================================================================
+
+
+
+event ActiveTimerHighlight
+{
+}
+
+event ActiveTimerDim
+{
+}
+
+//===========================================================================================================================
+
+
+
+
+event DamagedPlayer{
+	Animate DamageAccountValue							Alpha		"255"					Linear 	0.0 	0.0
+	Animate DamageAccountValue							Alpha		"255"					Linear 	1.1 	0.0
+	Animate DamageAccountValue							Alpha		"0"					Linear 	1.0 	0.95
+
+	Animate DamageAccountValueShadow							Alpha		"255"					Linear 	0.0 	0.0
+	Animate DamageAccountValueShadow							Alpha		"255"					Linear 	0.95 	0.0
+	Animate DamageAccountValueShadow							Alpha		"0"					Linear 	0.95 	0.90
+
+	Animate DamageAccountValue							Position		"c160 r116"					Linear	0.0 	0.15
+	Animate DamageAccountValue							Position		"c160 r110"					Linear 	0.15 	0.15
+}
+
+event HudCartAlarmPulse{}
+event HudCartAlarmPulseLoop{}
+event HudCartAlarmPulseStop{}
+event FlagOutline{}
+event CasualCategory_Checkbox_Hide{}
+event CasualCategory_Checkbox_Show{}
+event CasualCategory_Selected{}
+event CasualCategory_NotSelected{}
+event CompetitiveGame_LowerChatWindow{}
+event CompetitiveGame_RestoreChatWindow{}
+event HudTournament_MoveChatWindow{}
+event ControlPointIconShrink{}
+event ControlPointIconGrow{}

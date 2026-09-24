@@ -1,0 +1,47 @@
+"Resource/UI/HudDamageAccount.res"
+{
+	"CDamageAccountPanel"
+	{
+		"fieldName"		"CDamageAccountPanel"
+		"text_x"		"0"
+		"text_y"		"0"
+		"delta_item_end_y"	"0"
+		"PositiveColor"		"knDamage"
+		"NegativeColor"		"knDamage"
+		"delta_lifetime"	"1.5"
+		"delta_item_font"	"knFontDamage"
+		"delta_item_font_big"	"knFontDamage" 
+	}
+	"DamageAccountValue"
+	{
+		"ControlName"		"CExLabel"
+		"fieldName"		"DamageAccountValue"
+		"ypos"		"r175"
+		"xpos"		"cs-0.5"
+		"zpos"			"2"
+		"wide"			"100"
+		"tall"			"20"
+		"visible"		"1"
+		"enabled"		"1"
+		"labelText"		"%metal%"
+		"textAlignment"	"center"
+		"font"		"knFontDemiBold12"
+		"fgcolor"		"0 255 0 255"
+	}
+	"DamageAccountValueShadow"
+	{
+		"ControlName"		"CExLabel"
+		"fieldName"		"DamageAccountValueShadow"
+		"ypos"		"r174"
+		"xpos"		"c-50"
+		"zpos"			"2"
+		"wide"			"100"
+		"tall"			"20"
+		"visible"		"1"
+		"enabled"		"1"
+		"labelText"		"%metal%"
+		"textAlignment"	"center"
+		"font"		"knFontDemiBold12"
+		"fgcolor"		"knBlack"
+	}
+}

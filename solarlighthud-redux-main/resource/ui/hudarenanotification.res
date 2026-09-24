@@ -1,0 +1,101 @@
+"resource/ui/hudarenanotification.res"
+{
+	"HudArenaNotificationBG"
+	{
+		"ControlName"		"CTFImagePanel"
+		"fieldName"		"HudArenaNotificationBG"
+		"xpos"			"0"
+		"ypos"			"0"
+		"zpos"			"-1"
+		"wide"			"320"
+		"tall"			"200"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"0"
+		"enabled"		"0"
+		"image"			"../hud/death_panel_blue_bg"
+		"scaleImage"		"1"
+	}
+	
+	"SolarNotificationBG"
+	{
+		"ControlName"	"CTFImagePanel"
+		"fieldName"		"SolarNotificationBG"
+		"xpos"			"cs-0.5"
+		"ypos"			"30"
+		"zpos"			"-1"
+		"wide"			"220"
+		"tall"			"80"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/bgshapes/SHAPES_CTF_SCORES"
+		"scaleImage"	"1"	
+		"proportionaltoparent"	"1"
+		"drawcolor"		"TanDarker"
+	}	
+
+	"WarningLabel"
+	{	
+		"ControlName"		"Label"
+		"fieldName"		"WarningLabel"
+		"font"			"ScoreboardTeamScore"
+		"visible"		"0"
+		"enabled"		"0"
+	}
+	
+	"BalanceLabel" //TF2 Arena
+	{	
+		"ControlName"		"Label"
+		"fieldName"		"BalanceLabel"
+		"font"			"HudFontSmallBold"
+		"xpos"			"cs-0.5"
+		"ypos"			"35"
+		"zpos"			"1"
+		"wide"			"180"
+		"tall"			"45"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"centerwrap"			"1"
+		"labelText"		""
+		"textAlignment"		"north"
+		"proportionaltoparent"	"1"
+	}
+
+	"BalanceLabelTip"
+	{	
+		"ControlName"		"Label"
+		"fieldName"		"BalanceLabelTip"
+		"font"			"HudFontSmallest"
+		"xpos"			"cs-0.5"
+		"ypos"			"80"
+		"zpos"			"1"
+		"wide"			"180"
+		"tall"			"40"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"centerwrap"			"1"
+		"labelText"		"%notificationtip%"
+		"textAlignment"		"north"
+		"proportionaltoparent"	"1"
+	}
+	"SwitchImage"
+	{
+		"ControlName"		"CTFImagePanel"
+		"fieldName"		"SwitchImage"
+		"xpos"			"25"
+		"ypos"			"23"
+		"zpos"			"1"
+		"wide"			"50"
+		"tall"			"50"
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"0"
+		"enabled"		"1"
+		"image"			"../hud/ico_teambalance"
+		"scaleImage"		"1"
+	}
+}

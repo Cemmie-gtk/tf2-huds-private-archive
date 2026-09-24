@@ -1,0 +1,5 @@
+"unlitgeneric"
+{
+	$basetexture	vgui/replay/thumbnails/borders/button_central_light
+	$vertexalpha	1
+}

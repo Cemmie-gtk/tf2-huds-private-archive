@@ -1,0 +1,120 @@
+"Resource/UI/SpectatorGUIHealth.res"
+{
+	"PlayerStatusHealthImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImage"
+		"xpos"			"6"
+		
+		"ypos"			"6"
+		"zpos"			"4"
+		"wide"			"20"
+		
+		"tall"			"20"
+		
+		"visible"		"1"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+	}		
+	"PlayerStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthImageBG"
+		"xpos"			"5"
+		
+		"ypos"			"5"
+		
+		"zpos"			"3"
+		"wide"			"22"
+		
+		"tall"			"22"
+		
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"../hud/health_bg"
+		"scaleImage"	"1"		
+	}	
+	"BuildingStatusHealthImageBG"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BuildingStatusHealthImageBG"
+		"xpos"			"999999"
+		
+		"ypos"			"2"
+		
+		"zpos"			"2"
+		"wide"			"28"
+		
+		"tall"			"28"
+		
+		"visible"		"0"
+		"enabled"		"1"
+		"image"			"../hud/health_equip_bg"
+		"scaleImage"	"1"	
+	}	
+	"PlayerStatusHealthBonusImage"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"PlayerStatusHealthBonusImage"
+		"xpos"			"5"
+		
+		"ypos"			"5"
+		
+		"zpos"			"3"
+		"wide"			"22"
+		
+		"tall"			"22"
+		
+		"visible"		"0"
+		"enabled"		"1"
+		"image"			"../hud/health_over_bg"
+		"scaleImage"	"1"	
+	}
+	"PlayerStatusHealthValueSpec"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"PlayerStatusHealthValueSpec"
+		"xpos"			"32"
+		"ypos"			"1"
+		"zpos"			"5"
+		"wide"			"31"
+		"tall"			"30"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"center"
+		"font"			"HudFontSmallishBold"
+		"fgcolor"		"TanLight"
+		"labeltext"		"%Health%"
+	}
+	"PlayerStatusHealthValueSpecShadow"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"PlayerStatusHealthValueSpecShadow"
+		"xpos"			"33"
+		"ypos"			"2"
+		"zpos"			"5"
+		"wide"			"31"
+		"tall"			"30"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"center"
+		"font"			"HudFontSmallishBold"
+		"fgcolor"		"0 0 0 255"
+		"labeltext"		"%Health%"
+	}
+	"PlayerStatusPlayerLevel"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"PlayerStatusPlayerLevel"
+		"xpos"			"9999"
+		"ypos"			"9999"
+		"zpos"			"5"
+		"wide"			"12"
+		"tall"			"12"
+		"visible"		"0"
+		"enabled"		"0"
+		"textAlignment"	"center"	
+		"font"			"ScoreboardVerySmall"
+		"fgcolor"		"TFOrange"
+	}							
+}

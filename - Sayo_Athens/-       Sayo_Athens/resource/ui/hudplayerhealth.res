@@ -1,0 +1,1 @@
+#base "../../basestuff/buffimages.res"

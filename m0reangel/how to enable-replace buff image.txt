@@ -1,0 +1,5 @@
+resource > ui > hudplayerheath.res > PlayerStatusHealthBonusImage
+
+if want to change buff image
+
+materials > vgui > replay > thumbnails > cp_icons

@@ -1,0 +1,1 @@
+#base 	"../../customizations/medigun label.res"

@@ -1,0 +1,43 @@
+"Resource/UI/HudBowCharge.res"
+{	
+	"ChargeMeter"
+	{	
+		"ControlName"	"ContinuousProgressBar"
+		"fieldName"		"ChargeMeter"
+		"font"			"Default"
+		"xpos"			"9"
+		"ypos"			"3"
+		"zpos"			"2"
+		"wide"			"80"
+		"tall"			"3"			
+		"autoResize"		"0"
+		"pinCorner"		"0"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"		"Left"
+		"dulltext"		"0"
+		"brighttext"		"0"
+	}
+	"ItemEffectMeterBG"
+	{
+		"ControlName"		"CTFImagePanel"
+		"fieldName"		"ItemEffectMeterBG"
+		"xpos"			"3"
+		"ypos"			"0"
+		"zpos"			"0"
+		"wide"			"94"
+		"tall"			"8"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"../hud/color_panel_brown"
+		"scaleImage"		"1"
+		"teambg_1"		"../hud/color_panel_brown"
+		"teambg_2"		"../hud/color_panel_red"
+		"teambg_3"		"../hud/color_panel_blu"
+
+		"src_corner_height"	"40"
+		"src_corner_width"	"40"
+		"draw_corner_width"	"4"
+		"draw_corner_height" 	"4"
+	}				
+}

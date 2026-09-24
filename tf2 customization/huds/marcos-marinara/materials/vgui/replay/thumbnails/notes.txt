@@ -1,0 +1,9 @@
+the seeker is a modified/redone version of tob's
+ty tob
+
+shortstop crosshair looks like that bc thats how the shortstop's bullet spread functions
+it's fuckin ridiculous but idk if it helps it helps
+
+heavy crosshair is inspired by cpma 13 from the default cfg.tf crosshair pack, and again is pretty much just a redone version of that
+
+@Lapii_ on twitter if you have questions

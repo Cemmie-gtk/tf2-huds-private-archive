@@ -1,0 +1,85 @@
+"Resource/UI/HudObjectiveKothTimePanel.res"
+{
+
+	"HudKothTimeStatus"
+	{
+
+	}
+
+	"BlueTimer"
+	{
+		"ControlName"		"CTFHudTimeStatus"
+		"fieldName"			"BlueTimer"
+		"xpos"				"c-58"  //c-63 c-53
+		"ypos"				"5"
+		"zpos"				"2"
+		"wide"				"65"
+		"tall"				"50"
+		"visible"			"1"
+		"enabled"			"1"
+
+
+		"TimePanelValue"
+		{
+			"ControlName"	"CExLabel"
+			"fieldName"		"TimePanelValue"
+			"font"			"chippyBold14"
+			"fgcolor"		"75 175 255 255"
+			"xpos"			"9" //0 9
+			"ypos"			"0"
+			"zpos"			"3"
+			"wide"			"52"
+			"tall"			"20"
+			"visible"		"1"
+			"enabled"		"1"
+			"textAlignment"	"center"
+			"labelText"		"0:00"
+
+		}
+	}
+
+	"RedTimer"
+	{
+		"ControlName"		"CTFHudTimeStatus"
+		"fieldName"			"RedTimer"
+		"xpos"				"c-10"  //c-10
+		"ypos"				"5"
+		"zpos"				"2"
+		"wide"				"65"
+		"tall"				"50"
+		"visible"			"1"
+		"enabled"			"1"
+
+		"TimePanelValue"
+		{
+			"ControlName"	"CExLabel"
+			"fieldName"		"TimePanelValue"
+			"font"			"chippyBold14"
+			"fgcolor"		"255 0 75 255"
+			"xpos"			"9"
+			"ypos"			"0"
+			"zpos"			"3"
+			"wide"			"52"
+			"tall"			"20"
+			"visible"		"1"
+			"enabled"		"1"
+			"textAlignment"	"center"
+			"labelText"		"0:00"
+		}
+	}
+
+	"ActiveTimerBG"
+	{
+		"ControlName"		"ImagePanel"
+		"fieldName"			"ActiveTimerBG"
+		"xpos"				"c0"
+		"ypos"				"0"
+		"zpos"				"1"
+		"wide"				"0"
+		"tall"				"0"
+		"visible"			"0"
+		"enabled"			"0"
+		"image"				"../hud/objectives_timepanel_active_bg"
+		"scaleImage"		"1"
+	}
+}

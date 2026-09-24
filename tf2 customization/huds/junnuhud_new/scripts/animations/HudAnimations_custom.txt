@@ -1,0 +1,85 @@
+//===========================================
+
+// Spy Disguise
+event HudSpyDisguiseChanged
+{
+	Animate PlayerStatusSpyOutlineImage		Alpha		"255"			Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Position	"20 380"		inear 0.0 0.2
+	Animate PlayerStatusSpyOutlineImage		Size		"100 100"		Linear 0.0 0.2
+
+	RunEvent HudSpyDisguiseHide	0.7
+}
+
+event HudSpyDisguiseHide
+{
+	Animate PlayerStatusSpyOutlineImage		Position	"20 430"		Linear 0.0 0.2
+	Animate PlayerStatusSpyOutlineImage		Size		"50 50"			Linear 0.0 0.2
+	
+	Animate PlayerStatusSpyOutlineImage		Alpha		"0"				Linear 0.2 0.1
+}
+
+event HudSpyDisguiseFadeIn
+{
+	RunEvent HudSpyDisguiseChanged	0
+	Animate PlayerStatusSpyImage			Alpha		"255"			Linear 0.9 0.1	
+}
+
+event HudSpyDisguiseFadeOut
+{
+	RunEvent HudSpyDisguiseChanged	0
+	Animate PlayerStatusSpyImage			Alpha		"0"				Linear 0.9 0.1	
+}
+
+//===========================================
+
+event ActiveTimerHighlight
+{
+	Animate TimePanelValue 							FgColor		"White"								Linear 	0.0 0.0
+}
+
+event ActiveTimerDim
+{
+	Animate TimePanelValue 							FgColor		"White"								Linear 	0.0 0.0
+}
+
+//===========================================
+
+event CompetitiveGame_LowerChatWindow
+{
+	Animate HudChat ypos "r122" Linear 	0 0
+}
+
+event CompetitiveGame_RestoreChatWindow
+{
+	Animate HudChat ypos "r122" Linear 	0 0
+}
+
+event HudTournament_MoveChatWindow
+{
+	RunEvent CompetitiveGame_LowerChatWindow 0
+	RunEvent CompetitiveGame_RestoreChatWindow 10
+}
+
+//===========================================
+event TeamStatus_PlayerDead
+{
+	SetVisible DeathPanel  0 0
+	SetVisible SkullPanel  0 0
+	SetVisible respawntime  1 0
+
+	Animate DeathPanel ypos 0 Linear 0 0.0
+	Animate SkullPanel ypos 0 Linear 0 0.0
+	Animate respawntime ypos 0 Linear 0 0.0
+}
+
+event TeamStatus_PlayerAlive
+{
+	Animate DeathPanel ypos 0 Linear 0 0.0
+	Animate SkullPanel ypos 0 Linear 0 0.0
+	Animate respawntime ypos 0 Linear 0 0.0
+
+	SetVisible DeathPanel 0 0.0
+	SetVisible SkullPanel 0 0.0
+	SetVisible respawntime 0 0.0
+}

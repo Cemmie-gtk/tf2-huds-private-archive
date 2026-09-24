@@ -1,0 +1,1 @@
+drag the scripts folder from your selected option into quakehuds base folder (:

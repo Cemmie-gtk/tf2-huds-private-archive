@@ -1,0 +1,85 @@
+"resource/ui/mvminworldcurrency.res"
+{
+	"MoneyImagePanel"
+	{
+		"ControlName"		"ImagePanel"
+		"fieldName"		"MoneyImagePanel"
+		"xpos"		"0"
+		"ypos"		"0"
+		"zpos"		"4"
+		"wide"		"20"
+		"tall"		"20"
+		"image"			"../HUD/mvm_cash"
+		"visible"		"1"
+		"enabled"		"1"
+		"scaleImage"	"1"
+	}
+	
+	"BackgroundNew"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BackgroundNew"
+		"xpos"			"0"
+		"ypos"			"0"
+		"zpos"			"1"
+		"wide"			"40"
+		"tall"			"20"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/pd/pd_timer_bg_normal"
+		"scaleImage"	"1"	
+		"proportionalToParent"	"1"
+	}
+	
+	"BackgroundNewBorder"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BackgroundNew"
+		"xpos"			"10"
+		"ypos"			"3"
+		"zpos"			"1"
+		"wide"			"60"
+		"tall"			"14"
+		"visible"		"1"
+		"enabled"		"1"
+		"border"		"BorderTanDarkerCornersVerySmall"
+		"scaleImage"	"1"	
+		"proportionalToParent"	"1"
+	}
+	
+	"CurrencyGood"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"CurrencyGood"
+		"font"			"SLBoldSmall"
+		"fgcolor"		"CreditsGreen"
+		"xpos"			"0"
+		"ypos"			"3"
+		"zpos"			"4"
+		"wide"			"100"
+		"tall"			"14"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"west"	
+		"labelText"		"%currency%"
+		"textinsetx"	"48"
+	}
+	
+	"CurrencyBad"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"CurrencyBad"
+		"font"			"SLBoldSmall"
+		"fgcolor"		"SolarTeamRED"
+		"xpos"			"0"
+		"ypos"			"3"
+		"zpos"			"4"
+		"wide"			"100"
+		"tall"			"14"
+		"visible"		"1"
+		"enabled"		"1"
+		"textAlignment"	"west"	
+		"labelText"		"%currency%"
+		"textinsetx"	"48"
+	}
+}

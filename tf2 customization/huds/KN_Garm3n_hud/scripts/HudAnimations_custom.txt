@@ -1,0 +1,491 @@
+//===========================================
+
+//Health Bonus Pulse
+event HudHealthBonusPulse
+{
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"255"		Linear 0.0 0.2
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"0"			Linear 0.2 0.4
+
+	Animate	PlayerStatusHealthValue 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.2
+	Animate	PlayerStatusHealthValue 	FgColor		"Garm3nHUDBonusPulseTP"			Linear 0.2 0.4
+
+	Animate	PlayerStatusHealthValue2 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.2
+	Animate	PlayerStatusHealthValue2 	FgColor		"Garm3nHUDBonusPulseTP"			Linear 0.2 0.4
+
+	Animate PlayerStatusHealthValueShadow   FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow2  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow3  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow4  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow5  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow6  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow7  FgColor		"TanLight"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow8  FgColor		"TanLight"                      Linear 0.0 0.0
+
+	Animate	xHairKonrWingsOutlinePulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairKonrDotOutlinePulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairNormalPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairQPlusPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairKonrWingsPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairKonrDotPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairCirclePulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairCircleSmallPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairCircleTinyPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairTF2CirclePulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate xHairQuattuor1Pulse     FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor2Pulse     FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor3Pulse     FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor4Pulse     FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+
+	Animate xHairPortalPulse        FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+
+	Animate	xHairDotPulse 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate xHairDotMPulse  FgColor         "Garm3nHUDBonusPulse"           Linear 0.0 0.0
+
+	Animate	xHairTF2Pulse1 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairTF2Pulse2 	FgColor		"Garm3nHUDBonusPulse"		Linear 0.0 0.0
+
+	Animate	xHairSmileyPulse 	FgColor		"0 0 0 0"		        Linear 0.0 0.0
+
+	Animate	xHairHappyPulse 	FgColor		"0 0 0 255"		        Linear 0.0 0.0
+
+	Animate	xHairSmileyBG 	        FgColor		"0 195 255 255"		        Linear 0.0 0.0
+
+	RunEvent HudHealthBonusPulseLoop	0.4
+}
+
+// call to loop HudHealthBonusPulse
+event HudHealthBonusPulseLoop
+{
+	RunEvent HudHealthBonusPulse 0.0
+}
+
+event HudHealthBonusPulseStop
+{
+	StopEvent HudHealthBonusPulse 0.0
+	StopEvent HudHealthBonusPulseLoop 0.0
+	StopPanelAnimations PlayerStatusHealthValue 0.0 
+	StopPanelAnimations PlayerStatusHealthValue2 0.0
+        StopPanelAnimations PlayerStatusHealthValueShadow 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow2 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow3 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow4 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow5 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow6 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow7 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow8 0.0
+        StopPanelAnimations xHairKonrWingsOutlinePulse 0.0
+	StopPanelAnimations xHairKonrDotOutlinePulse 0.0
+	StopPanelAnimations xHairNormalPulse 0.0
+	StopPanelAnimations xHairQPlusPulse 0.0
+	StopPanelAnimations xHairKonrWingsPulse 0.0
+	StopPanelAnimations xHairKonrDotPulse 0.0
+	StopPanelAnimations xHairCirclePulse 0.0
+	StopPanelAnimations xHairCircleSmallPulse 0.0
+	StopPanelAnimations xHairCircleTinyPulse 0.0
+	StopPanelAnimations xHairTF2CirclePulse 0.0
+	StopPanelAnimations xHairQuattuor1Pulse 0.0
+	StopPanelAnimations xHairQuattuor2Pulse 0.0
+	StopPanelAnimations xHairQuattuor3Pulse 0.0
+	StopPanelAnimations xHairQuattuor4Pulse 0.0
+        StopPanelAnimations xHairPortalPulse 0.0
+	StopPanelAnimations xHairDotPulse 0.0
+	StopPanelAnimations xHairDotMPulse 0.0
+	StopPanelAnimations xHairTF2Pulse1 0.0
+	StopPanelAnimations xHairTF2Pulse2 0.0
+        StopPanelAnimations xHairSmileyPulse 0.0
+        StopPanelAnimations xHairHappyPulse 0.0
+        StopPanelAnimations xHairSmileyBG 0.0
+
+	Animate PlayerStatusHealthValue 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate PlayerStatusHealthValue2 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate PlayerStatusHealthValueShadow   FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow2  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow3  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow4  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow5  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow6  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow7  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow8  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+
+	Animate xHairKonrWingsOutlinePulse 	FgColor		"Garm3nHUDxHair"		        Linear 0.0 0.0
+
+	Animate xHairKonrDotOutlinePulse 	FgColor		"Garm3nHUDxHair"		        Linear 0.0 0.0
+
+	Animate xHairNormalPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairQPlusPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairKonrWingsPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairKonrDotPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCirclePulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCircleSmallPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCircleTinyPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairTF2CirclePulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairQuattuor1Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+        Animate xHairQuattuor2Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+	Animate xHairQuattuor3Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+	Animate xHairQuattuor4Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairPortalPulse        FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairDotPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairDotMPulse  FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairTF2Pulse1 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairTF2Pulse2 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairSmileyPulse 	FgColor		"0 0 0 255"		        Linear 0.0 0.0
+
+	Animate xHairHappyPulse 	FgColor		"0 0 0 0"		        Linear 0.0 0.0
+
+	Animate xHairSmileyBG 	        FgColor		"255 255 0 255"		        Linear 0.0 0.0
+}
+
+//===========================================
+
+//Health Dying Pulse
+event HudHealthDyingPulse
+{
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"255"		Linear 0.0 0.075
+	Animate	PlayerStatusHealthBonusImage 	Alpha		"0"			Linear 0.125 0.075
+
+	Animate PlayerStatusHealthDanger        FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.075
+        Animate PlayerStatusHealthDanger        FgColor         "Garm3nHUDDyingPulseOff"                Linear 0.125 0.075
+
+	Animate PlayerStatusHealthValue 	FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.075
+        Animate PlayerStatusHealthValue 	FgColor		"Garm3nHUDDyingPulseTP"			Linear 0.125 0.075
+
+	Animate PlayerStatusHealthValue2 	FgColor		"255 35 15 255"		Linear 0.0 0.075
+        Animate PlayerStatusHealthValue2 	FgColor		"215 35 15 255"			Linear 0.125 0.075
+
+	Animate PlayerStatusHealthValueShadow   FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow2  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow3  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow4  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow5  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow6  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow7  FgColor		"Black"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow8  FgColor		"Black"                      Linear 0.0 0.0
+
+	Animate xHairKonrWingsOutlinePulse 	FgColor		"Garm3nHUDDyingPulse"	     Linear 0.0 0.0
+
+	Animate xHairKonrDotOutlinePulse 	FgColor		"Garm3nHUDDyingPulse"        Linear 0.0 0.0
+
+	Animate xHairNormalPulse 	FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.0
+
+	Animate xHairQPlusPulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairKonrWingsPulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairKonrDotPulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairCirclePulse 	FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.0
+
+	Animate xHairCircleSmallPulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairCircleTinyPulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairTF2CirclePulse 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairQuattuor1Pulse     FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor2Pulse     FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor3Pulse     FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+	Animate xHairQuattuor4Pulse     FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairPortalPulse        FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairDotPulse 	FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.0
+
+	Animate xHairDotMPulse  FgColor         "Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairTF2Pulse1 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairTF2Pulse2 	FgColor		"Garm3nHUDDyingPulse"           Linear 0.0 0.0
+
+	Animate xHairSmileyPulse 	FgColor		"0 0 0 0"		        Linear 0.0 0.0
+
+	Animate xHairUhOhPulse 	        FgColor		"0 0 0 255"		        Linear 0.0 0.0
+
+	Animate xHairSmileyBG 	        FgColor		"255 35 0 255"		        Linear 0.0 0.0
+
+	RunEvent HudHealthDyingPulseLoop	0.25
+}
+
+// call to loop HudHealthDyingPulse
+event HudHealthDyingPulseLoop
+{
+	RunEvent HudHealthDyingPulse 0.0
+}
+
+event HudHealthDyingPulseStop
+{
+	StopEvent HudHealthDyingPulse 0.0
+	StopEvent HudHealthDyingPulseLoop 0.0
+	StopPanelAnimations PlayerStatusHealthDanger 0.0
+	StopPanelAnimations PlayerStatusHealthValue 0.0 
+	StopPanelAnimations PlayerStatusHealthValue2 0.0
+        StopPanelAnimations PlayerStatusHealthValueShadow 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow2 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow3 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow4 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow5 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow6 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow7 0.0
+	StopPanelAnimations PlayerStatusHealthValueShadow8 0.0
+        StopPanelAnimations xHairKonrWingsOutlinePulse 0.0
+	StopPanelAnimations xHairKonrDotOutlinePulse 0.0
+	StopPanelAnimations xHairNormalPulse 0.0
+	StopPanelAnimations xHairQPlusPulse 0.0
+	StopPanelAnimations xHairKonrWingsPulse 0.0
+	StopPanelAnimations xHairKonrDotPulse 0.0
+	StopPanelAnimations xHairCirclePulse 0.0
+	StopPanelAnimations xHairCircleSmallPulse 0.0
+	StopPanelAnimations xHairCircleTinyPulse 0.0
+	StopPanelAnimations xHairTF2CirclePulse 0.0
+	StopPanelAnimations xHairQuattuor1Pulse 0.0
+	StopPanelAnimations xHairQuattuor2Pulse 0.0
+	StopPanelAnimations xHairQuattuor3Pulse 0.0
+	StopPanelAnimations xHairQuattuor4Pulse 0.0
+        StopPanelAnimations xHairPortalPulse 0.0
+	StopPanelAnimations xHairDotPulse 0.0
+	StopPanelAnimations xHairDotMPulse 0.0
+	StopPanelAnimations xHairTF2Pulse1 0.0
+	StopPanelAnimations xHairTF2Pulse2 0.0
+	StopPanelAnimations xHairSmileyPulse 0.0
+	StopPanelAnimations xHairUhOhPulse 0.0
+	StopPanelAnimations xHairSmileyBG 0.0
+
+	Animate PlayerStatusHealthDanger        FgColor         "Garm3nHUDDyingPulseOff"           Linear 0.0 0.0
+
+	Animate PlayerStatusHealthValue 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate PlayerStatusHealthValue2 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate PlayerStatusHealthValueShadow   FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow2  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow3  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow4  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow5  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow6  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow7  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+	Animate PlayerStatusHealthValueShadow8  FgColor		"HUDBlueTeamSolid"                      Linear 0.0 0.0
+
+	Animate xHairKonrWingsOutlinePulse 	FgColor		"Garm3nHUDxHair"		        Linear 0.0 0.0
+
+	Animate xHairKonrDotOutlinePulse 	FgColor		"Garm3nHUDxHair"		        Linear 0.0 0.0
+
+	Animate xHairNormalPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairQPlusPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairKonrWingsPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairKonrDotPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCirclePulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCircleSmallPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairCircleTinyPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairTF2CirclePulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairQuattuor1Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+        Animate xHairQuattuor2Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+	Animate xHairQuattuor3Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+	Animate xHairQuattuor4Pulse     FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairPortalPulse        FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairDotPulse 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairDotMPulse  FgColor         "Garm3nHUDxHair"                Linear 0.0 0.0
+
+	Animate xHairTF2Pulse1 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairTF2Pulse2 	FgColor		"Garm3nHUDxHair"		Linear 0.0 0.0
+
+	Animate xHairSmileyPulse 	FgColor		"0 0 0 255"		        Linear 0.0 0.0
+
+	Animate xHairUhOhPulse 	        FgColor		"0 0 0 0"		        Linear 0.0 0.0
+
+	Animate xHairSmileyBG 	        FgColor		"255 255 0 255"		        Linear 0.0 0.0
+}
+
+//===========================================
+
+event HudLowAmmoPulse
+{
+	Animate	HudWeaponLowAmmoImage		Alpha		"255"		Linear 0.0 0.075
+	Animate	HudWeaponLowAmmoImage		Alpha		"0"			Linear 0.125 0.075
+
+	Animate	AmmoInClip		FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.075
+	Animate	AmmoInClip		FgColor		"Garm3nHUDDyingPulseTP"			Linear 0.125 0.075
+	Animate AmmoInClipShadow        FgColor         "Black"                 Linear 0.0 0.0
+
+	Animate	AmmoInReserve		FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.075
+	Animate	AmmoInReserve		FgColor		"Garm3nHUDDyingPulseTP"			Linear 0.125 0.075
+        Animate AmmoInReserveShadow     FgColor         "Black"                 Linear 0.0 0.0
+
+	Animate	AmmoNoClip		FgColor		"Garm3nHUDDyingPulse"		Linear 0.0 0.075
+	Animate	AmmoNoClip		FgColor		"Garm3nHUDDyingPulseTP"			Linear 0.125 0.075
+        Animate AmmoNoClipShadow        FgColor         "Black"                 Linear 0.0 0.0
+
+        Animate AmmoShadow              FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow2             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow3             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow4             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow5             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow6             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow7             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow8             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow9             FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow10            FgColor         "Black"                 Linear 0.0 0.0
+        Animate AmmoShadow11            FgColor         "Black"                 Linear 0.0 0.0
+	
+	RunEvent HudLowAmmoPulseLoop	0.25
+}
+
+// call to loop HudLowAmmoPulse
+event HudLowAmmoPulseLoop
+{
+	RunEvent HudLowAmmoPulse 0.0
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 0.0
+	StopEvent HudLowAmmoPulseLoop 0.0
+	StopPanelAnimations AmmoInClip 0.0
+	StopPanelAnimations AmmoInClipShadow 0.0
+	StopPanelAnimations AmmoInReserve 0.0
+	StopPanelAnimations AmmoInReserveShadow 0.0
+	StopPanelAnimations AmmoNoClip 0.0
+	StopPanelAnimations AmmoNoClipShadow 0.0
+        StopPanelAnimations AmmoShadow 0.0
+	StopPanelAnimations AmmoShadow2 0.0
+	StopPanelAnimations AmmoShadow3 0.0
+	StopPanelAnimations AmmoShadow4 0.0
+	StopPanelAnimations AmmoShadow5 0.0
+	StopPanelAnimations AmmoShadow6 0.0
+	StopPanelAnimations AmmoShadow7 0.0
+	StopPanelAnimations AmmoShadow8 0.0
+	StopPanelAnimations AmmoShadow9 0.0
+	StopPanelAnimations AmmoShadow10 0.0
+	StopPanelAnimations AmmoShadow11 0.0
+
+	Animate AmmoInClip 	        FgColor		"TanLight"		Linear 0.0 0.0
+	Animate AmmoInClipShadow 	FgColor		"HUDRedTeamSolid"       Linear 0.0 0.0
+
+	Animate AmmoInReserve 	        FgColor		"HUDRedTeamSolid"	Linear 0.0 0.0
+	Animate AmmoInReserveShadow 	FgColor		"TanLight"	        Linear 0.0 0.0
+
+	Animate AmmoNoClip 	        FgColor		"TanLight"		Linear 0.0 0.0
+	Animate AmmoNoClipShadow 	FgColor		"HUDRedTeamSolid"	Linear 0.0 0.0
+
+        Animate AmmoShadow              FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow2             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow3             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow4             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow5             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow6             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow7             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow8             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow9             FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow10            FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+        Animate AmmoShadow11            FgColor         "HUDRedTeamSolid"       Linear 0.0 0.0
+}
+
+//===========================================
+
+// Flash the medic charge hud when we have full charge
+
+event HudMedicCharged
+{
+	Animate	ChargeLabel 	FgColor		"Garm3nHUDMedicCharge"		Linear 0.0 0.1
+	Animate	ChargeLabel 	FgColor		"Garm3nHUDMedicCharge2"		Linear 0.3 0.4
+
+	Animate	ChargeLabelShadow 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow2	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow3 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow4 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow5 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow6 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow7 	FgColor		"TanLight"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow8 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate	ChargeLabel2 	FgColor		"Garm3nHUDMedicCharge"		Linear 0.0 0.1
+	Animate	ChargeLabel2 	FgColor		"Garm3nHUDMedicCharge2"		Linear 0.3 0.4
+
+	Animate	ChargeLabel2Shadow 	FgColor		"TanLight"		Linear 0.0 0.0
+	
+	Animate	ChargeMeter 	FgColor		"Garm3nHUDMedicCharge"		Linear 0.0 0.1
+	Animate	ChargeMeter 	FgColor		"Garm3nHUDMedicCharge2"		Linear 0.3 0.4
+
+	RunEvent HudMedicChargedLoop	0.6
+}
+
+// call to loop HudHealthBonusPulse
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 0.0
+	StopEvent HudMedicChargedLoop 0.0
+	StopPanelAnimations ChargeLabel 0.0
+	StopPanelAnimations ChargeLabelShadow 0.0
+	StopPanelAnimations ChargeLabelShadow2 0.0
+	StopPanelAnimations ChargeLabelShadow3 0.0
+	StopPanelAnimations ChargeLabelShadow4 0.0
+	StopPanelAnimations ChargeLabelShadow5 0.0
+	StopPanelAnimations ChargeLabelShadow6 0.0
+	StopPanelAnimations ChargeLabelShadow7 0.0
+	StopPanelAnimations ChargeLabelShadow8 0.0
+	StopPanelAnimations ChargeLabel2 0.0
+	StopPanelAnimations ChargeLabel2Shadow 0.0
+	StopPanelAnimations ChargeMeter 0.0
+	
+	Animate	ChargeLabel 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate	ChargeLabelShadow 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow2	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow3 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow4 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow5 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow6 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow7 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+	Animate	ChargeLabelShadow8 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+
+	Animate	ChargeLabel2 	FgColor		"TanLight"		Linear 0.0 0.0
+
+	Animate	ChargeLabel2Shadow 	FgColor		"Garm3nHUDGreen"		Linear 0.0 0.0
+
+	Animate	ChargeMeter 	FgColor		"TanLight"		Linear 0.0 0.0
+}
+
+//===========================================

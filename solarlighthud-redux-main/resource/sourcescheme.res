@@ -1,0 +1,663 @@
+#base "sourceschemebase.res"
+
+Scheme
+{
+    //////////////////////// COLORS ///////////////////////////
+	// color details
+	// this is a list of all the colors used by the scheme
+	Colors
+	{
+	    "TFDarkBrown"               "46 43 42 255"
+	    "TFDarkBrownTransparent"    "46 43 42 190"
+	    "TFTanBright"               "235 226 202 150"
+	    "TFTanLight"                "117 107 94 150"
+	    "TFTanMedium"               "117 107 94 150"
+		
+		"TanLight"				"235 226 202 255"
+		"TanDark"				"117 107 94 255"
+		"TanDarker"				"46 43 42 255"
+	    
+	    "TFTanLightBright"          "235 226 202 90"
+	    "TFTanLightDark"            "90 90 90 90"
+	    "TFOrangeBright"            "178 82 22 255"
+		"Orange"			"255 155 0 255"
+	    
+	    "TFTextBright"              "235 226 202 150"
+	    "TFTextLight"               "TanLight"
+	    "TFTextMedium"              "TanDark"
+	    "TFTextMediumDark"          "TanDarker"
+	    "TFTextBlack"               "42 42 42 255"
+	    "TFTextDull"                "TanDark"
+
+	    "TFMediumBrown"		"46 43 42 255"
+
+	    "QuickListBGDeselected"		"46 43 42 255"
+	    "QuickListBGSelected"        "117 107 94 255"
+	    
+	    "Blank"				"0 0 0 0"
+	    
+	    // background colors
+		"ControlBG"			"76 76 76 255"		// background color of controls
+		"ControlDarkBG"		"117 107 94 255"		// darker background color; used for background of scrollbars
+		"WindowBG"			"46 43 42 255"		// background color of text edit panes (chat, text entries, etc.)
+		"SelectionBG"		"76 107 34 255"	// background color of any selected text or menu item. - RECOLORED GREEN FOR REDUX SERVER BROWSER
+		"SelectionBG2"		"46 43 42 255"		// selection background in window w/o focus
+		"ListBG"			"46 43 42 255"		// background of server browser, buddy list, etc.
+	}
+	BaseSettings
+	{
+	
+		Frame.FocusTransitionEffectTime	"0"							// time it takes for a window to fade in/out on focus/out of focus
+		Frame.TransitionEffectTime		"0"				[$WIN32]	// time it takes for a window to fade in/out on open/close
+		
+		// scheme-specific colors
+		Border.Bright					"TFTanLightDark"	// the lit side of a control
+		Border.Dark						"TFTanLightDark"		// the dark/unlit side of a control
+		Border.Selection				"BorderSelection"			// the additional border color for displaying the default/selected button
+
+		Button.TextColor				"TanLight"
+		Button.BgColor					"TFTanLight"
+		Button.ArmedTextColor			"TFDarkBrown"
+		Button.ArmedBgColor				"TFTanBright"
+		Button.DepressedTextColor		"TFDarkBrown"	//pressing leftclick
+		Button.DepressedBgColor			"TFTanLight"	//pressing leftclick	
+		Button.FocusBorderColor			"TransparentBlack"
+		
+		//server browser tabs
+		PropertySheet.TextColor			"TanLight"
+		PropertySheet.SelectedTextColor	"TanLight"
+		PropertySheet.TransitionEffectTime	"0.1"	// time to change from one tab to another
+		
+		//Tiny text in options menu (e.g. "Movement")
+		SectionedListPanel.HeaderTextColor	"TanLight"
+		
+		//Options menu list text color
+		SectionedListPanel.BrightTextColor	"TanLight"
+		
+		//Options menu selected BG Green
+		SectionedListPanel.SelectedBgColor	"76 107 34 255"
+		
+		CheckButton.TextColor			"TFTextBright"
+		CheckButton.SelectedTextColor		"TFTextBright"
+		CheckButton.BgColor				"ListBG"
+		CheckButton.HighlightFgColor		"TFTextMedium"
+		CheckButton.ArmedBgColor		"Blank"
+		CheckButton.DepressedBgColor		"Blank"
+		CheckButton.Border1  			"Border.Dark" 		// the left checkbutton border
+		CheckButton.Border2  			"Border.Bright"		// the right checkbutton border
+		CheckButton.Check				"TFTanBright"	// color of the check itself
+		CheckButton.DisabledBgColor	    "ListBG"
+
+		ToggleButton.SelectedTextColor	"TFTextBright"
+		
+		ComboBoxButton.ArrowColor		"TFTanLight"
+		ComboBoxButton.ArmedArrowColor	"TFTanBright"
+		ComboBoxButton.BgColor			"Blank"
+		ComboBoxButton.DisabledBgColor	"Blank"
+		
+		RadioButton.TextColor		"TFTextBright"
+		RadioButton.SelectedTextColor	"TFTextBright"
+		RadioButton.ArmedTextColor	"TFTextMedium"
+		
+		Frame.BgColor					"Blank"
+		Frame.OutOfFocusBgColor			"Blank"
+		FrameGrip.Color1				"TFTanMedium"
+		FrameGrip.Color2				"TFDarkBrown"
+		FrameTitleButton.FgColor		"TFTanBright"
+		FrameTitleBar.Font			"DefaultLarge"		[$WIN32]
+		FrameTitleBar.TextColor			"TFTanBright"
+		FrameTitleBar.DisabledTextColor	"TFTanBright"
+		
+		Label.TextDullColor				"TFTextBright"
+		Label.TextColor					"TFTextBright"
+		Label.TextBrightColor			"TFTextBright"
+		Label.SelectedTextColor			"TFTextBright"
+
+		//Somewhere in here contains the text colors for when a button is disabled
+		Label.BgColor					"0 0 0 0"
+		Label.DisabledFgColor1			"TanDarker"	
+		Label.DisabledFgColor2			"TanDarker"	
+		
+		ListPanel.TextColor					"TFTextBright"
+		ListPanel.BgColor					"ListBG"
+		ListPanel.SelectedBgColor			"SelectionBG"
+		ListPanel.SelectedOutOfFocusBgColor	"SelectionBG2"
+		
+		MainMenu.TextColor			"TanLight"			[$WIN32]
+		MainMenu.ArmedTextColor		"107 107 107 255"	[$WIN32]
+		MainMenu.Inset				"32"
+		
+		Menu.TextInset					"6"
+		Menu.FgColor			"TFTextLight"
+		Menu.BgColor			"ListBG"
+		Menu.ArmedFgColor		"TFTextBright"
+		Menu.ArmedBgColor		"76 107 34 255"
+		Menu.DividerColor		"BorderDark"
+		
+		ScrollBarButton.FgColor				"TFDarkBrown"
+		ScrollBarButton.BgColor				"TFTanLight"
+		ScrollBarButton.ArmedFgColor		"TFDarkBrown"
+		ScrollBarButton.ArmedBgColor		"TFTanBright"
+		ScrollBarButton.DepressedFgColor	"TFDarkBrown"
+		ScrollBarButton.DepressedBgColor	"TFTanLight"
+
+		ScrollBarSlider.BgColor				"TFTanMedium"		// this isn't really used
+		ScrollBarSlider.FgColor				"TFTanLight"		// handle with which the slider is grabbed
+		
+		Slider.NobColor				"TFTanLight"		
+		Slider.TextColor			"TFTextBright"
+		Slider.TrackColor			"ListBG"
+		Slider.DisabledTextColor1	"TFTextMediumDark"
+        Slider.DisabledTextColor2	"Blank"
+		
+		TextEntry.TextColor			        "TFTextBright" //dropdown boxes (such as "include" on the server browser)
+		TextEntry.DisabledTextColor	        "TanDark" //dropdown boxes when disabled ("team fortress 2")
+		TextEntry.SelectedBgColor	        "76 107 34 255" //dropdown boxes when selected
+		
+		PropertySheet.TransitionEffectTime    "0.0"
+	}
+	
+	Fonts
+	{
+	
+		"Trebuchet24" //MGE 3 2 1 FIGHT + loadingdialog.res
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"24"
+				"weight"	"900"
+				"range"		"0x0000 0x007F"	//	Basic Latin
+				"antialias" "1"
+				"additive"	"1"
+				"yres"	"480 1199"
+			}
+			"2" // misyl: Proportional
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"16"
+				"weight"	"900"
+				"range"		"0x0000 0x007F"	//	Basic Latin
+				"antialias" "1"
+				"additive"	"1"
+			}
+		}
+
+		"Trebuchet20"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"20"
+				"weight"	"900"
+				"antialias" "1"
+			}
+		}
+
+		"Trebuchet18"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"18"
+				"weight"	"900"
+				"antialias" "1"
+			}
+		}
+		
+		"ServerBrowserTitle"
+		{
+			"1"
+			{
+				"name"		"futura_extra_black_italic"
+				"tall"		"25"
+				"weight"	"500"
+				"additive"	"0"
+				"antialias" "1"
+			}
+		}
+		
+		"SimplifiedListMapTitle" //redux
+		{
+			"1"
+			{
+				"name"		"futurabt_extrablack"
+				"tall"		"25"
+				"weight"	"500"
+				"additive"	"0"
+				"antialias" "1"
+			}
+		}
+		
+		"DefaultLarge"
+		{
+			"1"
+			{
+				"name"		"futura_extra_black_italic"
+				"tall"		"25"
+				"weight"	"0"
+				"antialias"	"1"
+			}
+		}
+		
+		// HUD numbers
+		// We use multiple fonts to 'pulse' them in the HUD, hence the need for many of near size
+		"HUDNumber"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"40"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"HUDNumber1"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"41"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"HUDNumber2"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"42"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"HUDNumber3"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"43"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"HUDNumber4"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"44"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"HUDNumber5"
+		{
+			"1"
+			{
+				"name"		"futurano2d_demibold"
+				"tall"		"45"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		
+		"DefaultFixedOutline"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		 "11"
+				"weight"	 "0"
+				"outline"	 "1"
+				"antialias"  "1"
+			}
+		}	
+		"DefaultBold"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		"16"
+				"antialias"		"1"
+			}
+		}
+		"DefaultUnderline"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		"16"
+				"weight"	"0"
+				"underline" "1"
+				"antialias"		"1"
+			}
+		}
+		"DefaultSmall"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		"16" [!$POSIX]
+				"tall"		"16" [$POSIX]
+				"weight"	"0"
+				"antialias"		"1"
+			}
+		}
+		"DefaultSmallDropShadow"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		"12"
+				"weight"	"0"
+				"dropshadow" "1"
+				"antialias"		"1"
+			}
+		}
+		"DefaultVerySmall"
+		{
+			"1"
+			{
+				"name"		 "asimov"
+				"tall"		"12"
+				"weight"	"0"
+				"antialias"		"1"
+			}
+		}
+		"MainMenuFont"
+		{
+			"1"	[$WIN32]
+			{
+				"name"		"asimov"
+				"tall"		"18"
+				"weight"	"500"
+				"additive"	"0"
+				"antialias" "1"
+			}
+		}
+		"MenuLarge"
+		{
+			"1"	[$X360]
+			{
+				"tall_hidef"		"24"
+			}
+		}
+
+		"Default" 
+		{
+			"1"
+			{
+				"name"		"asimov"
+				"tall"		"17"
+				"weight"	"500"
+				"antialias"	"1"
+			}
+		}
+		
+		"UiBold"
+		{
+			"1"	[$WIN32]
+			{
+				"name"		"asimov"
+				"tall"		"12"
+				"weight"	"1000"
+				"antialias" "1"
+			}
+		}
+		
+		"ConsoleText"
+		{
+			"1"
+			{
+				"name"		 "Lucida Console" [$WINDOWS]
+				"name"		 "Lucida Console" [$X360]
+				"name"		 "Verdana" [$POSIX]
+				"tall"		"11" [$OSX]
+				"tall"		"14" [$LINUX]
+				"tall"		"10"
+				"weight"	"500"
+				"antialias"	"1"
+			}
+		}
+		
+		"CloseCaption_Normal"
+		{
+			"1"
+			{
+				"name"		"Tahoma" [!$POSIX]
+				"name"		"Verdana" [$POSIX]
+				"tall"		"16"
+				"weight"	"500"
+				"antialias"	"1"
+			}
+		}
+		"CloseCaption_Italic"
+		{
+			"1"
+			{
+				"name"		"Tahoma" [!$OSX]
+				"name"		"Verdana Italic" [$OSX]
+				"tall"		"16"
+				"weight"	"500"
+				"italic"	"1"
+				"antialias"	"1"
+			}
+		}
+		"CloseCaption_Bold"
+		{
+			"1"
+			{
+				"name"		"Tahoma" [!$POSIX]
+				"name"		"Verdana Bold" [$POSIX]
+				"tall"		"16"
+				"weight"	"900"
+				"antialias"	"1"
+			}
+		}
+		"CloseCaption_BoldItalic"
+		{
+			"1"
+			{
+				"name"		"Tahoma" [!$POSIX]
+				"name"		"Verdana Bold Italic" [$POSIX]
+				"tall"		"16"
+				"weight"	"900"
+				"italic"	"1"
+				"antialias"	"1"
+			}
+		}
+
+		"ServerBrowserSmall"
+		{
+			"1"
+			{
+				"name"		"asimov"
+				"tall"		"17"
+				"weight"	"0"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"yres"	"480 599"
+				"antialias"	"1"
+			}
+			"2"
+			{
+				"name"		"asimov"
+				"tall"		"17"
+				"weight"	"0"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"yres"	"600 767"
+				"antialias"	"1"
+			}
+			"3"
+			{
+				"name"		"asimov"
+				"tall"		"17"
+				"weight"	"0"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"yres"	"768 1023"
+				"antialias"	"1"
+			}
+			"4"
+			{
+				"name"		"asimov"
+				"tall"		"19"
+				"weight"	"0"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"yres"	"1024 1199"
+				"antialias"	"1"
+			}
+			"5"
+			{
+				"name"		"asimov"
+				"tall"		"19"
+				"weight"	"0"
+				"range"		"0x0000 0x017F" //	Basic Latin, Latin-1 Supplement, Latin Extended-A
+				"yres"	"1200 6000"
+				"antialias"	"1"
+			}
+		}
+		
+				
+		AchievementItemTitle	[$WIN32]
+		{
+			"1"
+			{
+				"name"		"asimov" 
+				"name"		"asimov" 
+				"weight"		"1500"
+				"tall"			"16" 
+				"tall"			"18" 
+				"antialias"		"1"
+			}
+		}
+		
+		AchievementItemTitleLarge	[$WIN32]
+		{
+			"1"
+			{
+				"name"		"asimov" 
+				"name"		"asimov" 
+				"weight"		"1500"
+				"tall"			"18" 
+				"tall"			"19" 
+				"antialias"		"1"
+			}
+		}
+		
+		AchievementItemDescription	[$WIN32]
+		{
+			"1"
+			{
+				"name"		"asimov" 
+				"name"		"asimov" 
+				"weight"		"1000"
+				"tall"			"14" 
+				"tall"			"12" 
+				"antialias"		"1" 
+			}
+		}
+
+	}
+	
+	Borders
+	{
+		FrameBorder
+		{
+			"bordertype"			"scalable_image"
+			"backgroundtype"		"0"
+			
+			"image"					"replay/thumbnails/borders/console_border"
+			"src_corner_height"		"20"				// pixels inside the image
+			"src_corner_width"		"20"
+
+			"draw_corner_width"		"6"				// screen size of the corners ( and sides ), proportional
+			"draw_corner_height" 	"6"
+		}
+	}
+	
+	CustomFontFiles
+	{
+		"6" 
+		{
+			"font" "resource/tf2build.ttf"
+			"name" "TF2 Build"
+			"turkish"
+			{
+				"range" "0x0000 0x015F"
+			}
+			"swedish"
+			{
+				"range" "0x0000 0x00F6"
+			}
+			"spanish"
+			{
+				"range" "0x0000 0x00FC"
+			}
+			"romanian"
+			{
+				"range" "0x0000 0x021B"
+			}
+			"polish"
+			{
+				"range" "0x0000 0x017C"
+			}
+			"norwegian"
+			{
+				"range" "0x0000 0x00F8"
+			}
+			"danish"
+			{
+				"range" "0x0000 0x00F8"
+			}
+			"hungarian"
+			{
+				"range" "0x0000 0x0171"
+			}
+			"german"
+			{
+				"range" "0x0000 0x00FC"
+			}
+			"french"
+			{
+				"range" "0x0000 0x0178"
+			}
+			"finnish"
+			{
+				"range" "0x0000 0x017E"
+			}
+			"czech"
+			{
+				"range" "0x0000 0x017E"
+			}
+			"bulgarian"
+			{
+				"range" "0x0000 0x0451"
+			}
+			"russian"
+			{
+				"range" "0x0000 0x0451"
+			}	
+		}
+		"7"
+		{
+			"font" "resource/scheme/fonts/futura.ttf"
+			"name" "futurano2d_demibold"
+		}
+		"8"
+		{
+			"font" "resource/scheme/fonts/asimov.otf"
+			"name" "asimov"
+		}
+		"9"
+		{
+			"font" "resource/scheme/fonts/futura_extra_black_italic.ttf"
+			"name" "futura_extra_black_italic"
+		}
+		"10"
+		{
+			"font" "resource/scheme/fonts/futurabt_extrablack.ttf"
+			"name" "futurabt_extrablack"
+		}
+	}
+}

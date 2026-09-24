@@ -1,0 +1,285 @@
+//--------------------------------------------------------------------------
+// Health High
+
+event HudHealthBonusPulse
+{
+	Animate		PlayerStatusHealthValue				FgColor		"mHealthBuff"		Deaccel 0.0 0.25
+	Animate		PlayerStatusHealthValueTargetID		FgColor		"mSpecHealthBuff"	Deaccel 0.0 0.25
+}
+
+event HudHealthBonusPulseStop
+{
+	Animate		PlayerStatusHealthValue				FgColor		"mHealth"			Deaccel 0.0 0.25
+	Animate		PlayerStatusHealthValueTargetID		FgColor		"mSpecHealth"		Deaccel 0.0 0.25
+
+	StopEvent	HudHealthBonusPulse			0.0
+}
+
+//--------------------------------------------------------------------------
+// Health Low
+
+event HudHealthDyingPulse
+{
+	Animate		PlayerStatusHealthValue				FgColor		"mHealthLow"		Deaccel 0.0 0.25
+	Animate		PlayerStatusHealthValueTargetID		FgColor		"mSpecHealthLow"	Deaccel 0.0 0.25
+}
+
+event HudHealthDyingPulseStop
+{
+	Animate		PlayerStatusHealthValue				FgColor		"mHealth"			Deaccel 0.0 0.25
+	Animate		PlayerStatusHealthValueTargetID		FgColor		"mSpecHealth"		Deaccel 0.0 0.25
+
+	StopEvent	HudHealthDyingPulse			0.0
+}
+
+//--------------------------------------------------------------------------
+// Ammo Low
+
+event HudLowAmmoPulse
+{
+	Animate		AmmoInClip			FgColor		"mAmmoLow"			Deaccel 0.0 0.25
+	Animate		AmmoInReserve		FgColor		"mAmmoLow"			Deaccel 0.0 0.25
+	Animate		AmmoNoClip			FgColor		"mAmmoLow"			Deaccel 0.0 0.25
+}
+
+event HudLowAmmoPulseStop
+{
+    Animate		AmmoInClip			FgColor		"mAmmo"	        	Deaccel 0.0 0.25
+	Animate		AmmoInReserve		FgColor		"mAmmoReserve"   	Deaccel 0.0 0.25
+	Animate		AmmoNoClip			FgColor		"mAmmo"				Deaccel 0.0 0.25
+
+	StopEvent	HudLowAmmoPulse		0.0
+}
+
+//--------------------------------------------------------------------------
+// Ubercharge
+
+event HudMedicCharged
+{
+	Animate		ChargeLabel 		FgColor		"mChargeFull"		Deaccel 0.0 0.2
+	Animate		ChargeMeter 		FgColor		"mChargeFull"		Deaccel 0.0 0.2
+	Animate		ChargeMeterLabel 	FgColor		"mAmmo"				Deaccel 0.0 0.2
+}
+
+event HudMedicChargedStop
+{
+	Animate		ChargeLabel 		FgColor		"mAmmo"				Deaccel 0.0 0.2
+	Animate		ChargeMeter 		FgColor		"mAmmo"				Deaccel 0.0 0.2
+	Animate		ChargeMeterLabel 	FgColor		"mChargeLabel"		Deaccel 0.0 0.2
+	
+	StopEvent	HudMedicCharged		0.0
+}
+
+//--------------------------------------------------------------------------
+// Prevent wrong colors on respawn
+
+event HudSnapShotReminderIn
+{
+    RunEvent HudHealthDyingPulseStop 5.0
+    RunEvent HudHealthBonusPulseStop 5.0
+    RunEvent HudLowAmmoPulseStop 5.0
+    RunEvent HudMedicChargedStop 5.0
+}
+
+//--------------------------------------------------------------------------
+// KOTH Timer
+
+event ActiveTimerBGPulse
+{
+	Animate	ActiveTimerBG 	Alpha	"255"		Linear 0.0 0.0
+}
+
+event ActiveTimerHighlight
+{
+	Animate TimePanelValue FgColor	mWhite		Linear 0.0 0.0
+}
+
+event ActiveTimerDim
+{
+	Animate TimePanelValue FgColor	mWhite2		Linear 0.0 0.0
+}
+
+//--------------------------------------------------------------------------
+// Overtime Label
+
+event OvertimeLabelPulseRed
+{
+	Animate	OvertimeLabel 		FgColor		mWhite		Linear 0.0 0.0
+}
+
+event SuddenDeathLabelPulseRed
+{
+	Animate	SuddenDeathLabel 	FgColor		mWhite		Linear 0.0 0.0
+}
+
+//--------------------------------------------------------------------------
+// Ready Label
+
+event HudReadyPulse
+{
+	Animate	TournamentInstructionsLabel 	FgColor		"mGray"			Linear 0.0 0.4
+	Animate	TournamentInstructionsLabel 	FgColor		"mWhite"		Linear 0.4 0.4
+
+	RunEvent HudReadyPulseLoop	1.0
+}
+
+event HudReadyPulseLoop
+{
+	RunEvent HudReadyPulse			0.0
+}
+
+event HudReadyPulseEnd
+{
+	StopEvent HudReadyPulse			0.0
+	StopEvent HudReadyPulseLoop		0.0
+	
+	Animate	TournamentInstructionsLabel 	FgColor		"mWhite"		Linear 0.0 0.0
+}
+
+//--------------------------------------------------------------------------
+// MOTD Button
+
+event HasMOTDBlink
+{
+	Animate	MOTD_ShowButtonPanel_SB 	Alpha		"255"		Linear 0.0 0.1
+}
+
+event HasMOTDBlinkStop
+{
+	StopEvent HasMOTDBlink				0.0
+	StopEvent HasMOTDBlinkLoop 			0.0
+	
+	Animate	MOTD_ShowButtonPanel_SB 	Alpha		"255"		Linear 0.0 0.1
+}
+
+//--------------------------------------------------------------------------
+// Notifications Button
+
+event HasNotificationsBlink
+{
+	Animate	Notifications_CountLabelBG 	FgColor		"mGray"			Linear 0.0 0.4
+	Animate	Notifications_CountLabelBG 	FgColor		"mWhite"		Linear 0.4 0.4
+
+	RunEvent HasNotificationsBlinkLoop		1.0
+}
+
+event HasNotificationsBlinkLoop
+{
+	RunEvent HasNotificationsBlink			0.0
+}
+
+event HasNotificationsBlinkStop
+{
+	StopEvent HasNotificationsBlink				0.0
+	StopEvent HasNotificationsBlinkLoop 		0.0
+	
+	Animate	Notifications_CountLabelBG 	FgColor		"mWhite"		Accel 0.0 0.0
+}
+
+//--------------------------------------------------------------------------
+// Old Contract Animations
+
+event QuestItem_Front_Selected
+{
+	StopEvent QuestItem_Front_OtherSelected 0
+	StopEvent QuestItem_Front_NoneSelected 0
+
+	Animate			MainContainer		ypos 0	Gain 0.75 0 0.4
+}
+
+event QuestItem_Front_OtherSelected
+{
+	StopEvent QuestItem_Front_Selected 0
+	StopEvent QuestItem_Front_NoneSelected 0
+
+	Animate			MainContainer		ypos 300	Gain 0.75 0 0.4
+}
+
+event QuestItem_Front_NoneSelected
+{
+	StopEvent QuestItem_Front_Selected 0
+	StopEvent QuestItem_Front_OtherSelected 0
+
+	Animate			MainContainer		ypos 180	Gain 0.75 0 0.4
+}
+
+event QuestItem_Back_Selected
+{
+	StopEvent QuestItem_Back_OtherSelected 0
+	StopEvent QuestItem_Back_NoneSelected 0
+
+	Animate			MainContainer		ypos 0	Gain 0.75 0 0.4
+}
+
+event QuestItem_Back_OtherSelected
+{
+	StopEvent QuestItem_Back_Selected 0
+	StopEvent QuestItem_Back_NoneSelected 0
+
+	Animate			MainContainer		ypos 300	Gain 0.75 0 0.8
+}
+
+event QuestItem_Back_NoneSelected
+{
+	StopEvent QuestItem_Back_Selected 0
+	StopEvent QuestItem_Back_OtherSelected 0
+
+	Animate			MainContainer		ypos 100	Gain 0.75 0 0.4
+}
+
+event QuestItem_Highlight_On_Halloween
+{
+	SetVisible GlowImage 1 0	
+	Animate GlowImage Alpha 255 Bias 0.8 0 0.2
+}
+
+event QuestItem_Highlight_Off_Halloween
+{
+	Animate GlowImage Alpha 0 Bias 0.8 0 0.2
+}
+
+//--------------------------------------------------------------------------
+// Chat Window
+
+event CompetitiveGame_LowerChatWindow
+{
+	Animate HudChat ypos 287 Accel 0 0
+}
+
+event CompetitiveGame_RestoreChatWindow
+{
+	Animate HudChat ypos 287 Accel 0 0
+}
+
+event HudTournament_MoveChatWindow
+{
+	RunEvent CompetitiveGame_LowerChatWindow 0
+	RunEvent CompetitiveGame_RestoreChatWindow 10
+}
+
+//--------------------------------------------------------------------------
+// Team Status Panels
+
+event TeamStatus_PlayerDead
+{
+	//SetVisible DeathPanel  1 0
+	//SetVisible SkullPanel  1 0
+	SetVisible respawntime 1 0
+
+	//Animate DeathPanel ypos 19 Accel 0 0.2
+	//Animate SkullPanel ypos 0 Accel 0 0.2
+	//Animate respawntime ypos 16 Accel 0 0.2
+}
+
+event TeamStatus_PlayerAlive
+{
+	//Animate DeathPanel ypos 0 Accel 0 0.2
+	//Animate SkullPanel ypos 0 Accel 0 0.2
+	//Animate respawntime ypos 0 Accel 0 0.2
+
+	//SetVisible DeathPanel  0 0.2
+	//SetVisible SkullPanel  0 0.2
+	SetVisible respawntime 0 0.2
+}
+
+//--------------------------------------------------------------------------

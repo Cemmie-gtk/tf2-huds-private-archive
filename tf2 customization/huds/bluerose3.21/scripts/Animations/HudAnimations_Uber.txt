@@ -1,0 +1,71 @@
+//===========================================================================================================================
+
+event HudMedicCharged
+{
+    Animate ChargeLabelBigS 			FgColor 	"glitchbuff2" 						Linear 	0.05 	0.0
+	Animate ChargeLabelBigS 			xpos 		"2" 									Linear 	0.05 	0.0
+	Animate ChargeLabelBigS 			ypos 		"2" 									Linear 	0.05 	0.0
+	Animate ChargeLabelBigS 			FgColor 	"glitchbuff3" 						Linear 	0.1 	0.0
+	Animate ChargeLabelBigS 			xpos 		"-1" 									Linear 	0.1 	0.0
+	Animate ChargeLabelBigS 			ypos 		"2" 									Linear 	0.1		0.0
+	Animate ChargeLabelBigS 			FgColor 	"glitchbuff2" 						Linear 	0.15 	0.0
+	Animate ChargeLabelBigS 			ypos 		"-2" 									Linear 	0.15 	0.0
+	Animate ChargeLabelBigS 			xpos 		"1" 									Linear 	0.15 	0.0
+	Animate ChargeLabelBigS 			FgColor 	"glitchbuff3" 						Linear 	0.2 	0.0
+	Animate ChargeLabelBigS 			ypos 		"-1" 									Linear 	0.2 	0.0
+	Animate ChargeLabelBigS 			xpos 		"-2" 									Linear 	0.2 	0.0
+	Animate ChargeLabelBigS 			FgColor 	"glitchbuff2" 						Linear 	0.25 	0.0
+	Animate ChargeLabelBigS 			FgColor 	"glitchbuff2" 						Linear 	0.3 	0.0
+	Animate ChargeLabelBigS 			xpos 		"2" 									Linear 	0.3 	0.0
+	Animate ChargeLabelBigS 			ypos 		"2" 									Linear 	0.3 	0.0
+	Animate ChargeLabelBigS 			FgColor 	"Black" 						Linear 	0.35 	0.0
+	Animate ChargeLabelBigS 			ypos 		"-2" 									Linear 	0.35		0.0
+	Animate ChargeLabelBigS 			xpos 		"-1" 									Linear 	0.35 	0.0
+
+	Animate ChargeLabelBig				FgColor 	"glitchbuff1"							Linear 	0.05 	0.0
+	Animate ChargeLabelBig 				xpos		"-1"									Linear 	0.05	0.0
+	Animate ChargeLabelBig 				ypos		"-1"									Linear 	0.05	0.0
+	Animate ChargeLabelBig 				xpos		"2"										Linear 	0.1		0.0
+	Animate ChargeLabelBig 				ypos		"-2"									Linear 	0.1		0.0
+	Animate ChargeLabelBig 				xpos		"1"										Linear 	0.15	0.0
+	Animate ChargeLabelBig				ypos		"1"										Linear 	0.15	0.0
+	Animate ChargeLabelBig 				xpos		"-2"									Linear 	0.2		0.0
+	Animate ChargeLabelBig 				ypos		"2"										Linear 	0.2		0.0	
+	Animate ChargeLabelBig 				xpos		"-1"									Linear 	0.25	0.0
+	Animate ChargeLabelBig 				ypos		"2"									Linear 	0.25	0.0
+	Animate ChargeLabelBig 				xpos		"2"										Linear 	0.30		0.0
+	Animate ChargeLabelBig 				ypos		"-1"									Linear 	0.30		0.0
+
+	Animate ChargeLabelBig 				xpos		"0"										Linear 	0.35		0.0
+	Animate ChargeLabelBig 				ypos		"0"										Linear 	0.35		0.0
+	Animate ChargeLabelBigS 				xpos		"-1"										Linear 	0.35		0.0
+	Animate ChargeLabelBigS				ypos		"-1"										Linear 	0.35		0.0			
+	Animate ChargeLabelBig				FgColor 	"Health Numbers"							Linear 	0.35 	0.0
+	
+	
+	RunEvent HudMedicChargedLoop					1.7
+}
+
+event HudMedicChargedLoop
+{
+	RunEvent HudMedicCharged 						0.0
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 						0.0
+	StopEvent HudMedicChargedLoop 					0.0
+
+	Animate ChargeLabelBigS 			FgColor 	"Black" 						Linear 	0.0 	0.0
+	Animate ChargeLabelBigS 			ypos 		"-1" 									Linear 	0.0	0.0
+	Animate ChargeLabelBigS 			xpos 		"-1" 									Linear 	0.0 	0.0
+
+	Animate ChargeLabelBig 				xpos		"0"										Linear 	0.0		0.0
+	Animate ChargeLabelBig 				ypos		"0"										Linear 	0.0 	0.0		
+	Animate ChargeLabelBig				FgColor 	"Health Numbers"							Linear 	0.0 	0.0
+	
+	
+	Animate	ChargeMeter 							FgColor		"Ubercharge"						Linear 	0.0 0.0001
+}
+
+//===========================================================================================================================

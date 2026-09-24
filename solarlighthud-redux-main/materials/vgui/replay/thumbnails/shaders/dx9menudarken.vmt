@@ -1,0 +1,25 @@
+//This texture is used to darken the shaders used in the MOTD, Map Info screen, team selection and class selection.
+//We don't want this to happen on DX8, so use a blank texture on that DX-level
+
+"UnlitGeneric"
+{
+
+	"$vertexcolor" 1
+	"$vertexalpha" 1
+	"$no_fullbright" 1
+	"$ignorez" 1
+	"%keywords" "tf"
+	"$translucent" 1
+
+	">=DX90"
+	{
+		"$basetexture" "vgui/replay/thumbnails/ColorBlack"
+		"$alpha"	"0.8"
+	}
+
+	"<DX90"
+	{
+		"$basetexture" "vgui/replay/thumbnails/blank"
+	}
+}
+

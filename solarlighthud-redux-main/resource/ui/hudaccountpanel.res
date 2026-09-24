@@ -1,0 +1,101 @@
+"resource/ui/hudaccountpanel.res"
+{
+	"CHudAccountPanel"
+	{
+		"delta_item_x"			"10"
+		"delta_item_start_y"	"50"
+		"delta_item_end_y"		"55"
+		"delta_item_start_y_minmode"	"45"
+		"delta_item_end_y_minmode"		"50"
+		"PositiveColor"			"0 255 0 255"
+		"NegativeColor"			"255 0 0 255"
+		"delta_lifetime"		"1.5"
+		"delta_item_font"		"Futura20"
+		"delta_item_font_minmode"		"Futura16"
+	}
+	
+	"AccountBG"
+	{
+		"ControlName"	"CTFImagePanel"
+		"fieldName"		"AccountBG"
+		"visible"		"0"
+		"enabled"		"0"
+	}
+	
+	
+	"BackgroundNew"
+	{
+		"ControlName"	"ImagePanel"
+		"fieldName"		"BackgroundNew"
+		"xpos"			"6"
+		"ypos"			"28"
+		"zpos"			"1"
+		"wide"			"30"
+		"tall"			"15"
+		"visible"		"1"
+		"enabled"		"1"
+		"image"			"replay/thumbnails/pd/pd_timer_bg_normal"
+		"scaleImage"	"1"	
+		"proportionalToParent"	"1"
+	}
+	
+	"MetalIcon"	
+	{
+		"ControlName"	"CIconPanel"
+		"fieldName"		"MetalIcon"
+		"xpos"			"9"
+		"ypos"			"31"
+		"zpos"			"2"
+		"wide"			"10"
+		"tall"			"10"
+		"visible"		"1"
+		"enabled"		"1"
+		"scaleImage"	"1"	
+		"icon"			"ico_metal"
+		"iconColor"		"TanLight"
+	}
+	
+	"AccountValue"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"AccountValue"
+		"xpos"			"20"
+		"ypos"			"21"
+		"zpos"			"3"
+		"wide"			"55"
+		"tall"			"30"
+		"autoResize"	"1"
+		"pinCorner"		"2"
+		"visible"		"1"
+		"enabled"		"1"
+		"tabPosition"	"0"
+		"labelText"		"%metal%"
+		"textAlignment"	"west"
+		"dulltext"		"0"
+		"brighttext"	"0"
+		"font"			"SLBoldSmall"
+		"textinsetx"	"5"
+	}
+	"AccountValueShadow"
+	{
+		"ControlName"	"CExLabel"
+		"fieldName"		"AccountValueShadow"
+		"xpos"			"20"
+		"ypos"			"21"
+		"zpos"			"2"
+		"wide"			"55"
+		"tall"			"30"
+		"autoResize"	"1"
+		"pinCorner"		"2"
+		"visible"		"1"
+		"enabled"		"1"
+		"tabPosition"	"0"
+		"labelText"		"%metal%"
+		"textAlignment"	"west"
+		"dulltext"		"0"
+		"brighttext"	"0"
+		"font"			"SLBoldSmallStroke"
+		"fgcolor"		"TanDarker"
+		"textinsetx"	"5"
+	}
+}

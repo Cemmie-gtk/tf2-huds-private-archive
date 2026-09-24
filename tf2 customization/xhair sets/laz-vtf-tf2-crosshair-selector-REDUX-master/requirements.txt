@@ -1,0 +1,4 @@
+Pillow==9.0.0
+PyInstaller==5.1.0
+wxPython==4.0.7.post2
+texture2ddecoder==1.0.4

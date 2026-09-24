@@ -1,0 +1,13 @@
+"chapters"
+{
+	1	"background_c17"
+	2	"background_anticitizen"
+	3	"background_citadel"
+	4	"background_highway17"
+	5	"background_prospekt"
+	6	"background_waterhazard"
+}
+"BackgroundMaps"
+{
+	1	"background01"
+}

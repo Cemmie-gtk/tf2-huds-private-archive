@@ -1,0 +1,32 @@
+"charinfopanel"
+{
+
+
+	"CaratLabel"
+	{
+		"controlname"	"Label"
+		"xpos"			"85"
+		"ypos"			"7"
+		"zpos"			"10"
+		"wide"			"15"
+		"tall"			"15"
+		"visible"		"0"
+		"labeltext"		">>"
+		"font"			"TFHudFontSmallestBold"
+		"fgcolor_override"	"LightRed"
+	}
+
+	"TitleLabel"
+	{
+		"controlname"	"Label"
+		"xpos"			"100"
+		"ypos"			"7"
+		"zpos"			"10"
+		"wide"			"300"
+		"tall"			"15"
+		"visible"		"0"
+		"labeltext"		"#CharInfoAndSetup"
+		"font"			"TFHudFontSmallestBold"
+		"fgcolor_override"	"TFTanDark"
+	}
+}
