@@ -1,0 +1,30 @@
+//===========================================================================================================================
+
+event HudMedicCharged
+{
+	Animate ChargeLabelBig 							FgColor 	"200 100 255 255" 					Linear 	0.0 	0.075
+	Animate ChargeLabelBig							FgColor 	"125 0 125 255" 					Linear 	0.325 	0.075
+	Animate ChargeLabelBigShadow 					FgColor 	"0 0 0 255"							Linear 	0.0 	0.0
+
+	Animate ChargeLabelBigShadowExtra				Alpha 		"255"								Linear 	0.0 	0.0
+
+	Animate ChargeMeter 							FgColor 	"Ubercharge Full" 					Linear 	0.0 	0.0
+
+	RunEvent HudMedicChargedLoop					0.6
+}
+
+event HudMedicChargedStop
+{
+	StopEvent HudMedicCharged 						0.0
+	StopEvent HudMedicChargedLoop 					0.0
+
+	Animate ChargeLabelBig 							FgColor 	"255 255 255 255" 					Linear 	0.0 	0.0001
+	Animate ChargeLabelBig							FgColor 	"255 255 255 255" 					Linear 	0.0  	0.0001
+
+	Animate	ChargeLabelBigShadow 					FgColor		"Black"								Linear 	0.0 	0.0001
+	Animate ChargeLabelBigShadowExtra				Alpha 		"0"									Linear 	0.0 	0.0001
+
+	Animate	ChargeMeter 							FgColor		"Ubercharge"						Linear 	0.0 	0.0001
+}
+
+//===========================================================================================================================
